@@ -1,0 +1,417 @@
+        html,
+        body {
+            height: 100%;
+            list-style: none;
+        }
+
+        * {
+            list-style: none;
+        }
+
+        body {
+            display: grid;
+            grid-template: "navlist main"50px "navlist main"1fr "navlist main"30px;
+            grid-template-columns: auto 1fr;
+            margin: 0;
+        }
+
+        .actuality-item img {
+            height: 150px;
+            width: 100%;
+        }
+        a{
+            text-decoration:none;
+            color:black;
+        }
+
+        main {
+            display: grid;
+            grid-area: main;
+            background-color: #f1f2f6;
+            grid-template: "actuality actuality congress""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar";
+            grid-gap: 1rem;
+            padding: 1rem;
+            grid-auto-columns: 1fr;
+            grid-auto-rows: auto;
+            grid-auto-flow: column;
+        }
+
+        #actuality .card-content {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+            flex-direction: row;
+            height: calc(100% - 3.5rem);
+            justify-content: space-evenly;
+        }
+
+        nav {
+            display: block;
+            height: 100%;
+            background-color: red;
+            grid-area: navlist;
+            background-color: #ffff;
+        }
+
+        .navlist {
+            margin-top: 4rem;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            min-width: 9rem;
+            padding: 0;
+        }
+
+        .nav-item {
+            padding: 1rem 0.5rem;
+        }
+
+        .nav-item.selected {
+            background-color: #59ca88;
+        }
+
+        .nav-item:hover {
+            background-color: #59ca88;
+        }
+
+        #add-congress {
+            grid-area: congress;
+        }
+
+        #calendar {
+            grid-area: calendar;
+        }
+
+        #calendar .card-content {
+            width: 100%;
+            align-items: flex-start;
+        }
+
+        #actuality {
+            grid-area: actuality;
+            background-color: white;
+            min-height: 0;
+            /* NEW */
+            min-width: 0;
+        }
+
+        .card {
+            border: 3px solid #59ca88;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            background-color: white;
+        }
+
+        .card-title {
+            margin: 0;
+            background-color: #f9f8f9;
+            width: 100%;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .card-content {
+            width: 90%;
+            align-content: center;
+            align-items: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #add-congress form {
+            display: grid;
+            justify-content: space-between;
+            grid-template: "congress-input congress-input congress-input""bt-select . bt-create";
+            grid-gap: 1rem;
+            width: 100%;
+            margin: 10px;
+        }
+
+        #congress-input {
+            grid-area: congress-input;
+            height: 3rem;
+        }
+
+        #bt-create {
+            grid-area: bt-create;
+            width: min-content;
+        }
+
+        #bt-select {
+            grid-area: bt-select;
+            width: min-content;
+        }
+
+        #nav-logo {
+            max-width: 175px;
+        }
+
+        .card-bt {
+            text-decoration: none;
+            display: block;
+            background: #f1f2f6;
+            color: black;
+            border: 3px solid #59ca88;
+            border-radius: 10%;
+            padding: 0.5rem 0.3rem;
+            width: max-content;
+        }
+
+        .card-bt:hover {
+            border: 3px solid #f1f2f6;
+            background: #59ca88;
+        }
+
+        .card-bta {
+            display: block;
+            background: #59ca88;
+            color: black;
+            border: 3px solid #f1f2f6;
+            border-radius: 10%;
+            padding: 0.5rem 0.3rem;
+            width: max-content;
+        }
+
+        .card-bta:hover {
+            border: 3px solid #59ca88;
+            background: #f1f2f6;
+        }
+
+        .month {
+            padding: 70px 0;
+            width: 100%;
+            background: #1abc9c;
+            text-align: center;
+        }
+
+        .month ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .month ul li {
+            color: white;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .month .prev {
+            float: left;
+            padding-top: 10px;
+        }
+
+        .month .next {
+            float: right;
+            padding-top: 10px;
+        }
+
+        .weekdays {
+            margin: 0;
+            padding: 10px 0;
+            background-color: #ddd;
+            width: 100%;
+        }
+
+        .weekdays li {
+            display: inline-block;
+            width: 13.6%;
+            color: #666;
+            text-align: center;
+        }
+
+        .days {
+            padding: 10px 0;
+            background: #eee;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .days li {
+            list-style-type: none;
+            display: inline-block;
+            width: 13.6%;
+            text-align: center;
+            margin-bottom: calc(100%/7);
+            font-size: 12px;
+            color: #777;
+            font-size: 1rem;
+        }
+
+        .days li .active {
+            padding: 5px;
+            background: #1abc9c;
+            color: white !important
+        }
+
+        .actuality-list {
+            display: flex;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            flex-direction: row;
+        }
+
+        .actuality-list hr {
+            margin: 5px;
+        }
+
+        .actuality-item-conf {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5rem 0;
+        }
+
+        .actuality-item-conf caption {
+            background-color: #59ca88;
+            border-bottom: none;
+            padding: 0.8rem;
+        }
+
+        .actuality-item-conf th,
+        .actuality-item-conf td {
+            border: 3px solid #59ca88;
+            padding: 0.5rem;
+
+        }
+
+        .actuality-item {
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .actuality-item-title {
+            margin: 0.8rem;
+        }
+
+        .closedarea {
+            margin: 10px 0px;
+            overflow-y: auto;
+            max-height: inherit;
+        }
+
+        .actuality-item-banner {
+            width: 100%;
+        }
+
+        .actuality-item-info {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .actuality-item-content {
+            height: calc(100% - 150px - 4rem);
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        #dataform {
+            grid-area: dataform;
+        }
+
+        #main-congress-form {
+            grid-template: ". dataform dataform .";
+        }
+
+        #main-congress-form form {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+        }
+
+        #main-congress-form input {
+            padding: 7px;
+        }
+
+        #congress-view-container {
+            grid-template:  "congressview congressview"
+                            "congressdetails congressdata"
+                            "congressdetails congressdata"
+                            "congressdetails congressdata"
+                            "congressdetails congressdata"
+        }
+        #congress-viewList-container{
+                  grid-template:  "congressviewlist"
+        }
+                #congress-viewList {
+                    grid-area: congressviewlist;
+                    background-color: red;
+                }
+        #congress-view {
+            grid-area: congressview;
+            background-color: red;
+        }
+
+        #congress-details {
+            grid-area: congressdetails;
+            background-color: blue;
+        }
+
+        #congress-data {
+            grid-area: congressdata;
+            background-color: green
+        }
+
+        .navlist hr {
+            width: 90%;
+            height: 2px;
+            background-color: #59ca88;
+        }
+
+        nav {
+            max-width: "10%";
+        }
+
+        #congress-show{
+            width:100%;
+            display:grid;
+            grid-template:"logo title . . date banner"
+                          "desc desc desc . . location"
+                          "desc desc desc . . network"
+                          "desc desc desc . . update";
+            align-content: normal;
+            grid-template-columns: 10% min-content 35% auto max-content 30%;
+            justify-content: stretch;
+            grid-template-rows: min-content min-content 25% auto min-content;
+        }
+
+        #congress-show-logo{
+            width:100%;
+            grid-area:logo;
+        }
+        #congress-show-banner{
+            width: 100%;
+            grid-area:banner;
+        }
+        #congress-show-title{
+            grid-area:title;
+        }
+        #congress-show-date{
+            grid-area:date;
+        }
+        #congress-show-location{
+            grid-area:location;
+        }
+        #congress-show-network{
+            grid-area:network;
+        }
+        #congress-show-update{
+            grid-area:update;
+        }
+        #congress-show-desc{
+            grid-area:desc;
+        }
+        hr{
+        	border:none;
+        }
