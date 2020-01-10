@@ -124,7 +124,7 @@ public class CongressController {
      * @throws Exception
      */
     @GetMapping("/congress/{id}/edit")
-    public String updateCongressForm(Long id, Model model) throws Exception {
+    public String updateCongressForm(@PathVariable Long id, Model model) throws Exception {
         Congress newCongress;
         Optional<Congress> finded = congressRepository.findById(id);
         if (finded.isPresent()) {
