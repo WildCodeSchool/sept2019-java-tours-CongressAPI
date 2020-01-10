@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CongressApplication<Congress>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.congress.CongressApplication",
+            "projectName": "Congress",
+            "args": ""
+        }
+    ]
+}
