@@ -10,8 +10,11 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -76,7 +79,13 @@ public class CongressController {
      * @return Redirect to the congress view
      */
     @PostMapping("/congress")
-    public String createCongress(@ModelAttribute Congress currentCongress, Model model) {
+    public String createCongress(@Valid @ModelAttribute Congress currentCongress, BindingResult binding, Model model) {
+        if(binding.hasErrors()){
+            model.addAttribute("httpMethod", "POST");
+            model.addAttribute("pathMethod", "/congress");
+            model.addAttribute("newCongress", currentCongress);
+            return "createUpdate";
+        }
         storageService.store(currentCongress.getLogo());
         storageService.store(currentCongress.getBanner());
         currentCongress.setLogo_url("/files/" + currentCongress.getLogo().getOriginalFilename());
@@ -93,7 +102,14 @@ public class CongressController {
      * @return Redirect to the congress view
      */
     @PutMapping("/congress/{id}")
-    public String updateCongress(@PathVariable long id, @ModelAttribute Congress currentCongress) {
+    public String updateCongress(@PathVariable long id, @Valid @ModelAttribute Congress currentCongress, BindingResult binding, Model model, RedirectAttributes redirectAttributes) {
+        if(binding.hasErrors()){
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.currentCongress", "PUT");
+            redirectAttributes.addFlashAttribute("httpMethod", "PUT");
+            redirectAttributes.addFlashAttribute("pathMethod", "/congress/" +id);
+            redirectAttributes.addFlashAttribute("newCongress", currentCongress);
+            return "redirect:/congress/" + id + "edit";
+        }
         storageService.store(currentCongress.getLogo());
         storageService.store(currentCongress.getBanner());
         currentCongress.setLogo_url("/files/" + currentCongress.getLogo().getOriginalFilename());
@@ -132,9 +148,10 @@ public class CongressController {
         } else {
             throw new Exception("Can't find congress with id=" + id);
         }
+        if(!model.containsAttribute("newCongress"))
+            model.addAttribute("newCongress", newCongress);
         model.addAttribute("httpMethod", "PUT");
         model.addAttribute("pathMethod", "/congress/" + id);
-        model.addAttribute("newCongress", newCongress);
         return "createUpdate";
     }
 

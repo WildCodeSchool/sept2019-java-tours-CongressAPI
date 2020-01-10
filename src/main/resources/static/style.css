@@ -48,7 +48,7 @@
         nav {
             display: block;
             height: 100%;
-            background-color: red;
+            background-color: white;
             grid-area: navlist;
             background-color: #ffff;
         }
@@ -346,21 +346,21 @@
         }
                 #congress-viewList {
                     grid-area: congressviewlist;
-                    background-color: red;
+                    background-color: white;
                 }
         #congress-view {
             grid-area: congressview;
-            background-color: red;
+            background-color: white;
         }
 
         #congress-details {
             grid-area: congressdetails;
-            background-color: blue;
+            background-color: white;
         }
 
         #congress-data {
             grid-area: congressdata;
-            background-color: green
+            background-color: white
         }
 
         .navlist hr {

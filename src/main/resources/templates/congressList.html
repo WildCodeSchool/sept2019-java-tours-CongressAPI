@@ -27,7 +27,7 @@
         <div class="card-content" id="congress-show">
             <ul>
                 <li th:each="congress : ${congressList}">
-                    <ul>
+                    <ul style="display:flex;">
                         <li th:text="${congress.name}"></li>
                         <li th:text="${congress.color}"></li>
                         <li th:text="${congress.date}"></li>
