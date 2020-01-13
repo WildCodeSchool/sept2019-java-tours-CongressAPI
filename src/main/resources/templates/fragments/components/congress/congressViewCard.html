@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="currentCongress" type="com.congress.entity.Congress"*/-->
 <div class="card" id="congress-view" th:fragment="congressViewCard">
     <h3 class="card-title">Congress</h3>
     <div class="card-content" id="congress-show">
-        <img alt="" id="congress-show-logo" th:src="${currentCongress.logo_url}">
+        <img alt="" id="congress-show-logo" src="#" th:src="${currentCongress.logo_url}">
         <h4 id="congress-show-title" th:text="${currentCongress.name}"></h4>
-        <!-- <p th:text="${currentCongress.desc}"></p>-->
         <p id="congress-show-desc" th:text="${currentCongress.description}"></p>
-        <img alt="" id="congress-show-banner" th:src="${currentCongress.banner_url}">
+        <img alt="" id="congress-show-banner" src="#" th:src="${currentCongress.banner_url}">
         <span id="congress-show-date" th:text="${#dates.format(currentCongress.date, 'dd-MMM-yyyy')}"></span>
         <span id="congress-show-location" th:text="${currentCongress.location}"></span>
         <div id="congress-show-network"></div>
         <div id="congress-show-update">
             <a th:href="@{'/congress/' + ${currentCongress.id} + '/edit'}">Modifier</a>
-            <a th:href="@{'/congress/' + ${currentCongress.id} + '/delete'}">Supprimer</a>
+            <a href="#" th:onclick="|deleteUrl('/congress/${currentCongress.id}')|">Supprimer</a>
         </div>
 
     </div>

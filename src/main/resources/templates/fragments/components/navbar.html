@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="currentCongress" type="com.congress.entity.Congress"*/-->
 <nav th:fragment="navbar">
-    <img id="nav-logo" src="https://distribuna.com/images/Logo/gdlogocolor4.png"></img>
+    <img alt="logo" id="nav-logo" src="https://distribuna.com/images/Logo/gdlogocolor4.png">
     <ul class="navlist">
         <li class="nav-item" th:if="${currentCongress}" th:text="${currentCongress.name}"></li>
         <li class="nav-item" th:if="${currentCongress}">Location</li>
