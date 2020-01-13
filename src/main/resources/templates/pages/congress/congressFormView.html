@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/main/head.html :: head"></head>
 <body>
-
+<nav th:replace="/fragments/components/navbar.html :: navbar"></nav>
+<main id="main-congress-form">
+    <div th:replace="/fragments/components/congress/congressFormCard.html :: congressFormCard"></div>
+</main>
 </body>
 </html>
+

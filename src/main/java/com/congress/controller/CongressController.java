@@ -31,8 +31,9 @@ public class CongressController {
     }
 
     @GetMapping("/")
-    public String home() {
-        return "index";
+    public String home(Model model) {
+        model.addAttribute("pageTitle", "Accueil");
+        return "/pages/index";
     }
 
     /*
@@ -48,7 +49,8 @@ public class CongressController {
     @GetMapping("/congress")
     public String getCongress(Model model) {
         model.addAttribute("congressList", congressRepository.findAll());
-        return "congressList";
+        model.addAttribute("pageTitle", "List Congress");
+        return "/pages/congress/congressListView";
     }
 
     /**
@@ -68,7 +70,8 @@ public class CongressController {
         else
             throw new Exception("Can't find congress with id=" + id);
         model.addAttribute("currentCongress", currentCongress);
-        return "congress";
+        model.addAttribute("pageTitle", "Congress" + currentCongress.getName());
+        return "/pages/congress/congressMainView";
     }
 
     /**
@@ -148,11 +151,13 @@ public class CongressController {
         } else {
             throw new Exception("Can't find congress with id=" + id);
         }
-        if(!model.containsAttribute("newCongress"))
+        if (!model.containsAttribute("newCongress"))
             model.addAttribute("newCongress", newCongress);
         model.addAttribute("httpMethod", "PUT");
         model.addAttribute("pathMethod", "/congress/" + id);
-        return "createUpdate";
+        model.addAttribute("pageTitle", "Update " + newCongress.getName());
+
+        return "/pages/congress/congressFormView";
     }
 
     /**
@@ -167,7 +172,7 @@ public class CongressController {
         model.addAttribute("httpMethod", "POST");
         model.addAttribute("pathMethod", "/congress");
         model.addAttribute("newCongress", new Congress());
-        return "createUpdate";
+        return "/pages/congress/congressFormView";
     }
 
     /*

@@ -1,4 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-    <header th:replace="fragments/main/header :: header">...</header>
+<head th:replace="fragments/main/header :: header">...</head>
+<body>
+<nav th:replace="/fragments/components/navbar.html :: navbar"></nav>
+<main>
+    <div th:replace="/fragments/components/app/actualityCard.html :: actualityCard"></div>
+    <div th:replace="/fragments/components/app/addCongressCard.html :: addCongressCard"></div>
+    <div th:replace="/fragments/components/app/calendarCard.html :: calendarCard"></div>
+</main>
+</body>
 </html>

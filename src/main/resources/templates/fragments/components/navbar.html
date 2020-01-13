@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<nav th:fragment="navbar">
+    <img id="nav-logo" src="https://distribuna.com/images/Logo/gdlogocolor4.png"></img>
+    <ul class="navlist">
+        <li class="nav-item" th:if="${currentCongress}" th:text="${currentCongress.name}"></li>
+        <li class="nav-item" th:if="${currentCongress}">Location</li>
+        <li class="nav-item" th:if="${currentCongress}">Floorplan</li>
+        <li class="nav-item" th:if="${currentCongress}">Activities</li>
+        <li class="nav-item" th:if="${currentCongress}">About</li>
+        <li class="nav-item" th:if="${currentCongress}">Maps</li>
+        <hr th:if="${currentCongress}">
+        <li class="nav-item"><a href="/">Accueil</a></li>
+        <li class="nav-item"><a th:href="@{'/congress'}">Congress</a></li>
+        <li class="nav-item"><a th:href="@{'/sponsors'}">Sponsorts</a></li>
+        <li class="nav-item"><a th:href="@{'/speakers'}">Speackers</a></li>
+        <li class="nav-item"><a th:href="@{'/hotels'}">Hotel</a></li>
+        <li class="nav-item"><a th:href="@{'/disconnect'}">Deconnection</a></li>
+    </ul>
+</nav>
+</html>

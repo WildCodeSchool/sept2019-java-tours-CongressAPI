@@ -1,57 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-
-<head th:replace="/fragments/main/header.html :: header"></head>
-
+<head th:replace="/fragments/main/head.html :: head"></head>
 <body>
-<nav>
-    <img id="nav-logo" src="https://distribuna.com/images/Logo/gdlogocolor4.png"></img>
-    <ul class="navlist">
-        <li class="nav-item" th:text="${currentCongress.name}"></li>
-        <li class="nav-item">Location</li>
-        <li class="nav-item">Floorplan</li>
-        <li class="nav-item">Activities</li>
-        <li class="nav-item">About</li>
-        <li class="nav-item">Maps</li>
-        <hr>
-        <li class="nav-item"><a href="/">Accueil</a></li>
-        <li class="nav-item"><a th:href="@{'/congress'}">Congress</a></li>
-        <li class="nav-item"><a th:href="@{'/sponsors'}">Sponsorts</a></li>
-        <li class="nav-item"><a th:href="@{'/speakers'}">Speackers</a></li>
-        <li class="nav-item"><a th:href="@{'/hotels'}">Hotel</a></li>
-        <li class="nav-item"><a th:href="@{'/disconnect'}">Deconnection</a></li>
-    </ul>
-</nav>
+<nav th:replace="/fragments/components/navbar.html :: navbar"></nav>
 <main id="congress-view-container">
-    <div id="congress-view" class="card">
-        <h3 class="card-title">Congress</h3>
-        <div class="card-content" id="congress-show">
-            <img alt="" id="congress-show-logo" th:src="${currentCongress.logo_url}">
-            <h4 id="congress-show-title" th:text="${currentCongress.name}"></h4>
-            <!-- <p th:text="${currentCongress.desc}"></p>-->
-            <p id="congress-show-desc" th:text="${currentCongress.description}"></p>
-            <img alt="" id="congress-show-banner" th:src="${currentCongress.banner_url}">
-            <span id="congress-show-date" th:text="${#dates.format(currentCongress.date, 'dd-MMM-yyyy')}"></span>
-            <span id="congress-show-location" th:text="${currentCongress.location}"></span>
-            <div id="congress-show-network"></div>
-            <div id="congress-show-update">
-                <a th:href="@{'/congress/' + ${currentCongress.id} + '/edit'}">Modifier</a>
-                <a th:href="@{'/congress/' + ${currentCongress.id} + '/delete'}">Supprimer</a>
-            </div>
-
-        </div>
-    </div>
-    <div id="congress-details" class="card">
-        <h3 class="card-title">Congress</h3>
-        <div class="card-content">
-        </div>
-    </div>
-    <div id="congress-data" class="card">
-        <h3 class="card-title">Congress</h3>
-        <div class="card-content">
-        </div>
-    </div>
+    <div th:replace="/fragments/components/congress/congressViewCard.html :: congressViewCard"></div>
+    <div th:replace="/fragments/components/congress/congressDetailsCard.html :: congressDetailsCard"></div>
+    <div th:replace="/fragments/components/congress/congressDataCard.html :: congressDataCard"></div>
 </main>
 </body>
-
 </html>
