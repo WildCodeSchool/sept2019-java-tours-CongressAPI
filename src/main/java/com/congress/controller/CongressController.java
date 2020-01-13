@@ -10,8 +10,11 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -28,8 +31,9 @@ public class CongressController {
     }
 
     @GetMapping("/")
-    public String home() {
-        return "index";
+    public String home(Model model) {
+        model.addAttribute("pageTitle", "Accueil");
+        return "/pages/index";
     }
 
     /*
@@ -45,7 +49,8 @@ public class CongressController {
     @GetMapping("/congress")
     public String getCongress(Model model) {
         model.addAttribute("congressList", congressRepository.findAll());
-        return "congressList";
+        model.addAttribute("pageTitle", "List Congress");
+        return "/pages/congress/congressListView";
     }
 
     /**
@@ -65,7 +70,8 @@ public class CongressController {
         else
             throw new Exception("Can't find congress with id=" + id);
         model.addAttribute("currentCongress", currentCongress);
-        return "congress";
+        model.addAttribute("pageTitle", "Congress" + currentCongress.getName());
+        return "/pages/congress/congressMainView";
     }
 
     /**
@@ -76,7 +82,13 @@ public class CongressController {
      * @return Redirect to the congress view
      */
     @PostMapping("/congress")
-    public String createCongress(@ModelAttribute Congress currentCongress, Model model) {
+    public String createCongress(@Valid @ModelAttribute Congress currentCongress, BindingResult binding, Model model) {
+        if(binding.hasErrors()){
+            model.addAttribute("httpMethod", "POST");
+            model.addAttribute("pathMethod", "/congress");
+            model.addAttribute("newCongress", currentCongress);
+            return "createUpdate";
+        }
         storageService.store(currentCongress.getLogo());
         storageService.store(currentCongress.getBanner());
         currentCongress.setLogo_url("/files/" + currentCongress.getLogo().getOriginalFilename());
@@ -93,7 +105,14 @@ public class CongressController {
      * @return Redirect to the congress view
      */
     @PutMapping("/congress/{id}")
-    public String updateCongress(@PathVariable long id, @ModelAttribute Congress currentCongress) {
+    public String updateCongress(@PathVariable long id, @Valid @ModelAttribute Congress currentCongress, BindingResult binding, Model model, RedirectAttributes redirectAttributes) {
+        if(binding.hasErrors()){
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.currentCongress", "PUT");
+            redirectAttributes.addFlashAttribute("httpMethod", "PUT");
+            redirectAttributes.addFlashAttribute("pathMethod", "/congress/" +id);
+            redirectAttributes.addFlashAttribute("newCongress", currentCongress);
+            return "redirect:/congress/" + id + "edit";
+        }
         storageService.store(currentCongress.getLogo());
         storageService.store(currentCongress.getBanner());
         currentCongress.setLogo_url("/files/" + currentCongress.getLogo().getOriginalFilename());
@@ -124,7 +143,7 @@ public class CongressController {
      * @throws Exception
      */
     @GetMapping("/congress/{id}/edit")
-    public String updateCongressForm(Long id, Model model) throws Exception {
+    public String updateCongressForm(@PathVariable Long id, Model model) throws Exception {
         Congress newCongress;
         Optional<Congress> finded = congressRepository.findById(id);
         if (finded.isPresent()) {
@@ -132,10 +151,13 @@ public class CongressController {
         } else {
             throw new Exception("Can't find congress with id=" + id);
         }
+        if (!model.containsAttribute("newCongress"))
+            model.addAttribute("newCongress", newCongress);
         model.addAttribute("httpMethod", "PUT");
         model.addAttribute("pathMethod", "/congress/" + id);
-        model.addAttribute("newCongress", newCongress);
-        return "createUpdate";
+        model.addAttribute("pageTitle", "Update " + newCongress.getName());
+
+        return "/pages/congress/congressFormView";
     }
 
     /**
@@ -150,7 +172,7 @@ public class CongressController {
         model.addAttribute("httpMethod", "POST");
         model.addAttribute("pathMethod", "/congress");
         model.addAttribute("newCongress", new Congress());
-        return "createUpdate";
+        return "/pages/congress/congressFormView";
     }
 
     /*

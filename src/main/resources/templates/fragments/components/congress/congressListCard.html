@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div class="card" id="congress-viewList" th:fragment="congressListCard">
+    <h3 class="card-title">Congress</h3>
+    <div class="card-content" id="congress-show">
+        <ul>
+            <li th:each="congress : ${congressList}">
+                <ul style="display:flex;">
+                    <li th:text="${congress.name}"></li>
+                    <li th:text="${congress.color}"></li>
+                    <li th:text="${congress.date}"></li>
+                    <li><a th:href="@{'/congress/' + ${congress.id}}">Go to congress</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+</html>

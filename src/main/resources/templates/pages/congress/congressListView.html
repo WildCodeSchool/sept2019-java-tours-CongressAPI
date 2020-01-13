@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/main/head.html :: head"></head>
+<body>
+<nav th:replace="/fragments/components/navbar.html :: navbar"></nav>
+<main id="congress-viewList-container">
+    <div th:replace="/fragments/components/congress/congressListCard.html :: congressListCard"></div>
+</main>
+</body>
+</html>
