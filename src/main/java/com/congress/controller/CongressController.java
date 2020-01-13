@@ -79,7 +79,7 @@ public class CongressController {
             model.addAttribute("httpMethod", "POST");
             model.addAttribute("pathMethod", "/congress");
             model.addAttribute("newCongress", currentCongress);
-            return "createUpdate";
+            return "pages/congress/congressFormView";
         }
         storageService.store(currentCongress.getLogo());
         storageService.store(currentCongress.getBanner());
