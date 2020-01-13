@@ -40,7 +40,10 @@
                 <span id="congress-show-date" th:text="${#dates.format(currentCongress.date, 'dd-MMM-yyyy')}"></span>
                 <span id="congress-show-location" th:text="${currentCongress.location}"></span>
                 <div id="congress-show-network"></div>
-                <div id="congress-show-update"><a th:href="@{'/congress/' + ${currentCongress.id} + '/edit'}">Modifier</a></div>
+                <div id="congress-show-update">
+                    <a th:href="@{'/congress/' + ${currentCongress.id} + '/edit'}">Modifier</a>
+                    <a th:href="@{'/congress/' + ${currentCongress.id} + '/delete'}">Supprimer</a>
+                </div>
 
             </div>
         </div>

@@ -407,6 +407,8 @@
             grid-area:network;
         }
         #congress-show-update{
+            display: flex;
+            justify-content: space-around;
             grid-area:update;
         }
         #congress-show-desc{
