@@ -2,12 +2,8 @@ package com.congress.controller;
 
 import com.congress.entity.Congress;
 import com.congress.repository.CongressRepository;
-import com.congress.storage.StorageFileNotFoundException;
 import com.congress.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,6 +14,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
+@RequestMapping("/congress")
 public class CongressController {
 
     @Autowired
@@ -30,11 +27,6 @@ public class CongressController {
         this.storageService = storageService;
     }
 
-    @GetMapping("/")
-    public String home(Model model) {
-        model.addAttribute("pageTitle", "Accueil");
-        return "/pages/index";
-    }
 
     /*
         CRUD Congress
@@ -46,11 +38,11 @@ public class CongressController {
      * @param model
      * @return Template of congress view list
      */
-    @GetMapping("/congress")
+    @GetMapping
     public String getCongress(Model model) {
         model.addAttribute("congressList", congressRepository.findAll());
         model.addAttribute("pageTitle", "List Congress");
-        return "/pages/congress/congressListView";
+        return "pages/congress/congressListView";
     }
 
     /**
@@ -61,7 +53,7 @@ public class CongressController {
      * @return Template of congress view
      * @throws Exception
      */
-    @GetMapping("/congress/{id}")
+    @GetMapping("/{id}")
     public String getCongress(@PathVariable long id, Model model) throws Exception {
         Optional<Congress> finded = congressRepository.findById(id);
         Congress currentCongress;
@@ -71,7 +63,7 @@ public class CongressController {
             throw new Exception("Can't find congress with id=" + id);
         model.addAttribute("currentCongress", currentCongress);
         model.addAttribute("pageTitle", "Congress" + currentCongress.getName());
-        return "/pages/congress/congressMainView";
+        return "pages/congress/congressMainView";
     }
 
     /**
@@ -81,7 +73,7 @@ public class CongressController {
      * @param model
      * @return Redirect to the congress view
      */
-    @PostMapping("/congress")
+    @PostMapping("/")
     public String createCongress(@Valid @ModelAttribute Congress currentCongress, BindingResult binding, Model model) {
         if(binding.hasErrors()){
             model.addAttribute("httpMethod", "POST");
@@ -104,7 +96,7 @@ public class CongressController {
      * @param currentCongress The model of the congress
      * @return Redirect to the congress view
      */
-    @PutMapping("/congress/{id}")
+    @PutMapping("/{id}")
     public String updateCongress(@PathVariable long id, @Valid @ModelAttribute Congress currentCongress, BindingResult binding, Model model, RedirectAttributes redirectAttributes) {
         if(binding.hasErrors()){
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.currentCongress", "PUT");
@@ -128,7 +120,7 @@ public class CongressController {
      * @param currentCongress The model of the congress
      * @return Redirect to the home page
      */
-    @DeleteMapping("/congress/{id}")
+    @DeleteMapping("/{id}")
     public String deleteCongress(@PathVariable long id, @ModelAttribute Congress currentCongress) {
         congressRepository.delete(currentCongress);
         return "redirect:/";
@@ -142,7 +134,7 @@ public class CongressController {
      * @return Template of congress update view form
      * @throws Exception
      */
-    @GetMapping("/congress/{id}/edit")
+    @GetMapping("/{id}/edit")
     public String updateCongressForm(@PathVariable Long id, Model model) throws Exception {
         Congress newCongress;
         Optional<Congress> finded = congressRepository.findById(id);
@@ -157,7 +149,7 @@ public class CongressController {
         model.addAttribute("pathMethod", "/congress/" + id);
         model.addAttribute("pageTitle", "Update " + newCongress.getName());
 
-        return "/pages/congress/congressFormView";
+        return "pages/congress/congressFormView";
     }
 
     /**
@@ -167,28 +159,12 @@ public class CongressController {
      * @return Template of congress creation view form
      * @throws Exception
      */
-    @GetMapping("/congress/create")
+    @GetMapping("/create")
     public String createCongressForm(Model model) throws Exception {
         model.addAttribute("httpMethod", "POST");
         model.addAttribute("pathMethod", "/congress");
         model.addAttribute("newCongress", new Congress());
-        return "/pages/congress/congressFormView";
+        return "pages/congress/congressFormView";
     }
 
-    /*
-        STORAGE Management
-    */
-
-    @ExceptionHandler(StorageFileNotFoundException.class)
-    public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
-        return ResponseEntity.notFound().build();
-    }
-
-    @GetMapping("/files/{filename:.+}")
-    @ResponseBody
-    public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
-        Resource file = storageService.loadAsResource(filename);
-        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
-                "attachment; filename=\"" + file.getFilename() + "\"").body(file);
-    }
 }
