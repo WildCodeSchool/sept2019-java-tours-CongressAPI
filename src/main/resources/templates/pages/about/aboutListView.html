@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/main/head.html :: head">
+</head>
+<body>
+    <ul th:each="about : ${aboutList}">
+        <li th:text="${about.title}"><a>title</a></li>
+    </ul>
+
+</body>
+</html>
