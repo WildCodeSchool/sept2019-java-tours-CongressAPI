@@ -8,10 +8,11 @@
             <input name="_method" type="hidden" value="PUT"/>
 
             <span th:errors="*{title}" th:if="${#fields.hasErrors('title')}">Title Error</span>
-            <label for="name">Title</label>
-            <input id="name" title="name" th:field="*{title}" type="text"/><br>
-
+            <label for="title">Title</label>
+            <input id="title" title="title" th:field="*{title}" type="text"/><br>
+            
             <span th:errors="*{description}" th:if="${#fields.hasErrors('description')}">Name Error</span>
+
             <label for="description">Description</label>
             <textarea id="description" name="description" th:field="*{description}"></textarea><br>
             <input type="submit" value="Valider">
