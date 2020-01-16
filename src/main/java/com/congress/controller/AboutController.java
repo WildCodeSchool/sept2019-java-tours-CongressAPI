@@ -46,7 +46,7 @@ public class AboutController {
         } else {
             throw new Exception("Can't find description, please write description ");
         }
-        model.addAttribute("titleAbout", titleAbout);
+        model.addAttribute("about", titleAbout);
         model.addAttribute("pageTitle", "About" + titleAbout.getTitle());
         return "pages/about/aboutOneDescription";
     }
@@ -67,7 +67,7 @@ public class AboutController {
                 return "pages/about/aboutFormView";
             }
             titleAbout = aboutRepository.save(titleAbout);
-            return "redirect:/about/" + titleAbout.getId();
+            return "redirect:/congress/"+congressId+"/about/" + titleAbout.getId();
         }
 
     /**
@@ -132,7 +132,7 @@ public class AboutController {
     @GetMapping("/create")
     public String createAboutForm(@PathVariable long congressId, Model model) throws Exception{
         model.addAttribute("httpMethod", "POST");
-        model.addAttribute("pathMethod", "/about");
+        model.addAttribute("pathMethod", "/congress/"+ congressId +"/about");
         model.addAttribute("newAbout", new About());
         return "pages/about/aboutFormView";
     }

@@ -4,8 +4,10 @@
 </head>
 <body>
     <main id="main-congress-form">
-        <h1 th:text="${about.title"}></h1>
+        <h3 class="card-title" th:text="${about.title}"></h3>
+        <div class="card-content">
         <p th:text="${about.description}"></p>
+        </div>
     </main>
 </body>
 </html>
