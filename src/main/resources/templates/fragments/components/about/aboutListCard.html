@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<<div class="card" id="congress-viewList" th:fragment="aboutListCard">
+    <h3 class="card-title">About</h3>
+    <div class="card-content" id="congress-show">
+        <ul>
+            <li th:each="congress : ${congressList}">
+                <ul style="display:flex;">
+                    <li th:text="${about.title}"></li>
+                    <li th:text="${about.description}"></li>
+                    <li><a th:href="@{'/congress/' + ${congress.id}}">Go to congress</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
 </html>

@@ -3,9 +3,9 @@
 <head th:replace="/fragments/main/head.html :: head">
 </head>
 <body>
-<h1 th:text="@{about.title" }></h1>
-<p>
-</p>
-
+    <main id="main-congress-form">
+        <h1 th:text="${about.title"}></h1>
+        <p th:text="${about.description}"></p>
+    </main>
 </body>
 </html>
