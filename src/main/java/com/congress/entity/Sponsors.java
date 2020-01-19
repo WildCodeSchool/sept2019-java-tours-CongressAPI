@@ -17,7 +17,7 @@ public class Sponsors {
     private String location;
     private String city;
     private String contact;
-    private String adress;
+    private String address;
     private int phone;
     private String mail;
     private String website_url;
@@ -78,12 +78,12 @@ public class Sponsors {
         this.contact = contact;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public int getPhone() {

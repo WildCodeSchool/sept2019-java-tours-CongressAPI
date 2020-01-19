@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="pathMethod" type="java.lang.String"*/-->
+<!--/*@thymesVar id="httpMethod" type="java.lang.String"*/-->
+<!--/*@thymesVar id="newCongress" type="com.congress.entity.Congress"*/-->
+<div class="card" id="dataform" th:fragment="sponsorsFormCard">
+    <h3 class="card-title">Sponsors</h3>
+    <div class="card-content">
+        <form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="${httpMethod}"
+              th:object="${newSponsors}">
+            <input name="_method" type="hidden" value="PUT"/>
+
+            <span th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Name Error</span>
+            <label for="name">Name</label>
+            <input id="name" name="name" th:field="*{name}" type="text"/><br>
+
+            <!-- A changer pour inserer une image -->
+            <span th:errors="*{logo}" th:if="${#fields.hasErrors('logo')}">Name Error</span>
+            <label for="logo">Logo</label>
+            <input id="logo" name="logo" th:field="*{logo}" type="file"/><br>
+
+            <span th:errors="*{city}" th:if="${#fields.hasErrors('city')}">City Error</span>
+            <label for="city">City</label>
+            <input id="city" name="city" th:field="*{city}" type="text"/><br>
+
+            <span th:errors="*{contact}" th:if="${#fields.hasErrors('contact')}">Name Error</span>
+            <label for="contact"> Contact</label>
+            <input id="contact" name="contact" th:field="*{contact}" type="text"/><br>
+
+            <span th:errors="*{address}" th:if="${#fields.hasErrors('address')}">Address Error</span>
+            <label for="address">Address</label>
+            <input id="address" name="address" th:field="*{address}" type="text"/><br>
+
+            <span th:errors="*{phone}" th:if="${#fields.hasErrors('phone')}">Phone Error</span>
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" th:field="*{phone}" type="text"/><br>
+
+            <span th:errors="*{mail}" th:if="${#fields.hasErrors('mail')}">Mail Error</span>
+            <label for="mail">Mail</label>
+            <input id="mail" name="mail" th:field="*{mail}" type="text"/><br>
+
+            <span th:errors="*{website_url}" th:if="${#fields.hasErrors('website_url')}">Name Error</span>
+            <label for="website_url">Name</label>
+            <input id="website_url" name="website_url" th:field="*{website_url}" type="text"/><br>
+
+            <span th:errors="*{location}" th:if="${#fields.hasErrors('location')}">Name Error</span>
+            <label for="location">Location</label>
+            <input id="location" name="Location" th:field="*{location}" type="text"/><br>
+
+
+
+            <input type="submit" value="Valider">
+        </form>
+    </div>
+</div>
+</html>
