@@ -13,8 +13,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
-
 @Controller
 @RequestMapping("congress/{congressId}/poster")
 public class PosterController {
@@ -37,17 +35,17 @@ public class PosterController {
 		return "pages/poster/posterListView";
 	}
 	 /**
-     * This controller display the congress with specific {id}
+     * This controller display the poster with specific {id}
      *
-     * @param id    The id of the congress
+     * @param id    The id of the poster
      * @param model
-     * @return Template of congress view
+     * @return Template of poster view
      * @throws Exception
      */
 	@GetMapping("/{id}")
 	public String getPoster(@PathVariable long congressId,@PathVariable long id, Model model) throws Exception {
 		Optional<Poster> finded = posterRepository.findById(id);
-		Poster currentPoster = finded.get();
+		Poster currentPoster;
 		if (finded.isPresent()) {
 			currentPoster = finded.get();
 	}	else {
