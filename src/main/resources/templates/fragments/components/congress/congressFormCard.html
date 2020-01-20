@@ -6,47 +6,48 @@
 <div class="card" id="dataform" th:fragment="congressFormCard">
     <h3 class="card-title">Congress</h3>
     <div class="card-content">
-        <form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="${httpMethod}"
+        <form enctype="multipart/form-data" method="POST" th:action="@{${pathMethod}}"
               th:object="${newCongress}">
-            <input name="_method" type="hidden" value="PUT"/>
 
             <span th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Name Error</span>
             <label for="name">Name</label>
-            <input id="name" name="name" th:field="*{name}" type="text"/><br>
+            <input id="name" th:field="*{name}" type="text"/><br>
 
             <!-- A changer pour inserer une image -->
             <span th:errors="*{logo}" th:if="${#fields.hasErrors('logo')}">Name Error</span>
             <label for="logo">Logo</label>
-            <input id="logo" name="logo" th:field="*{logo}" type="file"/><br>
+            <input id="logo" th:field="*{logo}" type="file"/><br>
 
             <span th:errors="*{color}" th:if="${#fields.hasErrors('color')}">Name Error</span>
             <label for="color">Color</label>
-            <input id="color" name="color" th:field="*{color}" type="text"/><br>
+            <input id="color" th:field="*{color}" type="text"/><br>
 
-            <!-- A changer pour inserer une image -->
             <span th:errors="*{banner}" th:if="${#fields.hasErrors('banner')}">Name Error</span>
             <label for="banner">Banners</label>
-            <input id="banner" name="banner" th:field="*{banner}" type="file"/><br>
+            <input id="banner" th:field="*{banner}" type="file"/><br>
 
             <span th:errors="*{date}" th:if="${#fields.hasErrors('date')}">Name Error</span>
             <label for="date">Date</label>
-            <input id="date" name="Date" th:field="*{date}" type="date"/><br>
+            <input id="date" th:field="*{date}" type="date"/><br>
 
             <span th:errors="*{location}" th:if="${#fields.hasErrors('location')}">Name Error</span>
             <label for="location">Location</label>
-            <input id="location" name="Location" th:field="*{location}" type="text"/><br>
+            <input id="location" th:field="*{location}" type="text"/><br>
 
             <span th:errors="*{registration}" th:if="${#fields.hasErrors('registration')}">Name Error</span>
             <label for="registration">Registration</label>
-            <input id="registration" name="registration" th:field="*{registration}" type="url"/><br>
+            <input id="registration" th:field="*{registration}" type="url"/><br>
 
             <span th:errors="*{poster}" th:if="${#fields.hasErrors('poster')}">Name Error</span>
             <label for="poster">Poster</label>
-            <input id="poster" name="poster" th:field="*{poster}" type="text"/><br>
+            <input id="poster" th:field="*{poster}" type="text"/><br>
 
             <span th:errors="*{description}" th:if="${#fields.hasErrors('description')}">Name Error</span>
             <label for="description">Description</label>
-            <textarea id="description" name="description" th:field="*{description}"></textarea><br>
+            <textarea id="description" th:field="*{description}"></textarea><br>
+
+            <input id="banner_url" th:field="*{banner_url}" type="hidden"/>
+            <input id="logo_url" th:field="*{logo_url}" type="hidden"/>
 
             <input type="submit" value="Valider">
         </form>

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -33,16 +32,34 @@ public class CongressController {
     */
 
     /**
-     * This controller display the list of congress
+     * This controller is used to display the congress creation form
      *
      * @param model
-     * @return Template of congress view list
+     * @return Template of congress creation view form
+     * @throws Exception
      */
-    @GetMapping
-    public String getCongress(Model model) {
-        model.addAttribute("congressList", congressRepository.findAll());
-        model.addAttribute("pageTitle", "List Congress");
-        return "pages/congress/congressListView";
+    @GetMapping("/create")
+    public String createCongressForm(Model model) throws Exception {
+        model.addAttribute("pathMethod", "/congress/create");
+        model.addAttribute("newCongress", new Congress());
+        return "pages/congress/congressFormView";
+    }
+
+    /**
+     * This controller is used to create a congress
+     *
+     * @param currentCongress The model of the congress
+     * @param model
+     * @return Redirect to the congress view
+     */
+    @PostMapping("/create")
+    public String createCongressPost(@Valid @ModelAttribute("newCongress") Congress newCongress, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("pathMethod", "/congress/create");
+            model.addAttribute("newCongress", newCongress);
+            return "pages/congress/congressFormView";
+        }
+        return updateFileIfPresent(newCongress);
     }
 
     /**
@@ -67,61 +84,33 @@ public class CongressController {
     }
 
     /**
-     * This controller is used to create a congress
+     * This controller display the list of congress
      *
-     * @param currentCongress The model of the congress
      * @param model
-     * @return Redirect to the congress view
+     * @return Template of congress view list
      */
-    @PostMapping("/")
-    public String createCongress(@Valid @ModelAttribute Congress currentCongress, BindingResult binding, Model model) {
-        if(binding.hasErrors()){
-            model.addAttribute("httpMethod", "POST");
-            model.addAttribute("pathMethod", "/congress");
-            model.addAttribute("newCongress", currentCongress);
-            return "pages/congress/congressFormView";
-        }
-        storageService.store(currentCongress.getLogo());
-        storageService.store(currentCongress.getBanner());
-        currentCongress.setLogo_url("/files/" + currentCongress.getLogo().getOriginalFilename());
-        currentCongress.setBanner_url("/files/" + currentCongress.getBanner().getOriginalFilename());
-        currentCongress = congressRepository.save(currentCongress);
-        return "redirect:/congress/" + currentCongress.getId();
+    @GetMapping
+    public String getCongressList(Model model) {
+        model.addAttribute("congressList", congressRepository.findAll());
+        model.addAttribute("pageTitle", "List Congress");
+        return "pages/congress/congressListView";
     }
 
-    /**
-     * This controller is used to update a congress
-     *
-     * @param id              The id of the updated congress
-     * @param currentCongress The model of the congress
-     * @return Redirect to the congress view
-     */
-    @PutMapping("/{id}")
-    public String updateCongress(@PathVariable long id, @Valid @ModelAttribute Congress currentCongress, BindingResult binding, Model model, RedirectAttributes redirectAttributes) {
-        if(binding.hasErrors()){
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.currentCongress", "PUT");
-            redirectAttributes.addFlashAttribute("httpMethod", "PUT");
-            redirectAttributes.addFlashAttribute("pathMethod", "/congress/" +id);
-            redirectAttributes.addFlashAttribute("newCongress", currentCongress);
-            return "redirect:/congress/" + id + "edit";
+    @PostMapping("/{id}")
+    public String updateCongressWithPost(@PathVariable long id, @Valid @ModelAttribute Congress currentCongress, BindingResult binding, Model model) {
+        if (binding.hasErrors()) {
+            return "redirect:/congress/" + id + "/edit";
         }
-        storageService.store(currentCongress.getLogo());
-        storageService.store(currentCongress.getBanner());
-        currentCongress.setLogo_url("/files/" + currentCongress.getLogo().getOriginalFilename());
-        currentCongress.setBanner_url("/files/" + currentCongress.getBanner().getOriginalFilename());
-        currentCongress = congressRepository.save(currentCongress);
-        return "redirect:/congress/" + currentCongress.getId();
+        return updateFileIfPresent(currentCongress);
     }
 
-    /**
-     * This controller is used to delete a congress
-     *
-     * @param id              The id of the congress
-     * @param currentCongress The model of the congress
-     * @return Redirect to the home page
-     */
-    @DeleteMapping("/{id}")
-    public String deleteCongress(@PathVariable long id, @ModelAttribute Congress currentCongress) {
+    @GetMapping("/{id}/delete")
+    public String deleteCongressWithPost(@PathVariable long id) throws Exception {
+        Optional<Congress> tofind = congressRepository.findById(id);
+        if (tofind.isEmpty()) {
+            throw new Exception("Can't find congress with id=" + id);
+        }
+        Congress currentCongress = tofind.get();
         congressRepository.delete(currentCongress);
         return "redirect:/";
     }
@@ -145,26 +134,21 @@ public class CongressController {
         }
         if (!model.containsAttribute("newCongress"))
             model.addAttribute("newCongress", newCongress);
-        model.addAttribute("httpMethod", "PUT");
         model.addAttribute("pathMethod", "/congress/" + id);
         model.addAttribute("pageTitle", "Update " + newCongress.getName());
-
         return "pages/congress/congressFormView";
     }
 
-    /**
-     * This controller is used to display the congress creation form
-     *
-     * @param model
-     * @return Template of congress creation view form
-     * @throws Exception
-     */
-    @GetMapping("/create")
-    public String createCongressForm(Model model) throws Exception {
-        model.addAttribute("httpMethod", "POST");
-        model.addAttribute("pathMethod", "/congress");
-        model.addAttribute("newCongress", new Congress());
-        return "pages/congress/congressFormView";
+    private String updateFileIfPresent(Congress currentCongress) {
+        if (!currentCongress.getLogo().isEmpty()) {
+            storageService.store(currentCongress.getLogo());
+            currentCongress.setLogo_url("/files/" + currentCongress.getLogo().getOriginalFilename());
+        }
+        if (!currentCongress.getBanner().isEmpty()) {
+            storageService.store(currentCongress.getBanner());
+            currentCongress.setBanner_url("/files/" + currentCongress.getBanner().getOriginalFilename());
+        }
+        currentCongress = congressRepository.save(currentCongress);
+        return "redirect:/congress/" + currentCongress.getId();
     }
-
 }

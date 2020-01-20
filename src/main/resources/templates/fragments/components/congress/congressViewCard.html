@@ -13,7 +13,7 @@
         <div id="congress-show-network"></div>
         <div id="congress-show-update">
             <a th:href="@{'/congress/' + ${currentCongress.id} + '/edit'}">Modifier</a>
-            <a href="#" th:onclick="|deleteUrl('/congress/${currentCongress.id}')|">Supprimer</a>
+            <a href="#" th:href="@{'/congress/' + ${currentCongress.id} + '/delete'}">Supprimer</a>
         </div>
 
     </div>
