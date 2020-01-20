@@ -47,11 +47,12 @@ public class PosterController {
 	@GetMapping("/{id}")
 	public String getPoster(@PathVariable long congressId,@PathVariable long id, Model model) throws Exception {
 		Optional<Poster> finded = posterRepository.findById(id);
-		Poster currentPoster;
-		if (finded.isPresent())
+		Poster currentPoster = finded.get();
+		if (finded.isPresent()) {
 			currentPoster = finded.get();
-		else
+	}	else {
 			throw new Exception("Can't find poster with id=" + id);
+	}
 		model.addAttribute("currentPoster", currentPoster);
 		model.addAttribute("pageTitle", "Poster");
 		return "pages/poster/posterListView";
@@ -65,7 +66,7 @@ public class PosterController {
      * @return Redirect to the poster view
      */
 	@PostMapping
-	public String createPoster(@PathVariable long congressId, @Valid @ModelAttribute Poster currentPoster, BindingResult binding, Model model) {
+	public String createPoster(@PathVariable long congressId, @Valid @ModelAttribute("newPoster") Poster currentPoster, BindingResult binding, Model model) {
 		if(binding.hasErrors()) {
 			model.addAttribute("httpMethod", "POST");
 			model.addAttribute("pathMethod",  "/poster");
@@ -73,7 +74,7 @@ public class PosterController {
 			return "pages/poster/posterFormView";
 		}
 		currentPoster = posterRepository.save(currentPoster);
-        return "redirect:/congress/\"+congressId+\"/poster/" + currentPoster.getId();
+        return "redirect:/congress/"+congressId+"/poster/" + currentPoster.getId();
 	}
 		/**
 	     * This controller is used to update a poster
@@ -144,7 +145,7 @@ public class PosterController {
      @GetMapping("/create")
      public String createPosterForm(@PathVariable long congressId, Model model) throws Exception {
     	 model.addAttribute("httpMethod", "POST");
-    	 model.addAttribute("pathMethod", "/poster");
+    	 model.addAttribute("pathMethod", "/congress/"+congressId+"/poster");
     	 model.addAttribute("newPoster", new Poster());
     	 return "pages/poster/posterFormView";
      }

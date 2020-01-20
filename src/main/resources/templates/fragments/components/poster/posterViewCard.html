@@ -5,10 +5,10 @@
     <h3 class="card-title">Poster/Paper</h3>
     <div class="card-content" id="congress-show">
         <ul>
-            <li th:each="congress :: ${congressList}">
+            <li th:each="poster : ${posterList}">
                 <ul style="display:flex;">
 				<li th:text="${poster.poster_url}"></li>                  
-                    <li><a th:href="@{'/congress/' + ${congress.id}}">Go to congress</a></li>
+                    <li><a th:href="@{'/congress/' + ${poster.id}}">Go to poster</a></li>
                 </ul>
             </li>
         </ul>
