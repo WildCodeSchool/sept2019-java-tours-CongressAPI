@@ -2,14 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d5c155-a598-44b6-80c6-8a5f80abfb2d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/sponsors/sponsorsFormCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/sponsors/sponsorsListCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/sponsors/sponsorsViewCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsors/sponsorsFormview.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsors/sponsorsListView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsors/sponsorsMainView.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsorsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsortsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsorts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/repository/SponsorsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/repository/SponsortsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/sponsors/sponsorsFormCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsorts/sponsortsFormCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/sponsors/sponsorsListCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsorts/sponsortsListCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/sponsors/sponsorsViewCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsorts/sponsortsViewCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsors/sponsorsFormview.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsorts/sponsortsFormView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsors/sponsorsListView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsorts/sponsortsListView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsors/sponsorsMainView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsorts/sponsortsMainView.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +62,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/fragments/components" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/fragments" />
       <recent name="$PROJECT_DIR$/src/main/resources/static/css" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
@@ -168,34 +171,38 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="674" y="354" width="308" height="216" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/67.27.1533.873@67.27.1533.873" timestamp="1579190581729" />
+    <state x="67" y="27" width="1523" height="873" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1579508317637">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="67" y="27" width="1523" height="873" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1533.873@67.27.1533.873" timestamp="1579508317637" />
     <state x="505" y="114" width="900" height="806" key="CommitChangelistDialog2" timestamp="1578927159044">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state x="505" y="114" width="900" height="806" key="CommitChangelistDialog2/0.0.1920.1035@0.0.1920.1035" timestamp="1578927159044" />
-    <state width="1487" height="129" key="GridCell.Tab.0.bottom" timestamp="1579193447746">
+    <state width="1487" height="129" key="GridCell.Tab.0.bottom" timestamp="1579527538071">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1715" height="272" key="GridCell.Tab.0.bottom/0.0.1920.1035@0.0.1920.1035" timestamp="1578927069100" />
     <state width="1247" height="219" key="GridCell.Tab.0.bottom/67.27.1293.741@67.27.1293.741" timestamp="1578578621249" />
-    <state width="1487" height="129" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1579193447746" />
-    <state width="1487" height="129" key="GridCell.Tab.0.center" timestamp="1579193447746">
+    <state width="1487" height="129" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1579527538071" />
+    <state width="1487" height="129" key="GridCell.Tab.0.center" timestamp="1579527538071">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1715" height="272" key="GridCell.Tab.0.center/0.0.1920.1035@0.0.1920.1035" timestamp="1578927069100" />
     <state width="1247" height="219" key="GridCell.Tab.0.center/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
-    <state width="1487" height="129" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1579193447746" />
-    <state width="1487" height="129" key="GridCell.Tab.0.left" timestamp="1579193447745">
+    <state width="1487" height="129" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1579527538071" />
+    <state width="1487" height="129" key="GridCell.Tab.0.left" timestamp="1579527538070">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1715" height="272" key="GridCell.Tab.0.left/0.0.1920.1035@0.0.1920.1035" timestamp="1578927069099" />
     <state width="1247" height="219" key="GridCell.Tab.0.left/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
-    <state width="1487" height="129" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1579193447745" />
-    <state width="1487" height="129" key="GridCell.Tab.0.right" timestamp="1579193447746">
+    <state width="1487" height="129" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1579527538070" />
+    <state width="1487" height="129" key="GridCell.Tab.0.right" timestamp="1579527538071">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1715" height="272" key="GridCell.Tab.0.right/0.0.1920.1035@0.0.1920.1035" timestamp="1578927069100" />
     <state width="1247" height="219" key="GridCell.Tab.0.right/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
-    <state width="1487" height="129" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1579193447746" />
+    <state width="1487" height="129" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1579527538071" />
     <state width="937" height="336" key="GridCell.Tab.1.bottom" timestamp="1578925152076">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
@@ -233,9 +240,9 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="487" y="80" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1533.873@67.27.1533.873" timestamp="1579190123620" />
-    <state x="496" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1579451555927">
+    <state x="496" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1579511168678">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
-    <state x="496" y="212" width="672" height="678" key="search.everywhere.popup/67.27.1533.873@67.27.1533.873" timestamp="1579451555927" />
+    <state x="496" y="212" width="672" height="678" key="search.everywhere.popup/67.27.1533.873@67.27.1533.873" timestamp="1579511168678" />
   </component>
 </project>

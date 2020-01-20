@@ -3,13 +3,15 @@ package com.congress.entity;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
-public class Sponsors {
+public class Sponsorts {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Size(min = 3, max = 255)
     private String name;
     private String logo_url;
     @Transient

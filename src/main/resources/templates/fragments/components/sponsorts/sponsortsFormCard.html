@@ -3,11 +3,11 @@
 <!--/*@thymesVar id="pathMethod" type="java.lang.String"*/-->
 <!--/*@thymesVar id="httpMethod" type="java.lang.String"*/-->
 <!--/*@thymesVar id="newCongress" type="com.congress.entity.Congress"*/-->
-<div class="card" id="dataform" th:fragment="sponsorsFormCard">
+<div class="card" id="dataform" th:fragment="sponsortsFormCard">
     <h3 class="card-title">Sponsors</h3>
     <div class="card-content">
         <form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="${httpMethod}"
-              th:object="${newSponsors}">
+              th:object="${newSponsorts}">
             <input name="_method" type="hidden" value="PUT"/>
 
             <span th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Name Error</span>

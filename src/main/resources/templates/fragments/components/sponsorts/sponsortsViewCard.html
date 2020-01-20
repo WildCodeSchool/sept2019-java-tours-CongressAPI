@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!--/*@thymesVar id="currentCongress" type="com.congress.entity.Congress"*/-->
-<div class="card" id="congress-view" th:fragment="congressViewCard">
-    <h3 class="card-title">Congress</h3>
-    <div class="card-content" id="congress-show">
-        <img alt="" id="congress-show-logo" src="#" th:src="${currentSponsors.logo_url}">
-        <h4 id="congress-show-title" th:text="${currentSponsors.name}"></h4>
+<div class="card" id="congress-view" th:fragment="sponsortsViewCard">
+    <h3 class="card-title">Sponsors</h3>
+  <!--  <div class="card-content" id="congress-show">
+        <img alt="" id="congress-show-logo" src="#" th:src="${currentSponsorts.logo_url}">
+        <h4 id="congress-show-title" th:text="${currentSponsotrs.name}"></h4>
         <p id="congress-show-desc" th:text="${currentCongress.description}"></p>
         <img alt="" id="congress-show-banner" src="#" th:src="${currentCongress.banner_url}">
         <span id="congress-show-date" th:text="${#dates.format(currentCongress.date, 'dd-MMM-yyyy')}"></span>
@@ -16,6 +16,6 @@
             <a href="#" th:onclick="|deleteUrl('/congress/${currentCongress.id}')|">Supprimer</a>
         </div>
 
-    </div>
+    </div>-->
 </div>
 </html>
