@@ -1,13 +1,15 @@
 package com.congress.controller;
 
 import com.congress.entity.About;
+import com.congress.entity.Congress;
 import com.congress.repository.AboutRepository;
+import com.congress.repository.CongressRepository;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -18,8 +20,10 @@ import java.util.Optional;
 public class AboutController {
 
     @Autowired
-    private AboutRepository aboutRepository;
+    private CongressRepository congressRepository;
 
+    @Autowired
+    private AboutRepository aboutRepository;
 
     /**
      * *this controller display the list of About cotaints
@@ -29,7 +33,7 @@ public class AboutController {
      */
     @GetMapping
     public String getAbout(@PathVariable long congressId, Model model) {
-        model.addAttribute("aboutList", aboutRepository.findAll());
+        model.addAttribute("congress", congressRepository.findById(congressId).get());
         model.addAttribute("pageTitle", "About");
         return "/pages/about/aboutListView";
     }
@@ -39,67 +43,63 @@ public class AboutController {
      */
     @GetMapping("/{id}")
     public String getAbout(@PathVariable long congressId, @PathVariable long id, Model model) throws Exception {
-        Optional<About> finded = aboutRepository.findById(id);
-        About titleAbout = finded.get();
+        Optional<Congress> finded = congressRepository.findById(congressId);
+        Congress currentCongress = finded.get();
         if (finded.isPresent()) {
-            titleAbout = finded.get();
+            currentCongress = finded.get();
         } else {
             throw new Exception("Can't find description, please write description ");
         }
-        model.addAttribute("about", titleAbout);
-        model.addAttribute("pageTitle", "About" + titleAbout.getTitle());
+        About currentAbout = null;
+        for (About about : currentCongress.getAbouts()) {
+            if (about.getId() == id)
+                currentAbout = about;
+        }
+        if (currentAbout == null)
+            throw new NotFoundException("Can't find about with id: " + id);
+        model.addAttribute("about", currentAbout);
+        model.addAttribute("pageTitle", "About" + currentAbout.getTitle());
         return "pages/about/aboutOneDescription";
     }
 
-        /**
-         * this controller is used to create description in About
-         *
-         * @param model         The id of update about
-         * @param titleAbout    The model of About table
-         * @return redirect to about view
-         */
-        @PostMapping
-        public String createAbout(@PathVariable long congressId, @Valid @ModelAttribute About titleAbout, BindingResult bindingAbout, Model model){
-            if (bindingAbout.hasErrors()) {
-                model.addAttribute("httpMethod", "POST");
-                model.addAttribute("pathMethod", "/about");
-                model.addAttribute("newAbout", titleAbout);
-                return "pages/about/aboutFormView";
-            }
-            titleAbout = aboutRepository.save(titleAbout);
-            return "redirect:/congress/"+congressId+"/about/" + titleAbout.getId();
-        }
-
     /**
-     * this controller is used to update the table about
+     * this controller is used to create description in About
      *
-     * @param id            the id of updated congress
-     * @param titleAbout    the model of table About
-     * @return Redirect to about view
+     * @param model      The id of update about
+     * @param titleAbout The model of About table
+     * @return redirect to about view
      */
-    @PutMapping("/{id}")
-    public String updatedAbout(@PathVariable long congressId, @PathVariable long id, @Valid @ModelAttribute About titleAbout, BindingResult binding, Model model, RedirectAttributes redirectAttributes){
-        if(binding.hasErrors()){
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.titleAbout", "PUT");
-            redirectAttributes.addFlashAttribute("httpMethod","PUT");
-            redirectAttributes.addFlashAttribute("pathMethod","/about" + id);
-            redirectAttributes.addFlashAttribute("newAbout", titleAbout);
-            return "redirect:/about/" + id + "edit";
+    @PostMapping("/create")
+    public String createAbout(@PathVariable long congressId, @Valid @ModelAttribute About titleAbout, BindingResult bindingAbout, Model model) throws NotFoundException {
+        if (bindingAbout.hasErrors()) {
+            model.addAttribute("httpMethod", "POST");
+            model.addAttribute("pathMethod", "/congress/" + congressId + "/about/create");
+            model.addAttribute("newAbout", titleAbout);
+            return "pages/about/aboutFormView";
         }
-        titleAbout = aboutRepository.save(titleAbout);
-        return "redirect:/about" + titleAbout.getId();
+        Congress currentCongress = congressRepository.findById(congressId).orElseThrow(() -> new NotFoundException("Can't find congress with id:" + congressId));
+        currentCongress.addAbout(titleAbout);
+        aboutRepository.save(titleAbout);
+        congressRepository.save(currentCongress);
+        return "redirect:/congress/" + congressId + "/about/" + titleAbout.getId();
     }
+
 
     /**
      * This controller is used to delete one categorie of about
      *
      * @param id         the id of about
      * @param titleAbout the model of the page About
-     * @return           redirect to the home page
+     * @return redirect to the home page
      */
-    @DeleteMapping("/{id}")
-    public String deleteAbout(@PathVariable long congressId, @PathVariable long id, @ModelAttribute About titleAbout) {
-        aboutRepository.delete(titleAbout);
+    @GetMapping("/{id}/delete")
+    public String deleteAbout(@PathVariable long congressId, @PathVariable long id, @ModelAttribute About titleAbout) throws NotFoundException {
+        Congress currentCongress = congressRepository.findById(congressId)
+                .orElseThrow(() -> new NotFoundException("Can't find congress with id:" + congressId));
+        About toDelete = aboutRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Can't find about with id: " + id));
+        currentCongress.removeAbout(toDelete);
+        congressRepository.save(currentCongress);
         return "redirect:/";
     }
 
@@ -123,15 +123,13 @@ public class AboutController {
         if(!model.containsAttribute("newAbout")) {
             model.addAttribute("newAbout", newAbout);
         }
-        model.addAttribute("httpMethod", "PUT");
-        model.addAttribute("pathMethod", "/about/" + id);
+        model.addAttribute("pathMethod", "congress/" + congressId + "/about/" + id + "/edit");
         model.addAttribute("pageTitle", "Update " + newAbout.getTitle());
 
         return "pages/about/aboutFormView";
     }
     @GetMapping("/create")
     public String createAboutForm(@PathVariable long congressId, Model model) throws Exception{
-        model.addAttribute("httpMethod", "POST");
         model.addAttribute("pathMethod", "/congress/"+ congressId +"/about");
         model.addAttribute("newAbout", new About());
         return "pages/about/aboutFormView";
