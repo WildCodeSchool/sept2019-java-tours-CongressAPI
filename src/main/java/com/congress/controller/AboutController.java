@@ -130,7 +130,7 @@ public class AboutController {
     }
     @GetMapping("/create")
     public String createAboutForm(@PathVariable long congressId, Model model) throws Exception{
-        model.addAttribute("pathMethod", "/congress/"+ congressId +"/about");
+        model.addAttribute("pathMethod", "/congress/"+ congressId +"/about/create");
         model.addAttribute("newAbout", new About());
         return "pages/about/aboutFormView";
     }
