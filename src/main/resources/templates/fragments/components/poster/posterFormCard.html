@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div class="card" id="dataform" th:fragment="posterFormCard">
+	<h3 class="card-title">Poster/Paper</h3>
+	<div class="card-content">
+		<form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="${httpMethod}"
+              th:object="${newCongress}">
+              <input name="_method" type="hidden" value="PUT"/>
+              
+              <span th:errors="*{poster_url}" th:if="${#fields.hasErrors('poster_url)}">Url Error</span>
+              <label for="poster">Url</label>
+              <input id="poster" name="Poster" th:field="*{poster}" type="url"/>>
+	
+	
+		</form>
+	</div>
+</div>
+</html>
