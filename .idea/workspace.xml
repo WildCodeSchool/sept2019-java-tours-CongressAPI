@@ -3,15 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e4d5c155-a598-44b6-80c6-8a5f80abfb2d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsorsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsortsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsorts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/repository/SponsorsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/repository/SponsortsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/sponsors/sponsorsFormCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsorts/sponsortsFormCard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/sponsors/sponsorsListCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsorts/sponsortsListCard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/sponsors/sponsorsViewCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsorts/sponsortsViewCard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsors/sponsorsFormview.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsorts/sponsortsFormView.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsors/sponsorsListView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsorts/sponsortsListView.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsors/sponsorsMainView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsorts/sponsortsMainView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/CongressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/CongressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsortsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsortsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsorts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsorts.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +52,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -159,10 +153,10 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="291" y="120" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1533.873@67.27.1533.873" timestamp="1578559144328" />
-    <state x="641" y="149" width="374" height="626" key="#com.intellij.ide.util.MemberChooser" timestamp="1579190284656">
+    <state x="641" y="149" width="374" height="626" key="#com.intellij.ide.util.MemberChooser" timestamp="1579597659262">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
-    <state x="641" y="149" width="374" height="626" key="#com.intellij.ide.util.MemberChooser/67.27.1533.873@67.27.1533.873" timestamp="1579190284656" />
+    <state x="641" y="149" width="374" height="626" key="#com.intellij.ide.util.MemberChooser/67.27.1533.873@67.27.1533.873" timestamp="1579597659262" />
     <state x="541" y="132" width="575" height="661" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1578921097975">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
@@ -179,30 +173,34 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state x="505" y="114" width="900" height="806" key="CommitChangelistDialog2/0.0.1920.1035@0.0.1920.1035" timestamp="1578927159044" />
-    <state width="1487" height="129" key="GridCell.Tab.0.bottom" timestamp="1579527538071">
+    <state x="189" y="203" width="501" height="513" key="FileChooserDialogImpl" timestamp="1579597463261">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="189" y="203" width="501" height="513" key="FileChooserDialogImpl/67.27.1533.873@67.27.1533.873" timestamp="1579597463261" />
+    <state width="1487" height="129" key="GridCell.Tab.0.bottom" timestamp="1579537630514">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1715" height="272" key="GridCell.Tab.0.bottom/0.0.1920.1035@0.0.1920.1035" timestamp="1578927069100" />
     <state width="1247" height="219" key="GridCell.Tab.0.bottom/67.27.1293.741@67.27.1293.741" timestamp="1578578621249" />
-    <state width="1487" height="129" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1579527538071" />
-    <state width="1487" height="129" key="GridCell.Tab.0.center" timestamp="1579527538071">
+    <state width="1487" height="129" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1579537630514" />
+    <state width="1487" height="129" key="GridCell.Tab.0.center" timestamp="1579537630513">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1715" height="272" key="GridCell.Tab.0.center/0.0.1920.1035@0.0.1920.1035" timestamp="1578927069100" />
     <state width="1247" height="219" key="GridCell.Tab.0.center/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
-    <state width="1487" height="129" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1579527538071" />
-    <state width="1487" height="129" key="GridCell.Tab.0.left" timestamp="1579527538070">
+    <state width="1487" height="129" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1579537630513" />
+    <state width="1487" height="129" key="GridCell.Tab.0.left" timestamp="1579537630513">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1715" height="272" key="GridCell.Tab.0.left/0.0.1920.1035@0.0.1920.1035" timestamp="1578927069099" />
     <state width="1247" height="219" key="GridCell.Tab.0.left/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
-    <state width="1487" height="129" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1579527538070" />
-    <state width="1487" height="129" key="GridCell.Tab.0.right" timestamp="1579527538071">
+    <state width="1487" height="129" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1579537630513" />
+    <state width="1487" height="129" key="GridCell.Tab.0.right" timestamp="1579537630513">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1715" height="272" key="GridCell.Tab.0.right/0.0.1920.1035@0.0.1920.1035" timestamp="1578927069100" />
     <state width="1247" height="219" key="GridCell.Tab.0.right/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
-    <state width="1487" height="129" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1579527538071" />
+    <state width="1487" height="129" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1579537630513" />
     <state width="937" height="336" key="GridCell.Tab.1.bottom" timestamp="1578925152076">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
@@ -219,15 +217,19 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state width="937" height="336" key="GridCell.Tab.1.right/0.0.1920.1035@0.0.1920.1035" timestamp="1578925152075" />
+    <state x="67" y="117" width="924" height="684" key="Maven.ArtifactSearchDialog" timestamp="1579597400486">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="67" y="117" width="924" height="684" key="Maven.ArtifactSearchDialog/67.27.1533.873@67.27.1533.873" timestamp="1579597400486" />
     <state x="342" y="128" width="973" height="668" key="Registry" timestamp="1578651665962">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="342" y="128" width="973" height="668" key="Registry/67.27.1533.873@67.27.1533.873" timestamp="1578651665962" />
-    <state x="425" y="55" width="1024" height="845" key="SettingsEditor" timestamp="1579190648611">
+    <state x="425" y="55" width="1024" height="845" key="SettingsEditor" timestamp="1579597299258">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="448" y="95" key="SettingsEditor/0.0.1920.1035@0.0.1920.1035" timestamp="1578922025214" />
-    <state x="425" y="55" width="1024" height="845" key="SettingsEditor/67.27.1533.873@67.27.1533.873" timestamp="1579190648611" />
+    <state x="425" y="55" width="1024" height="845" key="SettingsEditor/67.27.1533.873@67.27.1533.873" timestamp="1579597299258" />
     <state x="553" y="216" key="SpringBootCustomization" timestamp="1578920713452">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>

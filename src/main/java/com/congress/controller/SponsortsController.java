@@ -1,9 +1,12 @@
 package com.congress.controller;
 
 
+import com.congress.entity.Congress;
 import com.congress.entity.Sponsorts;
+import com.congress.repository.CongressRepository;
 import com.congress.repository.SponsortsRepository;
 import com.congress.storage.StorageService;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +18,14 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("congress/{congressId}/")
+@RequestMapping("congress/{congressId}/sponsorts")
 public class SponsortsController {
 
     @Autowired
     private SponsortsRepository sponsortsRepository;
+
+    @Autowired
+    private CongressRepository congressRepository;
 
     private StorageService storageService;
 
@@ -39,9 +45,9 @@ public class SponsortsController {
 
     @GetMapping("/sponsorts")
     public String getSponsors(@PathVariable long congressId, Model model){
-        model.addAttribute("sponsortsList", sponsortsRepository.findAll());
+        model.addAttribute("sponsortsList", congressRepository.findById(congressId).get());
         model.addAttribute("pageTitle", "List Sponsorts");
-        return"pages/sponsorts/sponsort sListView";
+        return"pages/sponsorts/sponsortsListView";
 
     }
 
@@ -56,12 +62,21 @@ public class SponsortsController {
      */
     @GetMapping("/sponsorts/{id}")
     public String getSponsorts(@PathVariable Long congressId, @PathVariable long id, Model model)throws Exception {
-        Optional<Sponsorts> finded = sponsortsRepository.findById(id);
-        Sponsorts currentSponsorts = finded.get();
+        Optional<Congress> finded = congressRepository.findById(congressId);
+        Congress currentCongress= finded.get();
         if (finded.isPresent()){
-            currentSponsorts = finded.get();
+            currentCongress = finded.get();
         }else {
             throw new Exception("Filed empty, please write a comment");
+        }
+        Sponsorts currentSponsorts = null;
+        for(Sponsorts sponsorts : currentCongress.getSponsorts()){
+            if (sponsorts.getId() == id){
+                currentSponsorts = sponsorts;
+            }
+        }
+        if (currentSponsorts == null){
+            throw new NotFoundException("Can't find sponsorts with : " + id);
         }
         model.addAttribute("sponsorts",currentSponsorts);
         model.addAttribute("pageTitle","Sponsorts" + currentSponsorts.getName());
@@ -76,36 +91,20 @@ public class SponsortsController {
      * @param model          this id is used for update Sponsors
      * @return               redirect to Sponsors view
      */
-    @PostMapping("/sponsorts")
+    @PostMapping("/create")
     public String createSponsorts(@PathVariable long congressId, @Valid @ModelAttribute("newSponsorts") Sponsorts currentSponsorts, BindingResult bindingSponsors, Model model) {
         if(bindingSponsors.hasErrors()){
             model.addAttribute("httpMethod","POST");
-            model.addAttribute("pathMethod", "/sponsorts");
+            model.addAttribute("pathMethod", "/congress/" + congressId +"/sponsorts/create");
             model.addAttribute("newSponsors", currentSponsorts);
             return "pages/sponsorts/sponsortsFormView";
         }
-        currentSponsorts = sponsortsRepository.save(currentSponsorts);
+        Congress currentCongress = congressRepository.findById(congressId).orElseThrow() -> new NotFoundException("Can't find congress with id:" + congressId);
+        currentCongress.addSponsorts(currentSponsorts);
+        congressRepository.save(currentCongress);
         return "redirect:/congress/"+congressId+"/sponsorts/"+ currentSponsorts.getId();
     }
 
-    /**
-     * this is a controller to update Sponsors
-     *
-     * @param id              the id of update Sponsors
-     * @param currentSponsorts the model of table sponsors
-     * @return                 Redirect to sponsors view
-     */
-    @PutMapping("/sponsorts/{id}")
-        public String updateSponsorts(@PathVariable long congressId, @PathVariable long id, @Valid @ModelAttribute Sponsorts currentSponsorts, BindingResult bindingSponsorts, Model model, RedirectAttributes redirectAttributes){
-            if(bindingSponsorts.hasErrors()){
-                redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.currentSponsorts", "PUT");
-                redirectAttributes.addFlashAttribute("httpMethod","PUT");
-                redirectAttributes.addFlashAttribute("newSponsors", currentSponsorts);
-                return "redirct:/sponsorts"+ id + "edit";
-            }
-            currentSponsorts = sponsortsRepository.save(currentSponsorts);
-            return "redirct:/sponsorts"+ id + currentSponsorts.getId();
-        }
 
     /**
      * this controller is used to delete a sponsors
@@ -114,12 +113,27 @@ public class SponsortsController {
      * @param currentSponsorts   the model of the page sponsors
      * @return                  redirect to the home page
      */
-    @DeleteMapping("/sponsorts/{id}")
-    public String deleteSponsorts(@PathVariable long congressId, @PathVariable long id, @ModelAttribute Sponsorts currentSponsorts){
-        sponsortsRepository.delete(currentSponsorts);
+    @GetMapping("/{id}/delete")
+    public String deleteSponsorts(@PathVariable long congressId, @PathVariable long id, @ModelAttribute Sponsorts currentSponsorts)throws NotFoundException{
+        Congress currentCongress = congressRepository.findById(congressId)
+                .orElseThrow() -> new NotFoundException("Can't find congress with id:" + congressId);
+        Sponsorts toDelete = sponsortsRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Can't find sponsorts with id: " + id));
+        currentCongress.removeSponsorts(toDelete);
+        congressRepository.save(currentCongress);
         return "redirect:/";
     }
-    @GetMapping("/sponsorts/{id}/edit")
+
+    /**
+     *
+     * @param congressId
+     * @param id
+     * @param model
+     * @return
+     * @throws Exception
+     */
+
+    @GetMapping("/{id}/edit")
     public String updateSponsortsForm(@PathVariable long congressId, @PathVariable Long id, Model model) throws Exception{
         Sponsorts newSponsorts;
         Optional<Sponsorts> finded = sponsortsRepository.findById(id);
@@ -131,16 +145,14 @@ public class SponsortsController {
         if (!model.containsAttribute("newSponsorts")){
             model.addAttribute("newSponsorts", newSponsorts);
         }
-        model.addAttribute("httpMethod","PUT");
-        model.addAttribute("pathMethod","/about/" + id);
+        model.addAttribute("pathMethod","/congress/" + congressId + "/sponsorts/" + id +"/edit");
         model.addAttribute("pageTitle", "Update " + newSponsorts.getName());
 
         return "pages/sponsorts/sponsortsFormView";
     }
-    @GetMapping("/sponsorts/create")
+    @GetMapping("/create")
     public String createSponsortsForm(@PathVariable long congressId, Model model) throws Exception{
-        model.addAttribute("httpMethod", "POST");
-        model.addAttribute("pathMethod","/congress/" + congressId +"/sponsorts");
+        model.addAttribute("pathMethod","/congress/" + congressId +"/sponsorts/create");
         model.addAttribute("newSponsorts", new Sponsorts());
         return "pages/sponsorts/sponsortsFormView";
     }

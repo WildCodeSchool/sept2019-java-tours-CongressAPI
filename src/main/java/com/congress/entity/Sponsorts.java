@@ -1,5 +1,6 @@
 package com.congress.entity;
 
+
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
@@ -23,6 +24,9 @@ public class Sponsorts {
     private int phone;
     private String mail;
     private String website_url;
+
+    @ManyToOne
+    private Congress congress;
 
     public long getId() {
         return id;
@@ -110,5 +114,13 @@ public class Sponsorts {
 
     public void setWebsite_url(String website_url) {
         this.website_url = website_url;
+    }
+
+    public Congress getCongress() {
+        return congress;
+    }
+
+    public void setCongress(Congress congress) {
+        this.congress = congress;
     }
 }
