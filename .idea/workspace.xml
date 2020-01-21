@@ -2,15 +2,72 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d5c155-a598-44b6-80c6-8a5f80abfb2d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/api/ApiCongressController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/exception/ApiConstraintViolationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/exception/ApiError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/exception/ApiException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/exception/ApiExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/exception/CongressNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/services/CongressService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/services/CrudService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Congress.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Congress.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/CongressApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/CongressApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/CongressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/CongressController.java" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsortsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsortsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsorts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsorts.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Congress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Congress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/congress/congressFormCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/congress/congressFormCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/congress/congressViewCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/congress/congressViewCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/congress/congressMainView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/congress/congressMainView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/congress/CongressApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/congress/CongressApplicationTests.java" afterDir="false" />
+>>>>>>> congress
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="congress_api@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="congress_api@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="congress_api@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="congress_api: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="sept2019-java-tours-CongressAPI" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -42,19 +99,26 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.congress" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.congress.exception" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/templates/fragments/components" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/fragments" />
@@ -62,7 +126,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Maven.Congress [spring-boot:run]">
     <configuration name="Congress [spring-boot:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -87,6 +151,13 @@
         </option>
       </MavenSettings>
       <method v="2" />
+    </configuration>
+    <configuration name="CongressApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Congress" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.congress.CongressApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
   </component>
   <component name="ServiceViewManager">
@@ -118,7 +189,18 @@
       <option name="presentableId" value="Default" />
       <updated>1578558459173</updated>
       <workItem from="1578920684163" duration="4368000" />
-      <workItem from="1578925454583" duration="2970000" />
+      <workItem from="1578925454583" duration="5418000" />
+      <workItem from="1578986680546" duration="4318000" />
+      <workItem from="1579071425497" duration="1422000" />
+      <workItem from="1579079515634" duration="5541000" />
+      <workItem from="1579158017265" duration="974000" />
+      <workItem from="1579161982089" duration="4492000" />
+      <workItem from="1579184389858" duration="2612000" />
+      <workItem from="1579187257134" duration="2118000" />
+      <workItem from="1579267647682" duration="811000" />
+      <workItem from="1579446716798" duration="6727000" />
+      <workItem from="1579503732373" duration="10332000" />
+      <workItem from="1579526919377" duration="213000" />
     </task>
     <task id="LOCAL-00001" summary="Make some refactor and start js to perform no browser supported request">
       <created>1578927160656</created>
@@ -127,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578927160656</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fix template path for PostMapping on error">
+      <created>1578928923813</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1578928923813</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,7 +224,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Make some refactor and start js to perform no browser supported request" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make some refactor and start js to perform no browser supported request" />
+    <MESSAGE value="Fix template path for PostMapping on error" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix template path for PostMapping on error" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -145,22 +235,34 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="428" y="124" width="800" height="677" key="#Inspections/67.27.1533.873@67.27.1533.873" timestamp="1578559611154" />
-    <state x="560" y="179" key="#Project_Structure" timestamp="1578920729215">
+    <state x="560" y="179" key="#Notifications" timestamp="1579092529546">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
-    <state x="560" y="179" key="#Project_Structure/0.0.1920.1035@0.0.1920.1035" timestamp="1578920729215" />
+    <state x="560" y="179" key="#Notifications/0.0.1920.1035@0.0.1920.1035" timestamp="1579092529546" />
+    <state x="560" y="179" key="#Project_Structure" timestamp="1579164350161">
+      <screen x="0" y="0" width="1920" height="1035" />
+    </state>
+    <state x="560" y="179" key="#Project_Structure/0.0.1920.1035@0.0.1920.1035" timestamp="1579164350161" />
     <state x="291" y="120" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578559144328">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="291" y="120" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1533.873@67.27.1533.873" timestamp="1578559144328" />
+<<<<<<< HEAD
     <state x="641" y="149" width="374" height="626" key="#com.intellij.ide.util.MemberChooser" timestamp="1579597659262">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="641" y="149" width="374" height="626" key="#com.intellij.ide.util.MemberChooser/67.27.1533.873@67.27.1533.873" timestamp="1579597659262" />
+=======
+    <state x="773" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1579511810663">
+      <screen x="0" y="0" width="1920" height="1035" />
+    </state>
+    <state x="773" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1035@0.0.1920.1035" timestamp="1579511810663" />
+>>>>>>> congress
     <state x="541" y="132" width="575" height="661" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1578921097975">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="541" y="132" width="575" height="661" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/67.27.1533.873@67.27.1533.873" timestamp="1578921097975" />
+<<<<<<< HEAD
     <state x="674" y="354" width="308" height="216" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1579190581729">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
@@ -179,26 +281,64 @@
     <state x="189" y="203" width="501" height="513" key="FileChooserDialogImpl/67.27.1533.873@67.27.1533.873" timestamp="1579597463261" />
     <state width="1487" height="129" key="GridCell.Tab.0.bottom" timestamp="1579537630514">
       <screen x="67" y="27" width="1533" height="873" />
+=======
+    <state x="439" y="445" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1579448471015">
+      <screen x="0" y="0" width="1920" height="1035" />
     </state>
-    <state width="1715" height="272" key="GridCell.Tab.0.bottom/0.0.1920.1035@0.0.1920.1035" timestamp="1578927069100" />
+    <state x="439" y="445" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1035@0.0.1920.1035" timestamp="1579448471015" />
+    <state x="743" y="399" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1579448473257">
+      <screen x="0" y="0" width="1920" height="1035" />
+    </state>
+    <state x="743" y="399" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1035@0.0.1920.1035" timestamp="1579448473257" />
+    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2" timestamp="1578928923545">
+      <screen x="0" y="0" width="1920" height="1035" />
+>>>>>>> congress
+    </state>
+    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2/0.0.1920.1035@0.0.1920.1035" timestamp="1578928923545" />
+    <state width="1358" height="216" key="GridCell.Tab.0.bottom" timestamp="1579514116061">
+      <screen x="0" y="0" width="1920" height="1035" />
+    </state>
+    <state width="1197" height="272" key="GridCell.Tab.0.bottom/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868942" />
+    <state width="1358" height="216" key="GridCell.Tab.0.bottom/0.0.1920.1035@0.0.1920.1035" timestamp="1579514116061" />
     <state width="1247" height="219" key="GridCell.Tab.0.bottom/67.27.1293.741@67.27.1293.741" timestamp="1578578621249" />
+<<<<<<< HEAD
     <state width="1487" height="129" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1579537630514" />
     <state width="1487" height="129" key="GridCell.Tab.0.center" timestamp="1579537630513">
       <screen x="67" y="27" width="1533" height="873" />
+=======
+    <state width="1487" height="90" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1578923969312" />
+    <state width="1358" height="216" key="GridCell.Tab.0.center" timestamp="1579514116060">
+      <screen x="0" y="0" width="1920" height="1035" />
+>>>>>>> congress
     </state>
-    <state width="1715" height="272" key="GridCell.Tab.0.center/0.0.1920.1035@0.0.1920.1035" timestamp="1578927069100" />
+    <state width="1197" height="272" key="GridCell.Tab.0.center/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868941" />
+    <state width="1358" height="216" key="GridCell.Tab.0.center/0.0.1920.1035@0.0.1920.1035" timestamp="1579514116060" />
     <state width="1247" height="219" key="GridCell.Tab.0.center/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
+<<<<<<< HEAD
     <state width="1487" height="129" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1579537630513" />
     <state width="1487" height="129" key="GridCell.Tab.0.left" timestamp="1579537630513">
       <screen x="67" y="27" width="1533" height="873" />
+=======
+    <state width="1487" height="90" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1578923969312" />
+    <state width="1358" height="216" key="GridCell.Tab.0.left" timestamp="1579514116060">
+      <screen x="0" y="0" width="1920" height="1035" />
+>>>>>>> congress
     </state>
-    <state width="1715" height="272" key="GridCell.Tab.0.left/0.0.1920.1035@0.0.1920.1035" timestamp="1578927069099" />
+    <state width="1197" height="272" key="GridCell.Tab.0.left/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868940" />
+    <state width="1358" height="216" key="GridCell.Tab.0.left/0.0.1920.1035@0.0.1920.1035" timestamp="1579514116060" />
     <state width="1247" height="219" key="GridCell.Tab.0.left/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
+<<<<<<< HEAD
     <state width="1487" height="129" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1579537630513" />
     <state width="1487" height="129" key="GridCell.Tab.0.right" timestamp="1579537630513">
       <screen x="67" y="27" width="1533" height="873" />
+=======
+    <state width="1487" height="90" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1578923969311" />
+    <state width="1358" height="216" key="GridCell.Tab.0.right" timestamp="1579514116060">
+      <screen x="0" y="0" width="1920" height="1035" />
+>>>>>>> congress
     </state>
-    <state width="1715" height="272" key="GridCell.Tab.0.right/0.0.1920.1035@0.0.1920.1035" timestamp="1578927069100" />
+    <state width="1197" height="272" key="GridCell.Tab.0.right/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868941" />
+    <state width="1358" height="216" key="GridCell.Tab.0.right/0.0.1920.1035@0.0.1920.1035" timestamp="1579514116060" />
     <state width="1247" height="219" key="GridCell.Tab.0.right/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
     <state width="1487" height="129" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1579537630513" />
     <state width="937" height="336" key="GridCell.Tab.1.bottom" timestamp="1578925152076">
@@ -217,26 +357,45 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state width="937" height="336" key="GridCell.Tab.1.right/0.0.1920.1035@0.0.1920.1035" timestamp="1578925152075" />
+<<<<<<< HEAD
     <state x="67" y="117" width="924" height="684" key="Maven.ArtifactSearchDialog" timestamp="1579597400486">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="67" y="117" width="924" height="684" key="Maven.ArtifactSearchDialog/67.27.1533.873@67.27.1533.873" timestamp="1579597400486" />
     <state x="342" y="128" width="973" height="668" key="Registry" timestamp="1578651665962">
       <screen x="67" y="27" width="1533" height="873" />
+=======
+    <state x="439" y="211" key="NewModule_or_Project.wizard" timestamp="1579072719823">
+      <screen x="0" y="0" width="1400" height="1005" />
+>>>>>>> congress
     </state>
+    <state x="439" y="211" key="NewModule_or_Project.wizard/0.0.1400.1005@0.0.1400.1005" timestamp="1579072719823" />
+    <state x="602" y="217" key="NewModule_or_Project.wizard/0.0.1920.1035@0.0.1920.1035" timestamp="1579011860681" />
+    <state x="344" y="120" width="973" height="668" key="Registry" timestamp="1579092460097">
+      <screen x="0" y="0" width="1920" height="1035" />
+    </state>
+    <state x="344" y="120" key="Registry/0.0.1920.1035@0.0.1920.1035" timestamp="1579092460097" />
     <state x="342" y="128" width="973" height="668" key="Registry/67.27.1533.873@67.27.1533.873" timestamp="1578651665962" />
+<<<<<<< HEAD
     <state x="425" y="55" width="1024" height="845" key="SettingsEditor" timestamp="1579597299258">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="448" y="95" key="SettingsEditor/0.0.1920.1035@0.0.1920.1035" timestamp="1578922025214" />
     <state x="425" y="55" width="1024" height="845" key="SettingsEditor/67.27.1533.873@67.27.1533.873" timestamp="1579597299258" />
+=======
+    <state x="448" y="95" key="SettingsEditor" timestamp="1579187866486">
+      <screen x="0" y="0" width="1920" height="1035" />
+    </state>
+    <state x="448" y="95" key="SettingsEditor/0.0.1920.1035@0.0.1920.1035" timestamp="1579187866486" />
+>>>>>>> congress
     <state x="553" y="216" key="SpringBootCustomization" timestamp="1578920713452">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state x="553" y="216" key="SpringBootCustomization/0.0.1920.1035@0.0.1920.1035" timestamp="1578920713452" />
-    <state x="560" y="242" key="Vcs.Push.Dialog.v2" timestamp="1578927169017">
+    <state x="560" y="242" key="Vcs.Push.Dialog.v2" timestamp="1578928925577">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
+<<<<<<< HEAD
     <state x="560" y="242" key="Vcs.Push.Dialog.v2/0.0.1920.1035@0.0.1920.1035" timestamp="1578927169017" />
     <state x="487" y="80" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1579190123620">
       <screen x="67" y="27" width="1533" height="873" />
@@ -246,5 +405,17 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="496" y="212" width="672" height="678" key="search.everywhere.popup/67.27.1533.873@67.27.1533.873" timestamp="1579511168678" />
+=======
+    <state x="560" y="242" key="Vcs.Push.Dialog.v2/0.0.1920.1035@0.0.1920.1035" timestamp="1578928925577" />
+    <state x="698" y="284" key="extract.method.dialog" timestamp="1579505854195">
+      <screen x="0" y="0" width="1920" height="1035" />
+    </state>
+    <state x="698" y="284" key="extract.method.dialog/0.0.1920.1035@0.0.1920.1035" timestamp="1579505854195" />
+    <state x="537" y="219" width="842" height="804" key="search.everywhere.popup" timestamp="1579092437420">
+      <screen x="0" y="0" width="1920" height="1035" />
+    </state>
+    <state x="537" y="219" width="842" height="804" key="search.everywhere.popup/0.0.1920.1035@0.0.1920.1035" timestamp="1579092437420" />
+    <state x="496" y="212" width="672" height="678" key="search.everywhere.popup/67.27.1533.873@67.27.1533.873" timestamp="1578651656507" />
+>>>>>>> congress
   </component>
 </project>
