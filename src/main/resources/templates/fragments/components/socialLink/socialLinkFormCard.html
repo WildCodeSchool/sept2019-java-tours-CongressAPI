@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div class="card" id="dataform" th:fragment="socialLinkFormCard">
+	<h3 class="card-title">Social Link</h3>
+	<div class="card-content">
+		<form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="${httpMethod}"
+			th:object="${newSocialLink}"> 
+			<span th:errors="*{socialLink}" th:if="${#fields.hasErrors('social_link_url')}">Url Error</span>
+			<label for="social_link_url">Url</label>
+			<input id="social_link_url" th:field="*{social_link_url}" type="url"/>
+			
+			 <span th:errors="*{logo_url}" th:if="${#fields.hasErrors('logo_url')}">Url Error</span>
+            <label for="logo_url">Logo</label>
+            <input id="logo" name="logo" th:field="*{logo}" type="file"/><br>
+			
+						<input type="submit" value="add social link">
+			
+		</form>
+	</div>
+</div>
+</html>
+			

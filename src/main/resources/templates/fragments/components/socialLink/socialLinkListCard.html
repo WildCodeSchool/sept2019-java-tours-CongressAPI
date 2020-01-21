@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div class="card" id="congress-viewList" th:fragment="socialLinkListCard">
+    <h3 class="card-title">Poster</h3>
+    <div class="card-content" id="congress-show">
+        <ul>
+            <li th:each="socialLink : ${socialLinkList}">
+                <ul style="display:flex;">
+                    <li th:text="${socialLink.social_link_url}"></li>
+                    <li><a th:href="@{'/congress/{id}/socialLink/{idSocialLink}(id=${congress.id},idSocialLink=${)' + }"> Go to Social Link</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+</html>

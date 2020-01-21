@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.congress.entity.SocialLink;
 import com.congress.repository.SocialLinkRepository;
+import com.congress.storage.StorageService;
 
 @Controller
 @RequestMapping("congress/{congressId}/socialLink")
@@ -26,6 +27,11 @@ public class SocialLinkController {
 	@Autowired
 	private SocialLinkRepository sociallinkRepository;
 	
+	private StorageService storageService;
+	@Autowired
+    public void FileUploadController(StorageService storageService) {
+        this.storageService = storageService;
+    }
 	/**
      * This controller display the list of social link
      *
@@ -74,6 +80,10 @@ public class SocialLinkController {
 			model.addAttribute("newSocialLink", currentSocialLink);
 			return "pages/socialLink/socialLinkFormView";
 		}
+		storageService.store(currentSocialLink.getLogo());
+		storageService.store(currentSocialLink.getSocial_link_url());
+		currentSocialLink.setLogo_url("/files/" + currentSocialLink.getLogo().getOriginalFilename());
+		
 		currentSocialLink = sociallinkRepository.save(currentSocialLink);
 		return "redirect:/congress/"+congressId+"/socialLink/" + currentSocialLink.getId();
 	}
@@ -127,10 +137,10 @@ public class SocialLinkController {
     	if (!model.containsAttribute("newSocial"))
     		model.addAttribute("newSocialLink", newSocialLink);
     	model.addAttribute("httpMethod", "PUT");
-    	model.addAttribute("pathMethod", "/sociallink/" + id);
+    	model.addAttribute("pathMethod", "/socialLink/" + id);
     	model.addAttribute("pageTitle", "Update " + newSocialLink.getSocial_link_url());
     	
-    	return "pages/sociallink/socialLinkFormView";
+    	return "pages/socialLink/socialLinkFormView";
     }
      
      /**
@@ -142,10 +152,9 @@ public class SocialLinkController {
       */
      @GetMapping("/create")
      public String createSocialLinkForm(@PathVariable long congressId, Model model) throws Exception {
-    	 model.addAttribute("httpMethod", "POST");
-    	 model.addAttribute("pathMethod", "/congress/"+congressId+"/sociallink");
+    	 model.addAttribute("pathMethod", "/congress/"+congressId+"/socialLink/create");
     	 model.addAttribute("newSocialLink", new SocialLink());
-    	 return "pages/sociallink/socialLinkFormView";
+    	 return "pages/socialLink/socialLinkFormView";
      }
 	
 }
