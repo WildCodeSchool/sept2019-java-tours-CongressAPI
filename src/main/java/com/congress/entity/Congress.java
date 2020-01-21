@@ -9,7 +9,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -18,7 +20,7 @@ public class Congress {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@Size(min = 3, max = 256, message = "Test de fdp enculé de ta mere pk tu marche pas sacré tchoin")
+	@Size(min = 3, max = 256)
 	@NotNull
 	private String name;
 
@@ -54,6 +56,21 @@ public class Congress {
 	@JsonIgnore
 	private MultipartFile logo;
 
+	@OneToMany
+	private List<About> abouts;
+
 	public Congress() {
+		this.abouts = new ArrayList<>();
 	}
+
+	public void addAbout(About about) {
+		about.setCongress(this);
+		this.abouts.add(about);
+	}
+
+	public void removeAbout(About toDelete) {
+		toDelete.setCongress(null);
+		this.abouts.remove(toDelete);
+	}
+
 }
