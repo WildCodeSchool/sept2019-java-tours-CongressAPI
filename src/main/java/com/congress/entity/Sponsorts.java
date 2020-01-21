@@ -17,6 +17,7 @@ public class Sponsorts {
     private long id;
     @Size(min = 3, max = 255)
     private String name;
+
     private String logo_url;
     @Transient
     @JsonIgnore
