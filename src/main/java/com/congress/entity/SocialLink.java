@@ -4,11 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import lombok.Data;
+@Data
 @Entity
 public class SocialLink {
 	
@@ -19,6 +22,8 @@ public class SocialLink {
 	private String logo_url;
 	
 	private String social_link_url;
+	@ManyToOne
+	private Congress congress;
 	
 	@Transient
 	private MultipartFile logo;
@@ -54,6 +59,6 @@ public class SocialLink {
 	public void setLogo(MultipartFile logo) {
 		this.logo = logo;
 	}
-	
 
-}
+	}
+

@@ -62,20 +62,23 @@ public class SocialLinkController {
      */
 	@GetMapping("/{id}")
 	public String getSocialLink(@PathVariable long congressId,@PathVariable long id, Model model) throws Exception {
-		Optional<SocialLink> finded = sociallinkRepository.findById(id);
-		SocialLink currentSocialLink ;
+		Optional<Congress> finded = congressRepository.findById(congressId);
+		Congress currentCongress = finded.get() ;
 		if (finded.isPresent()) {
-			currentSocialLink = finded.get();
+			currentCongress = finded.get();
 	}	else {
 		throw new Exception("Can't find social link with id=\" + id);");
 	}
-		SocialLink currentsocialLink = null;
-		for(SocialLink socialLink : currentCongress.getSocialLink()) {
-			if (socialLink.getId() == id)
+		SocialLink currentSocialLink = null;
+		for(SocialLink socialLink : currentCongress.getSocialLinks()) {	
+			if (socialLink.getId() == id) {
 				currentSocialLink = socialLink;
+			}
 		}
-		if (currentSocialLink == null)
-			throw new NotFoundException("Can't find social link with id: " + id);	
+
+		if (currentSocialLink == null) {
+			throw new NotFoundException("Can't find social link : " + id);
+		}
 		model.addAttribute("socialLink", currentSocialLink);
 		model.addAttribute("pageTitle", "SocialLink" + currentSocialLink.getId());
 		return "pages/socialLink/socialLinkListView";
@@ -88,7 +91,7 @@ public class SocialLinkController {
      * @return Redirect to the social link view
      */
 	@PostMapping("/create")
-	public String createSocialLink(@PathVariable long congressId, @Valid @ModelAttribute("newSocialLink") SocialLink currentSocialLink, BindingResult binding, Model model) {
+	public String createSocialLink(@PathVariable long congressId, @Valid @ModelAttribute("newSocialLink") SocialLink currentSocialLink, BindingResult binding, Model model) throws NotFoundException {
 		if(binding.hasErrors() ) {
 			model.addAttribute("httpMethod", "POST");
 			model.addAttribute("pathMethod", "/socialLink");
@@ -96,7 +99,6 @@ public class SocialLinkController {
 			return "pages/socialLink/socialLinkFormView";
 		}
 		storageService.store(currentSocialLink.getLogo());
-		storageService.store(currentSocialLink.getSocial_link_url());
 		
 		currentSocialLink.setLogo_url("/files/" + currentSocialLink.getLogo().getOriginalFilename());
 		 Congress currentCongress = congressRepository.findById(congressId).orElseThrow(() -> new NotFoundException("Can't find congress with id:" + congressId));

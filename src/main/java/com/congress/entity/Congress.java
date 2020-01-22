@@ -4,9 +4,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Congress {
@@ -40,6 +44,12 @@ public class Congress {
 	@Column(length = 1000)
 	private String description;
 
+	@OneToMany
+	private List<SocialLink> socialLinks;
+	public Congress() {
+		this.socialLinks = new ArrayList<>();
+	}
+	
 	public String getDescription() {
 		return this.description;
 	}
@@ -142,4 +152,16 @@ public class Congress {
 	public void setBanner(MultipartFile banner) {
 		this.banner = banner;
 	}
+
+	public void addSocialLink(SocialLink currentSocialLink) {
+		// TODO Auto-generated method stub
+		currentSocialLink.setCongress(this);
+		this.socialLinks.add(currentSocialLink);
+	}
+	public void removeSocialLink(SocialLink toDelete) {
+		
+		toDelete.setCongress(null);
+		this.socialLinks.remove(toDelete);
+	}
+	
 }
