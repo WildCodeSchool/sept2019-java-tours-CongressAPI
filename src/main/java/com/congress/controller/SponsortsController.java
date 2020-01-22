@@ -43,9 +43,9 @@ public class SponsortsController {
      * @return Template of sponsorts view list
      */
 
-    @GetMapping("/sponsorts")
+    @GetMapping
     public String getSponsors(@PathVariable long congressId, Model model){
-        model.addAttribute("sponsortsList", congressRepository.findById(congressId).get());
+        model.addAttribute("congress", congressRepository.findById(congressId).get());
         model.addAttribute("pageTitle", "List Sponsorts");
         return"pages/sponsorts/sponsortsListView";
 
@@ -60,8 +60,8 @@ public class SponsortsController {
      * @return
      * @throws Exception
      */
-    @GetMapping("/sponsorts/{id}")
-    public String getSponsorts(@PathVariable Long congressId, @PathVariable long id, Model model)throws Exception {
+    @GetMapping("/{id}")
+    public String getSponsorts(@PathVariable long congressId, @PathVariable long id, Model model)throws Exception {
         Optional<Congress> finded = congressRepository.findById(congressId);
         Congress currentCongress= finded.get();
         if (finded.isPresent()){
@@ -101,6 +101,7 @@ public class SponsortsController {
         }
         Congress currentCongress = congressRepository.findById(congressId).orElseThrow(() -> new NotFoundException("Can't find congress with id:" + congressId));
         currentCongress.addSponsorts(currentSponsorts);
+        sponsortsRepository.save(currentSponsorts);
         congressRepository.save(currentCongress);
         return "redirect:/congress/" + congressId + "/sponsorts/"+ currentSponsorts.getId();
     }
@@ -152,6 +153,7 @@ public class SponsortsController {
     }
     @GetMapping("/create")
     public String createSponsortsForm(@PathVariable long congressId, Model model) throws Exception{
+        model.addAttribute("httpMethod", "PUT");
         model.addAttribute("pathMethod","/congress/" + congressId +"/sponsorts/create");
         model.addAttribute("newSponsorts", new Sponsorts());
         return "pages/sponsorts/sponsortsFormView";

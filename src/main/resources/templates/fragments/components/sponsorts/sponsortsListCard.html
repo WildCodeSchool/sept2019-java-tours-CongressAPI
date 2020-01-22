@@ -6,17 +6,17 @@
     <h3 class="card-title">Sponsors</h3>
     <div class="card-content" id="congress-show">
         <ul>
-            <li th:each="sponsorts : ${sponsortsList}">
+            <li th:each="sponsorts : ${congress.sponsort}">
                 <ul style="display:flex;">
                     <li th:text="${sponsorts.name}"></li>
-                    <li img alt="" id="congress-show-logo" src="#" th:src="${currentSponsorts.logo_url}"></li>
+                    <li img alt="" id="congress-show-logo" src="#" th:src="${sponsorts.logo_url}"></li>
                     <li th:text="${sponsorts.address}"></li>
                     <li th:text="${sponsorts.city}"></li>
                     <li th:text="${sponsorts.contact}"></li>
                     <li th:text="${sponsorts.phone}"></li>
                     <li th:text="${sponsorts.mail}"></li>
                     <li th:text="${sponsorts.website_url}"></li>
-                    <span id="congress-show-location" th:text="${currentSponsorts.location}"></span>
+                    <span id="congress-show-location" th:text="${sponsorts.location}"></span>
                     <li><a th:href="@{'/congress/' + ${congress.id}}">Go to congress</a></li>
                 </ul>
         </ul>
@@ -25,4 +25,4 @@
         </ul>
     </div>
 </div>
-</html
+</html>

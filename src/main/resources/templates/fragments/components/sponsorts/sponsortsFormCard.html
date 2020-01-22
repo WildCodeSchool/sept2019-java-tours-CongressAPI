@@ -8,7 +8,6 @@
     <div class="card-content">
         <form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="${httpMethod}"
               th:object="${newSponsorts}">
-            <input name="_method" type="hidden" value="PUT"/>
 
             <span th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Name Error</span>
             <label for="name">Name</label>
