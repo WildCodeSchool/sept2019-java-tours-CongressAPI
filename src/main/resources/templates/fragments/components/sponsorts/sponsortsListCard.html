@@ -6,7 +6,7 @@
     <h3 class="card-title">Sponsors</h3>
     <div class="card-content" id="congress-show">
         <ul>
-            <li th:each="sponsorts : ${congress.sponsort}">
+            <li th:each="sponsorts : ${sponsortsList}">
                 <ul style="display:flex;">
                     <li th:text="${sponsorts.name}"></li>
                     <li img alt="" id="congress-show-logo" src="#" th:src="${sponsorts.logo_url}"></li>
@@ -17,7 +17,6 @@
                     <li th:text="${sponsorts.mail}"></li>
                     <li th:text="${sponsorts.website_url}"></li>
                     <span id="congress-show-location" th:text="${sponsorts.location}"></span>
-                    <li><a th:href="@{'/congress/' + ${congress.id}}">Go to congress</a></li>
                 </ul>
         </ul>
 

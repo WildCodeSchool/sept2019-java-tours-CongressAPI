@@ -18,7 +18,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("congress/{congressId}/sponsorts")
+@RequestMapping("sponsorts")
 public class SponsortsController {
 
     @Autowired
@@ -44,8 +44,10 @@ public class SponsortsController {
      */
 
     @GetMapping
-    public String getSponsors(@PathVariable long congressId, Model model){
-        model.addAttribute("congress", congressRepository.findById(congressId).get());
+    public String getSponsors(Model model){
+        model.addAttribute("sponsortsList", sponsortsRepository.findAll());
+
+        model.addAttribute("page", "sponsort");
         model.addAttribute("pageTitle", "List Sponsorts");
         return"pages/sponsorts/sponsortsListView";
 
@@ -54,31 +56,20 @@ public class SponsortsController {
     /**
      * this controller display specific description in sponsors
      *
-     * @param congressId
      * @param id
      * @param model
      * @return
      * @throws Exception
      */
     @GetMapping("/{id}")
-    public String getSponsorts(@PathVariable long congressId, @PathVariable long id, Model model)throws Exception {
-        Optional<Congress> finded = congressRepository.findById(congressId);
-        Congress currentCongress= finded.get();
-        if (finded.isPresent()){
-            currentCongress = finded.get();
-        }else {
-            throw new Exception("Filed empty, please write a comment");
-        }
-        Sponsorts currentSponsorts = null;
-        for(Sponsorts sponsorts : currentCongress.getSponsort()){
-            if (sponsorts.getId() == id){
-                currentSponsorts = sponsorts;
-            }
-        }
+    public String getSponsorts(@PathVariable long id, Model model)throws Exception {
+        Optional<Sponsorts> finded = sponsortsRepository.findById(id);
+        Sponsorts currentSponsorts = finded.get();
         if (currentSponsorts == null){
             throw new NotFoundException("Can't find sponsorts with : " + id);
         }
-        model.addAttribute("sponsorts",currentSponsorts);
+        model.addAttribute("currentSponsorts",currentSponsorts);
+        model.addAttribute("page", "sponsort");
         model.addAttribute("pageTitle","Sponsorts" + currentSponsorts.getName());
         return "pages/sponsorts/sponsortsMainView";
 
@@ -87,23 +78,19 @@ public class SponsortsController {
     /**
      * this controller is used to create a new sponsor
      *
-     * @param congressId     this id is used to connect with the current conress
      * @param model          this id is used for update Sponsors
      * @return               redirect to Sponsors view
      */
     @PostMapping("/create")
-    public String createSponsorts(@PathVariable long congressId, @Valid @ModelAttribute("newSponsorts") Sponsorts currentSponsorts, BindingResult bindingSponsors, Model model) throws NotFoundException {
+    public String createSponsorts(@Valid @ModelAttribute("newSponsorts") Sponsorts currentSponsorts, BindingResult bindingSponsors, Model model) throws NotFoundException {
         if(bindingSponsors.hasErrors()){
             model.addAttribute("httpMethod","POST");
-            model.addAttribute("pathMethod", "/congress/" + congressId +"/sponsorts/create");
+            model.addAttribute("pathMethod", "/sponsorts/create");
             model.addAttribute("newSponsors", currentSponsorts);
             return "pages/sponsorts/sponsortsFormView";
         }
-        Congress currentCongress = congressRepository.findById(congressId).orElseThrow(() -> new NotFoundException("Can't find congress with id:" + congressId));
-        currentCongress.addSponsorts(currentSponsorts);
         sponsortsRepository.save(currentSponsorts);
-        congressRepository.save(currentCongress);
-        return "redirect:/congress/" + congressId + "/sponsorts/"+ currentSponsorts.getId();
+        return "redirect:/sponsorts/"+ currentSponsorts.getId();
     }
 
 
@@ -115,13 +102,10 @@ public class SponsortsController {
      * @return                  redirect to the home page
      */
     @GetMapping("/{id}/delete")
-    public String deleteSponsorts(@PathVariable long congressId, @PathVariable long id, @ModelAttribute Sponsorts currentSponsorts)throws NotFoundException{
-        Congress currentCongress = congressRepository.findById(congressId)
-                .orElseThrow(() -> new NotFoundException("Can't find congress with id:" + congressId));
+    public String deleteSponsorts(@PathVariable long id, @ModelAttribute Sponsorts currentSponsorts)throws NotFoundException{
         Sponsorts toDelete = sponsortsRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Can't find sponsorts with id: " + id));
-        currentCongress.removeSponsorts(toDelete);
-        congressRepository.save(currentCongress);
+        sponsortsRepository.delete(toDelete);
         return "redirect:/";
     }
 
@@ -135,7 +119,7 @@ public class SponsortsController {
      */
 
     @GetMapping("/{id}/edit")
-    public String updateSponsortsForm(@PathVariable long congressId, @PathVariable Long id, Model model) throws Exception{
+    public String updateSponsortsForm(@PathVariable Long id, Model model) throws Exception{
         Sponsorts newSponsorts;
         Optional<Sponsorts> finded = sponsortsRepository.findById(id);
         if (finded.isPresent()){
@@ -146,18 +130,23 @@ public class SponsortsController {
         if (!model.containsAttribute("newSponsorts")){
             model.addAttribute("newSponsorts", newSponsorts);
         }
-        model.addAttribute("pathMethod","congress/" + congressId + "/sponsorts/" + id +"/edit");
+        model.addAttribute("page", "sponsort");
+        model.addAttribute("pathMethod", "/sponsorts/" + id +"/edit");
         model.addAttribute("pageTitle", "Update " + newSponsorts.getName());
 
         return "pages/sponsorts/sponsortsFormView";
     }
     @GetMapping("/create")
-    public String createSponsortsForm(@PathVariable long congressId, Model model) throws Exception{
+    public String createSponsortsForm(Model model) throws Exception{
         model.addAttribute("httpMethod", "PUT");
-        model.addAttribute("pathMethod","/congress/" + congressId +"/sponsorts/create");
+        model.addAttribute("page", "sponsort");
+        model.addAttribute("pathMethod", "/sponsorts/create");
         model.addAttribute("newSponsorts", new Sponsorts());
         return "pages/sponsorts/sponsortsFormView";
     }
-
-}
+    @PostMapping("/{id}/linktocongress")
+    public String linkToCongress(@PathVariable long id, long congressId) throws Exception{
+        sponsortsRepository.findById(id).get().addCongress(congressRepository.findById(congressId).get());
+        return "redirect:/sponsorts/" + id;
+    }
 

@@ -59,7 +59,7 @@ public class Congress {
 	@OneToMany
 	private List<About> abouts;
 
-	@OneToMany
+	@ManyToMany
 	private List<Sponsorts> sponsort;
 
 	public Congress() {
@@ -77,11 +77,9 @@ public class Congress {
 		this.abouts.remove(toDelete);
 	}
 	public  void addSponsorts(Sponsorts sponsorts){
-		sponsorts.setCongress(this);
 		this.sponsort.add(sponsorts);
 	}
 	public void removeSponsorts(Sponsorts toDelete){
-		toDelete.setCongress(null);
 		this.sponsort.remove(toDelete);
 	}
 

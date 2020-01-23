@@ -7,6 +7,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -31,7 +33,19 @@ public class Sponsorts {
     private String mail;
     private String website_url;
 
-    @ManyToOne
-    private Congress congress;
+    @ManyToMany
+    private List<Congress> congress;
+
+    public Sponsorts(){
+        this.congress = new ArrayList<>();
+    }
+    public void addCongress (Congress congress){
+        congress.addSponsorts(this);
+        this.congress.add(congress);
+    }
+    public void removeCongress(Congress toDelete){
+        toDelete.removeSponsorts(this);
+        this.congress.remove(toDelete);
+    }
 
 }

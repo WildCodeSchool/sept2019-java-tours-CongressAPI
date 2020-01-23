@@ -33,7 +33,8 @@ public class AboutController {
      */
     @GetMapping
     public String getAbout(@PathVariable long congressId, Model model) {
-        model.addAttribute("congress", congressRepository.findById(congressId).get());
+        model.addAttribute("page", "about");
+        model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
         model.addAttribute("pageTitle", "About");
         return "/pages/about/aboutListView";
     }
@@ -57,6 +58,7 @@ public class AboutController {
         }
         if (currentAbout == null)
             throw new NotFoundException("Can't find about with id: " + id);
+        model.addAttribute("page", "abouts");
         model.addAttribute("about", currentAbout);
         model.addAttribute("pageTitle", "About" + currentAbout.getTitle());
         return "pages/about/aboutOneDescription";
@@ -125,11 +127,15 @@ public class AboutController {
         }
         model.addAttribute("pathMethod", "congress/" + congressId + "/about/" + id + "/edit");
         model.addAttribute("pageTitle", "Update " + newAbout.getTitle());
+        model.addAttribute("page", "about");
+        model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
 
         return "pages/about/aboutFormView";
     }
     @GetMapping("/create")
     public String createAboutForm(@PathVariable long congressId, Model model) throws Exception{
+        model.addAttribute("page", "about");
+        model.addAttribute("currentCongress", congressRepository.findById(congressId));
         model.addAttribute("pathMethod", "/congress/"+ congressId +"/about/create");
         model.addAttribute("newAbout", new About());
         return "pages/about/aboutFormView";

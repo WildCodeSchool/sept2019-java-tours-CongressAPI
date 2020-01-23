@@ -5,11 +5,11 @@
         <div class="card-content" id="congress-show">
             <ul>
                 <!--/*@thymesVar id="congressList" type=""*/-->
-                <li th:each="about : ${congress.abouts}">
+                <li th:each="about : ${currentCongress.abouts}">
                     <ul style="display:flex;">
                         <li th:text="${about.title}"></li>
                         <li th:text="${about.description}"></li>
-                        <li><a th:href="@{'/congress/' + ${congress.id}}">Go to congress</a></li>
+                        <li><a th:href="@{'/congress/' + ${currentCongress.id}}">Go to congress</a></li>
                     </ul>
                 </li>
             </ul>
