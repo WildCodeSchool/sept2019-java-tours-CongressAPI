@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="pathMethod" type="java.lang.String"*/-->
+<!--/*@thymesVar id="httpMethod" type="java.lang.String"*/-->
+<!--/*@thymesVar id="currentSponsorts" type="com.congress.entity.Sponsorts"*/-->
+<!--/*@thymesVar id="congressList" type="com.congress.entity.Congress"*/-->
+<!--/*@thymesVar id="currentSponsorts" type="java.util.List<com.congress.entity.Sponsorts>"*/-->
+
+<div class="card" id="sponsorts-linked-list" th:fragment="sponsortsLinkedListCard">
+    <h3 class="card-title">Linked congress</h3>
+    <div class="card-content">
+        <ul>
+            <li th:each="congress : ${currentSponsorts.congress}">
+                <span th:text="${congress.name}"></span>
+                <a th:href="@{'/sponsorts/' + ${currentSponsorts.id} + '/unlinktocongress'}">Unlink</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</html>

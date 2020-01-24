@@ -340,19 +340,18 @@
         }
 
         #congress-view-container {
-            grid-template:  "congressview congressview"
-                            "congressdetails congressdata"
-                            "congressdetails congressdata"
-                            "congressdetails congressdata"
-                            "congressdetails congressdata"
+            grid-template: "congressview congressview" "congressdetails congressdata" "congressdetails congressdata" "congressdetails congressdata" "congressdetails congressdata"
         }
-        #congress-viewList-container{
-                  grid-template:  "congressviewlist"
+
+        #congress-viewList-container {
+            grid-template: "congressviewlist"
         }
-                #congress-viewList {
-                    grid-area: congressviewlist;
-                    background-color: white;
-                }
+
+        #congress-viewList {
+            grid-area: congressviewlist;
+            background-color: white;
+        }
+
         #congress-view {
             grid-area: congressview;
             background-color: white;
@@ -416,12 +415,31 @@
             justify-content: space-around;
             grid-area:update;
         }
-        #congress-show-desc{
-            grid-area:desc;
+
+        #congress-show-desc {
+            grid-area: desc;
         }
-        hr{
-        	border:none;
+
+        hr {
+            border: none;
         }
-        .nav-item.active{
-             background-color: #59ca88;
+
+        .nav-item.active {
+            background-color: #59ca88;
+        }
+
+        #sponsorts-view-container {
+            grid-template-areas: "sponsorts-view sponsorts-view sponsorts-linked-list" "sponsorts-link-form . sponsorts-linked-list";
+        }
+
+        #sponsorts-link-form {
+            grid-area: sponsorts-link-form;
+        }
+
+        #sponsorts-view {
+            grid-area: sponsorts-view;
+        }
+
+        #sponsorts-linked-list {
+            grid-area: sponsorts-linked-list;
         }
