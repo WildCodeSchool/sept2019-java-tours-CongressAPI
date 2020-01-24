@@ -7,8 +7,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -33,17 +33,19 @@ public class Sponsorts {
     private String mail;
     private String website_url;
 
-    @ManyToMany
-    private List<Congress> congress;
+    @ManyToMany(mappedBy = "sponsort")
+    private Set<Congress> congress;
 
-    public Sponsorts(){
-        this.congress = new ArrayList<>();
+    public Sponsorts() {
+        this.congress = new HashSet<>();
     }
-    public void addCongress (Congress congress){
+
+    public void addCongress(Congress congress) {
         congress.addSponsorts(this);
         this.congress.add(congress);
     }
-    public void removeCongress(Congress toDelete){
+
+    public void removeCongress(Congress toDelete) {
         toDelete.removeSponsorts(this);
         this.congress.remove(toDelete);
     }

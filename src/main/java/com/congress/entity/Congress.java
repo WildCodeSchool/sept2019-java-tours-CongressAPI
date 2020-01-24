@@ -9,9 +9,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -57,14 +57,14 @@ public class Congress {
 	private MultipartFile logo;
 
 	@OneToMany
-	private List<About> abouts;
+	private Set<About> abouts;
 
 	@ManyToMany
-	private List<Sponsorts> sponsort;
+	private Set<Sponsorts> sponsort;
 
 	public Congress() {
-		this.abouts = new ArrayList<>();
-		this.sponsort = new ArrayList<>();
+		this.abouts = new HashSet<>();
+		this.sponsort = new HashSet<>();
 	}
 
 	public void addAbout(About about) {
@@ -76,11 +76,17 @@ public class Congress {
 		toDelete.setCongress(null);
 		this.abouts.remove(toDelete);
 	}
-	public  void addSponsorts(Sponsorts sponsorts){
+
+	public void addSponsorts(Sponsorts sponsorts) {
 		this.sponsort.add(sponsorts);
 	}
-	public void removeSponsorts(Sponsorts toDelete){
+
+	public void removeSponsorts(Sponsorts toDelete) {
 		this.sponsort.remove(toDelete);
 	}
 
+	@Override
+	public int hashCode() {
+		return (int) this.id;
+	}
 }

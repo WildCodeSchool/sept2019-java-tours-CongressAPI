@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<div class="card" id="dataform" th:fragment="aboutFormCard">
+<div class="card" id="about-form" th:fragment="aboutFormCard">
     <h3 class="card-title">About</h3>
     <div class="card-content">
-        <form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="POST"
+        <form enctype="multipart/form-data" th:action="@{'/congress/'+ ${currentCongress.id}+ '/about/create'}" th:method="POST"
               th:object="${newAbout}">
-            <input name="_method" type="hidden" value="PUT"/>
 
             <span th:errors="*{title}" th:if="${#fields.hasErrors('title')}">Title Error</span>
             <label for="title">Title</label>
