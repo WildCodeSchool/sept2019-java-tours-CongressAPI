@@ -161,7 +161,6 @@ public class SponsortsController {
         Congress cong = congressRepository.findById(congressId).get();
         Sponsorts spon = sponsortsRepository.findById(id).get();
         spon.removeCongress(cong);
-        sponsortsRepository.save(spon);
         congressRepository.save(cong);
 
         return "redirect:/sponsorts/" + id;
