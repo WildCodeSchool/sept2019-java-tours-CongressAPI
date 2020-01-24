@@ -40,6 +40,7 @@ public class CongressController {
      */
     @GetMapping("/create")
     public String createCongressForm(Model model) throws Exception {
+        model.addAttribute("page", "congressListPage");
         model.addAttribute("pathMethod", "/congress/create");
         model.addAttribute("newCongress", new Congress());
         return "pages/congress/congressFormView";
@@ -78,6 +79,7 @@ public class CongressController {
             currentCongress = finded.get();
         else
             throw new Exception("Can't find congress with id=" + id);
+        model.addAttribute("page", "congress");
         model.addAttribute("currentCongress", currentCongress);
         model.addAttribute("pageTitle", "Congress" + currentCongress.getName());
         return "pages/congress/congressMainView";
@@ -91,6 +93,7 @@ public class CongressController {
      */
     @GetMapping
     public String getCongressList(Model model) {
+        model.addAttribute("page", "congressListPage");
         model.addAttribute("congressList", congressRepository.findAll());
         model.addAttribute("pageTitle", "List Congress");
         return "pages/congress/congressListView";
@@ -134,6 +137,7 @@ public class CongressController {
         }
         if (!model.containsAttribute("newCongress"))
             model.addAttribute("newCongress", newCongress);
+        model.addAttribute("page", "congress");
         model.addAttribute("pathMethod", "/congress/" + id);
         model.addAttribute("pageTitle", "Update " + newCongress.getName());
         return "pages/congress/congressFormView";

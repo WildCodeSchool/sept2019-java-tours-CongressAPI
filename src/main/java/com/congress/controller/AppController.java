@@ -26,6 +26,8 @@ public class AppController {
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("pageTitle", "Accueil");
+        model.addAttribute("page", "accueil");
+
         return "pages/index";
     }
 

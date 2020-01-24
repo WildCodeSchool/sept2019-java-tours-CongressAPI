@@ -28,14 +28,15 @@
             display: grid;
             grid-area: main;
             background-color: #f1f2f6;
-            grid-template: "actuality actuality congress""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar";
             grid-gap: 1rem;
             padding: 1rem;
             grid-auto-columns: 1fr;
-            grid-auto-rows: auto;
+            grid-auto-rows: 1fr;
             grid-auto-flow: column;
         }
-
+        #home{
+                    grid-template: "actuality actuality congress""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar";
+        }
         #actuality .card-content {
             display: flex;
             align-items: flex-start;
@@ -63,9 +64,14 @@
         }
 
         .nav-item {
-            padding: 1rem 0.5rem;
         }
+        .nav-item a{
+            width:100%;
+            height:100%;
+            display:block;
+                        padding: 1rem 0.5rem;
 
+        }
         .nav-item.selected {
             background-color: #59ca88;
         }
@@ -335,19 +341,18 @@
         }
 
         #congress-view-container {
-            grid-template:  "congressview congressview"
-                            "congressdetails congressdata"
-                            "congressdetails congressdata"
-                            "congressdetails congressdata"
-                            "congressdetails congressdata"
+            grid-template: "congressview congressview" "congressdetails congressdata" "congressdetails congressdata" "congressdetails congressdata" "congressdetails congressdata"
         }
-        #congress-viewList-container{
-                  grid-template:  "congressviewlist"
+
+        #congress-viewList-container {
+            grid-template: "congressviewlist"
         }
-                #congress-viewList {
-                    grid-area: congressviewlist;
-                    background-color: white;
-                }
+
+        #congress-viewList {
+            grid-area: congressviewlist;
+            background-color: white;
+        }
+
         #congress-view {
             grid-area: congressview;
             background-color: white;
@@ -411,9 +416,46 @@
             justify-content: space-around;
             grid-area:update;
         }
-        #congress-show-desc{
-            grid-area:desc;
+
+        #congress-show-desc {
+            grid-area: desc;
         }
-        hr{
-        	border:none;
+
+        hr {
+            border: none;
+        }
+
+        .nav-item.active {
+            background-color: #59ca88;
+        }
+
+        #sponsorts-view-container {
+            grid-template-areas: "sponsorts-view sponsorts-view sponsorts-linked-list" "sponsorts-link-form . sponsorts-linked-list";
+        }
+
+        #sponsorts-link-form {
+            grid-area: sponsorts-link-form;
+        }
+
+        #sponsorts-view {
+            grid-area: sponsorts-view;
+        }
+
+        #sponsorts-linked-list {
+            grid-area: sponsorts-linked-list;
+        }
+        #about-viewList-container{
+            grid-template-areas :   "about-viewList about-viewList about-form"
+                                    "about-viewList about-viewList ."
+                                    "about-viewList about-viewList .";
+        }
+        #about-viewList{
+            grid-area:about-viewList;
+        }
+        #about-form{
+            grid-area:about-form;
+        }
+        #about-form form{
+            display:flex;
+            flex-direction: column;
         }

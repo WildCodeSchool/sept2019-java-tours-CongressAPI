@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<div class="card" id="congress-viewList" th:fragment="aboutListCard">
-    <h3 class="card-title">About</h3>
-    <div class="card-content" id="congress-show">
-        <ul>
-            <!--/*@thymesVar id="congressList" type=""*/-->
-            <li th:each="about : ${congress.abouts}">
-                <ul style="display:flex;">
-                    <li th:text="${about.title}"></li>
-                    <li th:text="${about.description}"></li>
-                    <li><a th:href="@{'/congress/' + ${congress.id}}">Go to congress</a></li>
-                </ul>
-            </li>
-        </ul>
+    <div class="card" id="about-viewList" th:fragment="aboutListCard">
+        <h3 class="card-title">About</h3>
+        <div class="card-content" id="about-show">
+            <ul>
+                <!--/*@thymesVar id="congressList" type=""*/-->
+                <li th:each="about : ${currentCongress.abouts}">
+                    <ul style="display:flex;">
+                        <li th:text="${about.title}"></li>
+                        <li th:text="${about.description}"></li>
+                        <li><a th:href="@{'/congress/' + ${currentCongress.id}}">Go to congress</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
 </html>
