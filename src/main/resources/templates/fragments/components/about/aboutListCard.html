@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <div class="card" id="congress-viewList" th:fragment="aboutListCard">
+    <div class="card" id="about-viewList" th:fragment="aboutListCard">
         <h3 class="card-title">About</h3>
-        <div class="card-content" id="congress-show">
+        <div class="card-content" id="about-show">
             <ul>
                 <!--/*@thymesVar id="congressList" type=""*/-->
                 <li th:each="about : ${currentCongress.abouts}">
