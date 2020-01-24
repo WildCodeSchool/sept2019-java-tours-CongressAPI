@@ -33,7 +33,7 @@ public class SocialLinkController {
     private CongressRepository congressRepository;
 	
 	@Autowired
-	private SocialLinkRepository sociallinkRepository;
+	private SocialLinkRepository socialLinkRepository;
 	
 	private StorageService storageService;
 	@Autowired
@@ -48,8 +48,10 @@ public class SocialLinkController {
      */
 	@GetMapping
 	public String getSocialLink(@PathVariable long congressId, Model model) {
-		model.addAttribute("congress", congressRepository.findById(congressId).get());
+		model.addAttribute("page","socialLink");
+		model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
 		model.addAttribute("pageTitle", "SocialLink");
+		model.addAttribute("newSocialLink", new SocialLink());
 		return "pages/socialLink/socialLinkListView";
 	}
 	 /**
@@ -69,16 +71,18 @@ public class SocialLinkController {
 	}	else {
 		throw new Exception("Can't find social link with id=\" + id);");
 	}
-		SocialLink currentSocialLink = null;
-		for(SocialLink socialLink : currentCongress.getSocialLinks()) {	
-			if (socialLink.getId() == id) {
-				currentSocialLink = socialLink;
-			}
+	SocialLink currentSocialLink = null;
+	for(SocialLink socialLink : currentCongress.getSocialLinks()) {
+		if (socialLink.getId() == id) {
+			currentSocialLink = socialLink;
+		}
 		}
 
 		if (currentSocialLink == null) {
 			throw new NotFoundException("Can't find social link : " + id);
 		}
+		model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
+		model.addAttribute("page","socialLinks");
 		model.addAttribute("socialLink", currentSocialLink);
 		model.addAttribute("pageTitle", "SocialLink" + currentSocialLink.getId());
 		return "pages/socialLink/socialLinkListView";
@@ -94,20 +98,20 @@ public class SocialLinkController {
 	public String createSocialLink(@PathVariable long congressId, @Valid @ModelAttribute("newSocialLink") SocialLink currentSocialLink, BindingResult binding, Model model) throws NotFoundException {
 		if(binding.hasErrors() ) {
 			model.addAttribute("httpMethod", "POST");
-			model.addAttribute("pathMethod", "/socialLink");
+			model.addAttribute("pathMethod", "/congress/" + congressId + "/socialLink/create");
 			model.addAttribute("newSocialLink", currentSocialLink);
 			return "pages/socialLink/socialLinkFormView";
 		}
 		storageService.store(currentSocialLink.getLogo());
 		
-		currentSocialLink.setLogo_url("/files/" + currentSocialLink.getLogo().getOriginalFilename());
-		 Congress currentCongress = congressRepository.findById(congressId).orElseThrow(() -> new NotFoundException("Can't find congress with id:" + congressId));
+		currentSocialLink.setLogoUrl("/files/" + currentSocialLink.getLogo().getOriginalFilename());
+		Congress currentCongress = congressRepository.findById(congressId).orElseThrow(() -> new NotFoundException("Can't find congress with id:" + congressId));
 		currentCongress.addSocialLink(currentSocialLink);
-		sociallinkRepository.save(currentSocialLink);
+		socialLinkRepository.save(currentSocialLink);
 		congressRepository.save(currentCongress);
-		return "redirect:/congress/"+congressId+"/socialLink/" + currentSocialLink.getId();
+		return "redirect:/congress/" + congressId + "/socialLink/" + currentSocialLink.getId();
 	}
-	
+
 
         /**
          * This controller is used to delete a social link
@@ -120,7 +124,7 @@ public class SocialLinkController {
     public String deleteSocialLink(@PathVariable long congressId, @PathVariable long id, @ModelAttribute SocialLink currentSocialLink) throws NotFoundException {
 		Congress currentCongress = congressRepository.findById(congressId)
 				.orElseThrow(() -> new NotFoundException("Can't find congress with id:" + congressId));
-        SocialLink toDelete = sociallinkRepository.findById(id)
+        SocialLink toDelete = socialLinkRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Can't find social link with id: " + id));
         currentCongress.removeSocialLink(toDelete);
         congressRepository.save(currentCongress);
@@ -139,7 +143,7 @@ public class SocialLinkController {
 	@GetMapping("/{id}/edit")
      public String updateSocialLinkForm(@PathVariable long congressId, @PathVariable long id, Model model) throws Exception {
     	SocialLink newSocialLink;
-    	Optional<SocialLink> finded = sociallinkRepository.findById(id);
+    	Optional<SocialLink> finded = socialLinkRepository.findById(id);
     	if (finded.isPresent()) {
     		newSocialLink = finded.get();
     	} else { 
@@ -147,9 +151,11 @@ public class SocialLinkController {
     	}
     	if (!model.containsAttribute("newSocialLink"))
     		model.addAttribute("newSocialLink", newSocialLink);
-	
+
     	model.addAttribute("pathMethod", "congress/" +  congressId + "/socialLink/" + id + "/edit");
-    	model.addAttribute("pageTitle", "Update " + newSocialLink.getSocial_link_url());
+    	model.addAttribute("pageTitle", "Update " + newSocialLink.getSocialLinkUrl());
+    	model.addAttribute("page","currentSocialLink");
+    	model.addAttribute("currentCongress",congressRepository.findById(congressId).get());
     	
     	return "pages/socialLink/socialLinkFormView";
     }
@@ -163,6 +169,8 @@ public class SocialLinkController {
       */
      @GetMapping("/create")
      public String createSocialLinkForm(@PathVariable long congressId, Model model) throws Exception {
+     	 model.addAttribute("page","socialLink");
+     	 model.addAttribute("currentCongress", congressRepository.findById(congressId));
     	 model.addAttribute("pathMethod", "/congress/"+congressId+"/socialLink/create");
     	 model.addAttribute("newSocialLink", new SocialLink());
     	 return "pages/socialLink/socialLinkFormView";

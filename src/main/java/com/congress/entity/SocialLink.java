@@ -19,46 +19,16 @@ public class SocialLink {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Size(min = 3, max = 256)
-	private String logo_url;
+	private String logoUrl;
 	
-	private String social_link_url;
+	private String socialLinkUrl;
 	@ManyToOne
 	private Congress congress;
 	
 	@Transient
 	private MultipartFile logo;
 
-	public long getId() {
-		return id;
-	}
 
-	public String getLogo_url() {
-		return logo_url;
-	}
-
-	public String getSocial_link_url() {
-		return social_link_url;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public void setLogo_url(String logo_url) {
-		this.logo_url = logo_url;
-	}
-
-	public void setSocial_link_url(String social_link_url) {
-		this.social_link_url = social_link_url;
-	}
-
-	public MultipartFile getLogo() {
-		return logo;
-	}
-
-	public void setLogo(MultipartFile logo) {
-		this.logo = logo;
-	}
 
 	}
 

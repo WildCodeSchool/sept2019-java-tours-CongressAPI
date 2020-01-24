@@ -1,10 +1,10 @@
 package com.congress.entity;
 
+
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
-
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Data
 @Entity
 public class Congress {
 
@@ -154,12 +155,11 @@ public class Congress {
 	}
 
 	public void addSocialLink(SocialLink currentSocialLink) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stu
 		currentSocialLink.setCongress(this);
 		this.socialLinks.add(currentSocialLink);
 	}
 	public void removeSocialLink(SocialLink toDelete) {
-		
 		toDelete.setCongress(null);
 		this.socialLinks.remove(toDelete);
 	}

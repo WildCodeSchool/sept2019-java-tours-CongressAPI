@@ -4,17 +4,20 @@
 <div class="card" id="dataform" th:fragment="socialLinkFormCard">
 	<h3 class="card-title">Social Link</h3>
 	<div class="card-content">
-		<form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="${httpMethod}"
-			th:object="${newSocialLink}"> 
-			<span th:errors="*{socialLink}" th:if="${#fields.hasErrors('social_link_url')}">Url Error</span>
-			<label for="social_link_url">Url</label>
-			<input id="social_link_url" th:field="*{social_link_url}" type="url"/>
+		<!--/*@thymesVar id="newSocialLink" type=""*/-->
+		<!--/*@thymesVar id="currentCongress" type="com.congress.entity.Congress"*/-->
+		<form enctype="multipart/form-data" th:action="@{'/congress/'+ ${currentCongress.id}+ '/socialLink/create'}" th:method="POST"
+			th:object="${newSocialLink}">
+
+			<span th:errors="*{socialLinkUrl}" th:if="${#fields.hasErrors('socialLinkUrl')}">Url Error</span>
+			<label for="socialLinkUrl">Url</label>
+			<input id="socialLinkUrl" th:field="*{socialLinkUrl}" type="url"/>
 			
-			 <span th:errors="*{logo_url}" th:if="${#fields.hasErrors('logo_url')}">Url Error</span>
-            <label for="logo_url">Logo</label>
-            <input id="logo" name="logo" th:field="*{logo}" type="file"/><br>
+			 <span th:errors="*{logoUrl}" th:if="${#fields.hasErrors('logo_url')}">Url Error</span>
+            <label for="logoUrl">Logo</label>
+            <input id="logoUrl" name="logo" th:field="*{logoUrl}" type="file"/><br>
 			
-						<input type="submit" value="add social link">
+			<input type="submit" value="add social link">
 			
 		</form>
 	</div>
