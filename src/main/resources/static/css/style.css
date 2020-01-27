@@ -28,14 +28,15 @@
             display: grid;
             grid-area: main;
             background-color: #f1f2f6;
-            grid-template: "actuality actuality congress""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar";
             grid-gap: 1rem;
             padding: 1rem;
             grid-auto-columns: 1fr;
-            grid-auto-rows: auto;
+            grid-auto-rows: 1fr;
             grid-auto-flow: column;
         }
-
+        #home{
+                    grid-template: "actuality actuality congress""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar""actuality actuality calendar";
+        }
         #actuality .card-content {
             display: flex;
             align-items: flex-start;
@@ -442,4 +443,19 @@
 
         #sponsorts-linked-list {
             grid-area: sponsorts-linked-list;
+        }
+        #about-viewList-container{
+            grid-template-areas :   "about-viewList about-viewList about-form"
+                                    "about-viewList about-viewList ."
+                                    "about-viewList about-viewList .";
+        }
+        #about-viewList{
+            grid-area:about-viewList;
+        }
+        #about-form{
+            grid-area:about-form;
+        }
+        #about-form form{
+            display:flex;
+            flex-direction: column;
         }
