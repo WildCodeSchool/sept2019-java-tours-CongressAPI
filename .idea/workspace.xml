@@ -2,18 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d5c155-a598-44b6-80c6-8a5f80abfb2d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/app/addCongressCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/addCongressCard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/app/addSponsortsCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/addSponsorCard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsorts/sponsortsFormCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorFormCard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsorts/sponsortsLinkFormCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorLinkFormCard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsorts/sponsortsLinkedListCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorLinkedListCard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsorts/sponsortsListCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorListCard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsorts/sponsortsViewCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorViewCard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsorts/sponsortsFormView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsor/sponsortsFormView.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsorts/sponsortsListView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsor/sponsortsListView.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsorts/sponsortsMainView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsor/sponsortsMainView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Congress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Congress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorListCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorListCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsor/sponsorListView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsor/sponsorListView.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +194,7 @@
       <workItem from="1579503732373" duration="10332000" />
       <workItem from="1579526919377" duration="213000" />
       <workItem from="1579849933968" duration="7616000" />
-      <workItem from="1580109744481" duration="8080000" />
+      <workItem from="1580109744481" duration="8640000" />
     </task>
     <task id="LOCAL-00001" summary="Make some refactor and start js to perform no browser supported request">
       <created>1578927160656</created>
@@ -234,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580119179626</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Refactor html files and path">
+      <created>1580119699848</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1580119699848</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +249,8 @@
     <MESSAGE value="Fix template path for PostMapping on error" />
     <MESSAGE value="Link sponsorts to Congress" />
     <MESSAGE value="Fix api and create service for Sponsor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix api and create service for Sponsor" />
+    <MESSAGE value="Refactor html files and path" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor html files and path" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -276,10 +281,10 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="541" y="132" width="575" height="661" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/67.27.1533.873@67.27.1533.873" timestamp="1578921097975" />
-    <state x="760" y="388" width="308" height="216" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1579849954819">
+    <state x="760" y="388" width="308" height="216" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1580119871857">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
-    <state x="760" y="388" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1035@0.0.1920.1035" timestamp="1579849954819" />
+    <state x="760" y="388" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1035@0.0.1920.1035" timestamp="1580119871857" />
     <state x="674" y="354" width="308" height="216" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/67.27.1533.873@67.27.1533.873" timestamp="1579620527880" />
     <state x="754" y="426" key="#com.intellij.javaee.module.view.web.EditWebRootDialog" timestamp="1580115020321">
       <screen x="0" y="0" width="1920" height="1035" />
@@ -301,10 +306,10 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state x="698" y="267" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1035@0.0.1920.1035" timestamp="1580112634808" />
-    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2" timestamp="1580119564661">
+    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2" timestamp="1580119699594">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
-    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2/0.0.1920.1035@0.0.1920.1035" timestamp="1580119564661" />
+    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2/0.0.1920.1035@0.0.1920.1035" timestamp="1580119699594" />
     <state x="748" y="261" key="FileChooserDialogImpl" timestamp="1580115016760">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
@@ -388,10 +393,10 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state width="562" height="468" key="SwitcherDM/0.0.1920.1035@0.0.1920.1035" timestamp="1579531356045" />
-    <state x="560" y="242" key="Vcs.Push.Dialog.v2" timestamp="1580119583505">
+    <state x="560" y="242" key="Vcs.Push.Dialog.v2" timestamp="1580119716341">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
-    <state x="560" y="242" key="Vcs.Push.Dialog.v2/0.0.1920.1035@0.0.1920.1035" timestamp="1580119583505" />
+    <state x="560" y="242" key="Vcs.Push.Dialog.v2/0.0.1920.1035@0.0.1920.1035" timestamp="1580119716341" />
     <state x="778" y="287" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1579855734101">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
@@ -400,6 +405,10 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state x="698" y="284" key="extract.method.dialog/0.0.1920.1035@0.0.1920.1035" timestamp="1579505854195" />
+    <state x="637" y="114" width="645" height="807" key="find.popup" timestamp="1580120062012">
+      <screen x="0" y="0" width="1920" height="1035" />
+    </state>
+    <state x="637" y="114" width="645" height="807" key="find.popup/0.0.1920.1035@0.0.1920.1035" timestamp="1580120062012" />
     <state x="696" y="232" key="git4idea.branch.GitSmartOperationDialog" timestamp="1579867486975">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>

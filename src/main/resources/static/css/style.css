@@ -429,30 +429,31 @@
             background-color: #59ca88;
         }
 
-        #sponsorts-view-container {
-            grid-template-areas: "sponsorts-view sponsorts-view sponsorts-linked-list" "sponsorts-link-form . sponsorts-linked-list";
+        #sponsor-view-container {
+            grid-template-areas: "sponsor-view sponsor-view sponsor-linked-list" "sponsor-link-form . sponsor-linked-list";
         }
 
-        #sponsorts-link-form {
-            grid-area: sponsorts-link-form;
+        #sponsor-link-form {
+            grid-area: sponsor-link-form;
         }
 
-        #sponsorts-view {
-            grid-area: sponsorts-view;
+        #sponsor-view {
+            grid-area: sponsor-view;
         }
 
-        #sponsorts-linked-list {
-            grid-area: sponsorts-linked-list;
+        #sponsor-linked-list {
+            grid-area: sponsor-linked-list;
         }
-        #about-viewList-container{
-            grid-template-areas :   "about-viewList about-viewList about-form"
-                                    "about-viewList about-viewList ."
-                                    "about-viewList about-viewList .";
+
+        #about-viewList-container {
+            grid-template-areas: "about-viewList about-viewList about-form" "about-viewList about-viewList ." "about-viewList about-viewList .";
         }
-        #about-viewList{
-            grid-area:about-viewList;
+
+        #about-viewList {
+            grid-area: about-viewList;
         }
-        #about-form{
+
+        #about-form {
             grid-area:about-form;
         }
         #about-form form{

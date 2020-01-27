@@ -41,12 +41,12 @@ public class Sponsor {
     }
 
     public void addCongress(Congress congress) {
-        congress.addSponsorts(this);
+        congress.addSponsor(this);
         this.congress.add(congress);
     }
 
     public void removeCongress(Congress toDelete) {
-        toDelete.removeSponsorts(this);
+        toDelete.removeSponsor(this);
         this.congress.remove(toDelete);
     }
 

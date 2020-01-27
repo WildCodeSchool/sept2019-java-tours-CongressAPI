@@ -32,12 +32,12 @@ public class SponsorController {
      * this controller display a list of sponsors
      *
      * @param model
-     * @return Template of sponsorts view list
+     * @return Template of sponsor view list
      */
 
     @GetMapping
     public String getSponsors(Model model) {
-        model.addAttribute("sponsortsList", sponsorService.findAll());
+        model.addAttribute("sponsorList", sponsorService.findAll());
         model.addAttribute("page", "sponsort");
         model.addAttribute("pageTitle", "List Sponsor");
         return "sponsorListView";
@@ -53,7 +53,7 @@ public class SponsorController {
      * @throws Exception
      */
     @GetMapping("/{id}")
-    public String getSponsorts(@PathVariable long id, Model model) throws Exception {
+    public String getSponsor(@PathVariable long id, Model model) throws Exception {
         Sponsor currentSponsor = sponsorService.findById(id);
         model.addAttribute("currentSponsor", currentSponsor);
         model.addAttribute("congressList", sponsorService.findAll());
@@ -70,7 +70,7 @@ public class SponsorController {
      * @return redirect to Sponsors view
      */
     @PostMapping("/create")
-    public String createSponsor(@Valid @ModelAttribute("newSponsorts") Sponsor currentSponsor, BindingResult bindingSponsors, Model model) throws NotFoundException {
+    public String createSponsor(@Valid @ModelAttribute("newSponsor") Sponsor currentSponsor, BindingResult bindingSponsors, Model model) throws NotFoundException {
         if (bindingSponsors.hasErrors()) {
             model.addAttribute("httpMethod", "POST");
             model.addAttribute("pathMethod", "/sponsor/create");
@@ -82,13 +82,13 @@ public class SponsorController {
     }
 
     @GetMapping("/{id}/delete")
-    public String deleteSponsorts(@PathVariable long id, @ModelAttribute Sponsor currentSponsor) throws Exception {
+    public String deleteSponsor(@PathVariable long id, @ModelAttribute Sponsor currentSponsor) throws Exception {
         sponsorService.delete(id);
         return "redirect:/";
     }
 
     @GetMapping("/{id}/edit")
-    public String updateSponsortsForm(@PathVariable Long id, Model model) throws Exception {
+    public String updateSponsorForm(@PathVariable Long id, Model model) throws Exception {
         Sponsor newSponsor = sponsorService.findById(id);
         model.addAttribute("page", "sponsort");
         model.addAttribute("pathMethod", "/sponsor/" + id + "/edit");
@@ -98,11 +98,11 @@ public class SponsorController {
     }
 
     @GetMapping("/create")
-    public String createSponsortsForm(Model model) throws Exception {
+    public String createSponsorForm(Model model) throws Exception {
         model.addAttribute("httpMethod", "PUT");
         model.addAttribute("page", "sponsor");
         model.addAttribute("pathMethod", "/sponsor/create");
-        model.addAttribute("newSponsorts", new Sponsor());
+        model.addAttribute("newSponsor", new Sponsor());
         return "pages/sponsor/sponsorFormView";
     }
 

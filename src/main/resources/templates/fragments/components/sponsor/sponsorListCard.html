@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!--/*@thymesVar id="sponsor" type="com.congress.entity.Sponsor"*/-->
-<!--/*@thymesVar id="sponsortsList" type="java.util.List<>"*/-->
+<!--/*@thymesVar id="sponsorList" type="java.util.List<>"*/-->
 <div class="card" id="congress-viewList" th:fragment="sponsorListCard">
     <h3 class="card-title">Sponsors</h3>
     <div class="card-content" id="congress-show">
         <ul>
-            <li th:each="sponsor : ${sponsortsList}">
+            <li th:each="sponsor : ${sponsorList}">
                 <ul style="display:flex;">
                     <li th:text="${sponsor.name}"></li>
                     <li id="congress-show-logo"><img alt="" src="#" th:src="${sponsor.logo_url}"></li>

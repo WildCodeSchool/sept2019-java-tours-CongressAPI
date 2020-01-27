@@ -60,33 +60,33 @@ public class Congress {
 	private Set<About> abouts;
 
 	@ManyToMany
-	private Set<Sponsor> sponsort;
+    private Set<Sponsor> sponsors;
 
 	public Congress() {
-		this.abouts = new HashSet<>();
-		this.sponsort = new HashSet<>();
-	}
+        this.abouts = new HashSet<>();
+        this.sponsors = new HashSet<>();
+    }
 
-	public void addAbout(About about) {
-		about.setCongress(this);
-		this.abouts.add(about);
-	}
+    public void addAbout(About about) {
+        about.setCongress(this);
+        this.abouts.add(about);
+    }
 
-	public void removeAbout(About toDelete) {
-		toDelete.setCongress(null);
-		this.abouts.remove(toDelete);
-	}
+    public void removeAbout(About toDelete) {
+        toDelete.setCongress(null);
+        this.abouts.remove(toDelete);
+    }
 
-	public void addSponsorts(Sponsor sponsor) {
-		this.sponsort.add(sponsor);
-	}
+    public void addSponsor(Sponsor sponsor) {
+        this.sponsors.add(sponsor);
+    }
 
-	public void removeSponsorts(Sponsor toDelete) {
-		this.sponsort.remove(toDelete);
-	}
+    public void removeSponsor(Sponsor toDelete) {
+        this.sponsors.remove(toDelete);
+    }
 
-	@Override
-	public int hashCode() {
-		return (int) this.id;
-	}
+    @Override
+    public int hashCode() {
+        return (int) this.id;
+    }
 }
