@@ -2,20 +2,24 @@ package com.congress.controller.api;
 
 import com.congress.entity.Congress;
 import com.congress.services.CongressService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.net.URI;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/congress")
 public class ApiCongressController {
 
-    @Autowired
-    private CongressService service;
+    private final CongressService service;
+
+    public ApiCongressController(CongressService service) {
+        this.service = service;
+    }
 
 
     @GetMapping
@@ -34,24 +38,25 @@ public class ApiCongressController {
     public ResponseEntity<Congress> createCongress(@RequestPart(value = "congress", required = true) Congress newCongress,
                                                    @RequestPart(value = "logo", required = true) MultipartFile logo,
                                                    @RequestPart(value = "banner", required = true) MultipartFile banner) {
-        newCongress.setLogo(logo);
-        newCongress.setBanner(banner);
-        return service.create(newCongress);
+        Congress savedCongress = service.create(newCongress, logo, banner);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                .buildAndExpand(savedCongress.getId()).toUri();
+        return ResponseEntity.created(location).build();
     }
 
     /**
      * This controller is used to update a congress
      *
-     * @param id              The id of the updated congress
-     * @param currentCongress The model of the congress
+     * @param id          The id of the updated congress
+     * @param newCongress The model of the congress
      * @return Redirect to the congress view
      */
     @PutMapping(value = "/{id}", consumes = {"multipart/form-data"})
     @Valid
     public ResponseEntity<Congress> updateCongress(@PathVariable long id, @RequestPart(value = "congress", required = true) Congress newCongress,
                                                    @RequestPart(value = "logo", required = true) MultipartFile logo,
-                                                   @RequestPart(value = "banner", required = true) MultipartFile banner) {
-        return service.update(id, logo, banner);
+                                                   @RequestPart(value = "banner", required = true) MultipartFile banner) throws Exception {
+        return ResponseEntity.ok(service.update(id, logo, banner));
     }
 
     /**
@@ -61,12 +66,12 @@ public class ApiCongressController {
      * @return Redirect to the home page
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<Congress> deleteCongress(@PathVariable long id) throws Exception {
-        return service.delete(id);
+    public void deleteCongress(@PathVariable long id) throws Exception {
+        service.delete(id);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Congress> getCongress(@PathVariable long id) throws Exception {
-        return service.findById(id);
+        return ResponseEntity.ok(service.findById(id));
     }
 }

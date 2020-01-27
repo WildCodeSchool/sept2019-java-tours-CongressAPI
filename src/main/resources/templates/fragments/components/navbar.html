@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!--/*@thymesVar id="currentCongress" type="com.congress.entity.Congress"*/-->
+<!--/*@thymesVar id="page" type="java.lang.String"*/-->
 <nav th:fragment="navbar">
     <img alt="logo" id="nav-logo" src="https://distribuna.com/images/Logo/gdlogocolor4.png">
     <ul class="navlist">
-        <li th:class="${page} == 'congress' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a th:text="${currentCongress.name}" th:href="@{'/congress/' + ${currentCongress.id}}"></a></li>
-        <li th:class="${page} == 'location' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a th:href="@{'/congress/' + ${currentCongress.id} + '/location'}">Location</a></li>
-        <li th:class="${page} == 'floorplan' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a th:href="@{'/congress/' + ${currentCongress.id} + '/floorplan'}">Floorplan</a></li>
-        <li th:class="${page} == 'activity' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a th:href="@{'/congress/' + ${currentCongress.id} + '/activity'}">Activities</a></li>
-        <li th:class="${page} == 'about' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a th:href="@{'/congress/' + ${currentCongress.id} + '/about'}">About</a></li>
-        <li th:class="${page} == 'map' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a th:href="@{'/congress/' + ${currentCongress.id} + '/map'}">Maps</a></li>
+        <li th:class="${page} == 'congress' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
+                th:text="${currentCongress.name}" th:href="@{'/congress/' + ${currentCongress.id}}"></a></li>
+        <li th:class="${page} == 'location' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
+                th:href="@{'/congress/' + ${currentCongress.id} + '/location'}">Location</a></li>
+        <li th:class="${page} == 'floorplan' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
+                th:href="@{'/congress/' + ${currentCongress.id} + '/floorplan'}">Floorplan</a></li>
+        <li th:class="${page} == 'activity' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
+                th:href="@{'/congress/' + ${currentCongress.id} + '/activity'}">Activities</a></li>
+        <li th:class="${page} == 'about' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
+                th:href="@{'/congress/' + ${currentCongress.id} + '/about'}">About</a></li>
+        <li th:class="${page} == 'map' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
+                th:href="@{'/congress/' + ${currentCongress.id} + '/map'}">Maps</a></li>
         <hr th:if="${currentCongress}">
         <li th:class="${page} == 'accueil' ? 'nav-item active' : 'nav-item'"><a href="/">Accueil</a></li>
-        <li th:class="${page} == 'congressListPage' ? 'nav-item active' : 'nav-item'"><a th:href="@{'/congress'}">Congress</a></li>
-        <li th:class="${page} == 'sponsort' ? 'nav-item active' : 'nav-item'"><a th:href="@{'/sponsorts'}">Sponsorts</a></li>
-        <li th:class="${page} == 'speaker' ? 'nav-item active' : 'nav-item'"><a th:href="@{'/congress/speakers'}">Speackers</a></li>
-        <li th:class="${page} == 'hotel' ? 'nav-item active' : 'nav-item'"><a th:href="@{'/congress/hotels'}">Hotel</a></li>
+        <li th:class="${page} == 'congressListPage' ? 'nav-item active' : 'nav-item'"><a th:href="@{'/congress'}">Congress</a>
+        </li>
+        <li th:class="${page} == 'sponsort' ? 'nav-item active' : 'nav-item'"><a th:href="@{'/sponsor'}">Sponsorts</a>
+        </li>
+        <li th:class="${page} == 'speaker' ? 'nav-item active' : 'nav-item'"><a th:href="@{'/congress/speakers'}">Speackers</a>
+        </li>
+        <li th:class="${page} == 'hotel' ? 'nav-item active' : 'nav-item'"><a th:href="@{'/congress/hotels'}">Hotel</a>
+        </li>
         <li class="nav-item"><a th:href="@{'/disconnect'}">Deconnection</a></li>
     </ul>
 </nav>

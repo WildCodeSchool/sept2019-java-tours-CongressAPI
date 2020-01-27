@@ -60,7 +60,7 @@ public class Congress {
 	private Set<About> abouts;
 
 	@ManyToMany
-	private Set<Sponsorts> sponsort;
+	private Set<Sponsor> sponsort;
 
 	public Congress() {
 		this.abouts = new HashSet<>();
@@ -77,11 +77,11 @@ public class Congress {
 		this.abouts.remove(toDelete);
 	}
 
-	public void addSponsorts(Sponsorts sponsorts) {
-		this.sponsort.add(sponsorts);
+	public void addSponsorts(Sponsor sponsor) {
+		this.sponsort.add(sponsor);
 	}
 
-	public void removeSponsorts(Sponsorts toDelete) {
+	public void removeSponsorts(Sponsor toDelete) {
 		this.sponsort.remove(toDelete);
 	}
 

@@ -7,7 +7,7 @@
     <h3 class="card-title">Sponsors</h3>
     <div class="card-content">
         <form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="${httpMethod}"
-              th:object="${newSponsorts}">
+              th:object="${newSponsor}">
 
             <span th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Name Error</span>
             <label for="name">Name</label>

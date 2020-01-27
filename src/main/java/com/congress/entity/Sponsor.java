@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Data
 @Entity
-public class Sponsorts {
+public class Sponsor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +36,7 @@ public class Sponsorts {
     @ManyToMany(mappedBy = "sponsort")
     private Set<Congress> congress;
 
-    public Sponsorts() {
+    public Sponsor() {
         this.congress = new HashSet<>();
     }
 
