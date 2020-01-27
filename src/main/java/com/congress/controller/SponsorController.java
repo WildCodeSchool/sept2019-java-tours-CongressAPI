@@ -37,6 +37,7 @@ public class SponsorController {
 
     @GetMapping
     public String getSponsors(Model model) {
+        model.addAttribute("congressList", congressService.findAll());
         model.addAttribute("sponsorList", sponsorService.findAll());
         model.addAttribute("page", "sponsor");
         model.addAttribute("pageTitle", "List Sponsor");
@@ -56,7 +57,7 @@ public class SponsorController {
     public String getSponsor(@PathVariable long id, Model model) throws Exception {
         Sponsor currentSponsor = sponsorService.findById(id);
         model.addAttribute("currentSponsor", currentSponsor);
-        model.addAttribute("congressList", sponsorService.findAll());
+        model.addAttribute("congressList", congressService.findAll());
         model.addAttribute("page", "sponsor");
         model.addAttribute("pageTitle", "Sponsor" + currentSponsor.getName());
         return "pages/sponsor/sponsorMainView";
@@ -112,20 +113,20 @@ public class SponsorController {
         return "redirect:/sponsor/" + id;
     }
 
-    @PostMapping("/{id}/unlinktocongress")
-    public String unlinkToCongress(@PathVariable long id, Long congressId) throws Exception {
+    @GetMapping("/{id}/unlinktocongress/{congressId}")
+    public String unlinkToCongress(@PathVariable Long id, @PathVariable Long congressId) throws Exception {
         sponsorService.unLinkToCongress(congressId, id);
         return "redirect:/sponsor/" + id;
     }
 
     @PostMapping("/linktogether")
-    public String unlinkToCongress(Long id, Long congressId) throws Exception {
+    public String linkTogether(Long sponsorId, Long congressId) throws Exception {
         Congress congress = congressService.findById(congressId);
-        Sponsor sponsor = sponsorService.findById(id);
-        sponsor.removeCongress(congress);
+        Sponsor sponsor = sponsorService.findById(sponsorId);
+        sponsor.addCongress(congress);
         sponsorService.update(sponsor);
         congressService.update(congress);
-        return "redirect:/sponsor/" + id;
+        return "redirect:/sponsor/" + sponsorId;
     }
 }
 

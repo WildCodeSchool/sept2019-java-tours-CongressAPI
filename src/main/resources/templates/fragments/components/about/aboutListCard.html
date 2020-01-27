@@ -3,16 +3,29 @@
     <div class="card" id="about-viewList" th:fragment="aboutListCard">
         <h3 class="card-title">About</h3>
         <div class="card-content" id="about-show">
-            <ul>
-                <!--/*@thymesVar id="congressList" type=""*/-->
-                <li th:each="about : ${currentCongress.abouts}">
-                    <ul style="display:flex;">
-                        <li th:text="${about.title}"></li>
-                        <li th:text="${about.description}"></li>
-                        <li><a th:href="@{'/congress/' + ${currentCongress.id}}">Go to congress</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <table class="actuality-item-conf">
+                <thead>
+                <tr>
+                    <td>
+                        ID
+                    </td>
+                    <td>
+                        Title
+                    </td>
+                    <td>
+                        Redirection
+                    </td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="about : ${currentCongress.abouts}">
+                    <td th:text="${about.id}"></td>
+                    <td th:text="${about.title}"></td>
+                    <td><a th:href="@{'/congress/' +${congressId} + '/about/' + ${about.id}}">See description</a></td>
+                </tr>
+                </tbody>
+            </table>
+            <a th:href="@{'/congress/' + ${currentCongress.id}}">Go to congress</a>
         </div>
     </div>
 </html>

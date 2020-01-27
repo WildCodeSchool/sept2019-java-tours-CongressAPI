@@ -4,6 +4,7 @@ import com.congress.entity.Congress;
 import com.congress.entity.Sponsor;
 import com.congress.exception.SponsorNotFoundException;
 import com.congress.repository.SponsorRepository;
+import com.congress.storage.StorageService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,16 +14,22 @@ public class SponsorService implements CrudService<Sponsor> {
 
     private final SponsorRepository sponsorRepository;
     private final CongressService congressService;
+    private final StorageService storageService;
 
 
-    public SponsorService(SponsorRepository sponsorRepository, CongressService congressService) {
+    public SponsorService(SponsorRepository sponsorRepository, CongressService congressService, StorageService storageService) {
         this.sponsorRepository = sponsorRepository;
         this.congressService = congressService;
+        this.storageService = storageService;
     }
 
     @Override
     public List<Sponsor> findAll() {
         return sponsorRepository.findAll();
+    }
+
+    public List<Congress> findByCongressId(long congressId) {
+        return sponsorRepository.findByCongressId(congressId);
     }
 
     @Override
@@ -32,6 +39,8 @@ public class SponsorService implements CrudService<Sponsor> {
 
     @Override
     public Sponsor create(Sponsor entity) {
+        storageService.store(entity.getLogo());
+        entity.setLogo_url("/files/" + entity.getLogo().getOriginalFilename());
         return sponsorRepository.save(entity);
     }
 

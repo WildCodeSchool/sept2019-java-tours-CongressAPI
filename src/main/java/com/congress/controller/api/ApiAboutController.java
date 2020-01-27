@@ -21,7 +21,7 @@ public class ApiAboutController {
 
     @GetMapping
     List<About> all(@PathVariable long congressId) {
-        return service.findAllByCongressId(congressId);
+        return service.findByCongressId(congressId);
     }
 
     @PostMapping(consumes = {"multipart/form-data"})

@@ -12,7 +12,7 @@
         <ul>
             <li th:each="congress : ${currentSponsor.congress}">
                 <span th:text="${congress.name}"></span>
-                <a th:href="@{'/sponsor/' + ${currentSponsor.id} + '/unlinktocongress'}">Unlink</a>
+                <a th:href="@{'/sponsor/' + ${currentSponsor.id} + '/unlinktocongress/' + ${congress.id}}">Unlink</a>
             </li>
         </ul>
     </div>

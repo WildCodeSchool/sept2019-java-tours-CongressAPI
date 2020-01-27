@@ -20,8 +20,8 @@ public class AboutService implements CrudService<About> {
         return aboutRepository.findAll();
     }
 
-    public List<About> findAllByCongressId(long congressId) {
-        return aboutRepository.findAllByCongressId(congressId);
+    public List<About> findByCongressId(long congressId) {
+        return aboutRepository.findByCongressId(congressId);
     }
 
     @Override
