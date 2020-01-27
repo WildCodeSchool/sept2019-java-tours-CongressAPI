@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d5c155-a598-44b6-80c6-8a5f80abfb2d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/api/ApiAboutController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/exception/AboutNotFoundExcepetion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/services/AboutService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/AboutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/About.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/About.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Congress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Congress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/repository/AboutRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/repository/AboutRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/services/SponsorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/services/SponsorService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +96,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="upsource.project.settings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -194,7 +190,7 @@
       <workItem from="1579503732373" duration="10332000" />
       <workItem from="1579526919377" duration="213000" />
       <workItem from="1579849933968" duration="7616000" />
-      <workItem from="1580109744481" duration="12563000" />
+      <workItem from="1580109744481" duration="14769000" />
     </task>
     <task id="LOCAL-00001" summary="Make some refactor and start js to perform no browser supported request">
       <created>1578927160656</created>
@@ -245,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580120099968</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="API">
+      <created>1580129388397</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1580129388397</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +272,8 @@
     <MESSAGE value="Fix api and create service for Sponsor" />
     <MESSAGE value="Refactor html files and path" />
     <MESSAGE value="Refactor forgets" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor forgets" />
+    <MESSAGE value="API" />
+    <option name="LAST_COMMIT_MESSAGE" value="API" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -325,40 +329,40 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state x="698" y="267" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1035@0.0.1920.1035" timestamp="1580112634808" />
-    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2" timestamp="1580120099598">
+    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2" timestamp="1580129387756">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
-    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2/0.0.1920.1035@0.0.1920.1035" timestamp="1580120099598" />
+    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2/0.0.1920.1035@0.0.1920.1035" timestamp="1580129387756" />
     <state x="748" y="261" key="FileChooserDialogImpl" timestamp="1580115016760">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state x="748" y="261" key="FileChooserDialogImpl/0.0.1920.1035@0.0.1920.1035" timestamp="1580115016760" />
-    <state width="1874" height="216" key="GridCell.Tab.0.bottom" timestamp="1580129299955">
+    <state width="1874" height="216" key="GridCell.Tab.0.bottom" timestamp="1580131316257">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state width="1197" height="272" key="GridCell.Tab.0.bottom/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868942" />
-    <state width="1874" height="216" key="GridCell.Tab.0.bottom/0.0.1920.1035@0.0.1920.1035" timestamp="1580129299955" />
+    <state width="1874" height="216" key="GridCell.Tab.0.bottom/0.0.1920.1035@0.0.1920.1035" timestamp="1580131316257" />
     <state width="1247" height="219" key="GridCell.Tab.0.bottom/67.27.1293.741@67.27.1293.741" timestamp="1578578621249" />
     <state width="1487" height="228" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1579798326627" />
-    <state width="1874" height="216" key="GridCell.Tab.0.center" timestamp="1580129299954">
+    <state width="1874" height="216" key="GridCell.Tab.0.center" timestamp="1580131316257">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state width="1197" height="272" key="GridCell.Tab.0.center/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868941" />
-    <state width="1874" height="216" key="GridCell.Tab.0.center/0.0.1920.1035@0.0.1920.1035" timestamp="1580129299954" />
+    <state width="1874" height="216" key="GridCell.Tab.0.center/0.0.1920.1035@0.0.1920.1035" timestamp="1580131316257" />
     <state width="1247" height="219" key="GridCell.Tab.0.center/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
     <state width="1487" height="228" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1579798326627" />
-    <state width="1874" height="216" key="GridCell.Tab.0.left" timestamp="1580129299954">
+    <state width="1874" height="216" key="GridCell.Tab.0.left" timestamp="1580131316256">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state width="1197" height="272" key="GridCell.Tab.0.left/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868940" />
-    <state width="1874" height="216" key="GridCell.Tab.0.left/0.0.1920.1035@0.0.1920.1035" timestamp="1580129299954" />
+    <state width="1874" height="216" key="GridCell.Tab.0.left/0.0.1920.1035@0.0.1920.1035" timestamp="1580131316256" />
     <state width="1247" height="219" key="GridCell.Tab.0.left/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
     <state width="1487" height="228" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1579798326626" />
-    <state width="1874" height="216" key="GridCell.Tab.0.right" timestamp="1580129299955">
+    <state width="1874" height="216" key="GridCell.Tab.0.right" timestamp="1580131316257">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state width="1197" height="272" key="GridCell.Tab.0.right/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868941" />
-    <state width="1874" height="216" key="GridCell.Tab.0.right/0.0.1920.1035@0.0.1920.1035" timestamp="1580129299955" />
+    <state width="1874" height="216" key="GridCell.Tab.0.right/0.0.1920.1035@0.0.1920.1035" timestamp="1580131316257" />
     <state width="1247" height="219" key="GridCell.Tab.0.right/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
     <state width="1487" height="228" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1579798326627" />
     <state width="1487" height="272" key="GridCell.Tab.1.bottom" timestamp="1579773877815">
@@ -399,10 +403,10 @@
     </state>
     <state x="344" y="120" key="Registry/0.0.1920.1035@0.0.1920.1035" timestamp="1579092460097" />
     <state x="342" y="128" width="973" height="668" key="Registry/67.27.1533.873@67.27.1533.873" timestamp="1578651665962" />
-    <state x="448" y="95" width="1024" height="845" key="SettingsEditor" timestamp="1580115027157">
+    <state x="448" y="95" width="1024" height="845" key="SettingsEditor" timestamp="1580131172771">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
-    <state x="448" y="95" key="SettingsEditor/0.0.1920.1035@0.0.1920.1035" timestamp="1580115027157" />
+    <state x="448" y="95" key="SettingsEditor/0.0.1920.1035@0.0.1920.1035" timestamp="1580131172771" />
     <state x="425" y="55" width="1024" height="845" key="SettingsEditor/67.27.1533.873@67.27.1533.873" timestamp="1579622653259" />
     <state x="553" y="216" key="SpringBootCustomization" timestamp="1578920713452">
       <screen x="0" y="0" width="1920" height="1035" />
@@ -412,10 +416,10 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state width="562" height="468" key="SwitcherDM/0.0.1920.1035@0.0.1920.1035" timestamp="1579531356045" />
-    <state x="560" y="242" key="Vcs.Push.Dialog.v2" timestamp="1580120102034">
+    <state x="560" y="242" key="Vcs.Push.Dialog.v2" timestamp="1580129390323">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
-    <state x="560" y="242" key="Vcs.Push.Dialog.v2/0.0.1920.1035@0.0.1920.1035" timestamp="1580120102034" />
+    <state x="560" y="242" key="Vcs.Push.Dialog.v2/0.0.1920.1035@0.0.1920.1035" timestamp="1580129390323" />
     <state x="778" y="287" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1580128437589">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
