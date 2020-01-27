@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d5c155-a598-44b6-80c6-8a5f80abfb2d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorLinkedUniversalListCard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsor/sponsorListView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsor/sponsorListView.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +88,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -202,16 +197,35 @@
       <option name="project" value="LOCAL" />
       <updated>1578928923813</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="FIx name">
+      <created>1580137038238</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1580137038238</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Make some refactor and start js to perform no browser supported request" />
     <MESSAGE value="Fix template path for PostMapping on error" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix template path for PostMapping on error" />
+    <MESSAGE value="FIx name" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIx name" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -255,14 +269,15 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state x="743" y="399" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1035@0.0.1920.1035" timestamp="1579448473257" />
-    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2" timestamp="1578928923545">
-      <screen x="0" y="0" width="1920" height="1035" />
-    </state>
-    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2/0.0.1920.1035@0.0.1920.1035" timestamp="1578928923545" />
-    <state x="260" y="70" width="1226" height="728" key="DiffContextDialog" timestamp="1580136981517">
+    <state x="519" y="132" width="900" height="806" key="CommitChangelistDialog2" timestamp="1580137038023">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
-    <state x="260" y="70" width="1226" height="728" key="DiffContextDialog/67.27.1533.873@67.27.1533.873" timestamp="1580136981517" />
+    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2/0.0.1920.1035@0.0.1920.1035" timestamp="1578928923545" />
+    <state x="519" y="132" key="CommitChangelistDialog2/67.27.1533.873@67.27.1533.873" timestamp="1580137038023" />
+    <state x="260" y="70" width="1226" height="728" key="DiffContextDialog" timestamp="1580137189618">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="260" y="70" width="1226" height="728" key="DiffContextDialog/67.27.1533.873@67.27.1533.873" timestamp="1580137189618" />
     <state width="1487" height="155" key="GridCell.Tab.0.bottom" timestamp="1580136985432">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
@@ -311,6 +326,10 @@
     </state>
     <state width="937" height="336" key="GridCell.Tab.1.right/0.0.1920.1035@0.0.1920.1035" timestamp="1578925152075" />
     <state width="1487" height="272" key="GridCell.Tab.1.right/67.27.1533.873@67.27.1533.873" timestamp="1579773877815" />
+    <state x="538" y="180" width="580" height="564" key="MultipleFileMergeDialog" timestamp="1580137141243">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="538" y="180" width="580" height="564" key="MultipleFileMergeDialog/67.27.1533.873@67.27.1533.873" timestamp="1580137141243" />
     <state x="439" y="211" key="NewModule_or_Project.wizard" timestamp="1579072719823">
       <screen x="0" y="0" width="1400" height="1005" />
     </state>
@@ -321,11 +340,11 @@
     </state>
     <state x="344" y="120" key="Registry/0.0.1920.1035@0.0.1920.1035" timestamp="1579092460097" />
     <state x="342" y="128" width="973" height="668" key="Registry/67.27.1533.873@67.27.1533.873" timestamp="1578651665962" />
-    <state x="425" y="55" width="1024" height="845" key="SettingsEditor" timestamp="1579622653259">
+    <state x="425" y="55" width="1024" height="845" key="SettingsEditor" timestamp="1580137214723">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="448" y="95" key="SettingsEditor/0.0.1920.1035@0.0.1920.1035" timestamp="1579527817370" />
-    <state x="425" y="55" width="1024" height="845" key="SettingsEditor/67.27.1533.873@67.27.1533.873" timestamp="1579622653259" />
+    <state x="425" y="55" width="1024" height="845" key="SettingsEditor/67.27.1533.873@67.27.1533.873" timestamp="1580137214723" />
     <state x="553" y="216" key="SpringBootCustomization" timestamp="1578920713452">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
@@ -334,10 +353,11 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state width="562" height="468" key="SwitcherDM/0.0.1920.1035@0.0.1920.1035" timestamp="1579531356045" />
-    <state x="560" y="242" key="Vcs.Push.Dialog.v2" timestamp="1578928925577">
-      <screen x="0" y="0" width="1920" height="1035" />
+    <state x="514" y="231" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1580137131175">
+      <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="560" y="242" key="Vcs.Push.Dialog.v2/0.0.1920.1035@0.0.1920.1035" timestamp="1578928925577" />
+    <state x="514" y="231" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1533.873@67.27.1533.873" timestamp="1580137131175" />
     <state x="698" y="284" key="extract.method.dialog" timestamp="1579505854195">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
@@ -346,10 +366,10 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="478" y="59" width="710" height="807" key="find.popup/67.27.1533.873@67.27.1533.873" timestamp="1580135081007" />
-    <state x="422" y="256" width="812" height="413" key="git4idea.merge.GitPullDialog" timestamp="1580137002836">
+    <state x="422" y="256" width="812" height="413" key="git4idea.merge.GitPullDialog" timestamp="1580137044776">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
-    <state x="422" y="256" width="812" height="413" key="git4idea.merge.GitPullDialog/67.27.1533.873@67.27.1533.873" timestamp="1580137002836" />
+    <state x="422" y="256" width="812" height="413" key="git4idea.merge.GitPullDialog/67.27.1533.873@67.27.1533.873" timestamp="1580137044776" />
     <state x="496" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1579795040254">
       <screen x="67" y="27" width="1533" height="873" />
     </state>

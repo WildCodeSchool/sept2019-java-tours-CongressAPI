@@ -1,6 +1,7 @@
 package com.congress.controller;
 
 
+import com.congress.entity.Congress;
 import com.congress.entity.Sponsor;
 import com.congress.services.CongressService;
 import com.congress.services.SponsorService;
