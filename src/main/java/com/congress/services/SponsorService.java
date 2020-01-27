@@ -1,5 +1,6 @@
 package com.congress.services;
 
+import com.congress.entity.Congress;
 import com.congress.entity.Sponsor;
 import com.congress.exception.SponsorNotFoundException;
 import com.congress.repository.SponsorRepository;
@@ -11,9 +12,12 @@ import java.util.List;
 public class SponsorService implements CrudService<Sponsor> {
 
     private final SponsorRepository sponsorRepository;
+    private final CongressService congressService;
 
-    public SponsorService(SponsorRepository sponsorRepository) {
+
+    public SponsorService(SponsorRepository sponsorRepository, CongressService congressService) {
         this.sponsorRepository = sponsorRepository;
+        this.congressService = congressService;
     }
 
     @Override
@@ -56,4 +60,19 @@ public class SponsorService implements CrudService<Sponsor> {
         sponsorRepository.deleteById(id);
     }
 
+    public void linkToCongress(Long congressId, long id) throws Exception {
+        Congress congress = congressService.findById(congressId);
+        Sponsor sponsor = this.findById(id);
+        sponsor.addCongress(congress);
+        this.update(sponsor);
+        congressService.update(congress);
+    }
+
+    public void unLinkToCongress(Long congressId, long id) throws Exception {
+        Congress congress = congressService.findById(congressId);
+        Sponsor sponsor = this.findById(id);
+        sponsor.removeCongress(congress);
+        this.update(sponsor);
+        congressService.update(congress);
+    }
 }

@@ -1,7 +1,6 @@
 package com.congress.controller;
 
 
-import com.congress.entity.Congress;
 import com.congress.entity.Sponsor;
 import com.congress.services.CongressService;
 import com.congress.services.SponsorService;
@@ -108,21 +107,13 @@ public class SponsorController {
 
     @PostMapping("/{id}/linktocongress")
     public String linkToCongress(@PathVariable long id, Long congressId) throws Exception {
-        Congress congress = congressService.findById(congressId);
-        Sponsor sponsor = sponsorService.findById(id);
-        sponsor.addCongress(congress);
-        sponsorService.update(sponsor);
-        congressService.update(congress);
+        sponsorService.linkToCongress(congressId, id);
         return "redirect:/sponsor/" + id;
     }
 
     @PostMapping("/{id}/unlinktocongress")
     public String unlinkToCongress(@PathVariable long id, Long congressId) throws Exception {
-        Congress congress = congressService.findById(congressId);
-        Sponsor sponsor = sponsorService.findById(id);
-        sponsor.removeCongress(congress);
-        sponsorService.update(sponsor);
-        congressService.update(congress);
+        sponsorService.unLinkToCongress(congressId, id);
         return "redirect:/sponsor/" + id;
     }
 
