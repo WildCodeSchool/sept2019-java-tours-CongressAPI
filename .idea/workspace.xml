@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d5c155-a598-44b6-80c6-8a5f80abfb2d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/MapController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Map.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/repository/MapRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/map/mapFormCard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/map/mapListCard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/map/mapViewCard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/map/mapFormView.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/map/mapListView.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/map/mapMainView.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/AboutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsortsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsortsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Congress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Congress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsorts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsorts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/about/aboutFormCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/about/aboutFormCard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/about/aboutListView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/about/aboutListView.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,15 +106,15 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static/css" />
+      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.congress" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.congress.exception" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/static/css" />
-      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
     </key>
   </component>
   <component name="RunManager" selected="Maven.Congress [spring-boot:run]">
@@ -254,6 +257,10 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state x="439" y="445" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1035@0.0.1920.1035" timestamp="1579448471015" />
+    <state x="586" y="323" width="494" height="290" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1580116196515">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="586" y="323" width="494" height="290" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/67.27.1533.873@67.27.1533.873" timestamp="1580116196515" />
     <state x="743" y="399" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1579448473257">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
@@ -262,34 +269,34 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2/0.0.1920.1035@0.0.1920.1035" timestamp="1578928923545" />
-    <state width="1487" height="228" key="GridCell.Tab.0.bottom" timestamp="1579861918745">
+    <state width="1487" height="155" key="GridCell.Tab.0.bottom" timestamp="1580133975156">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1197" height="272" key="GridCell.Tab.0.bottom/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868942" />
     <state width="1874" height="216" key="GridCell.Tab.0.bottom/0.0.1920.1035@0.0.1920.1035" timestamp="1579853363095" />
     <state width="1247" height="219" key="GridCell.Tab.0.bottom/67.27.1293.741@67.27.1293.741" timestamp="1578578621249" />
-    <state width="1487" height="228" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1579861918745" />
-    <state width="1487" height="228" key="GridCell.Tab.0.center" timestamp="1579861918745">
+    <state width="1487" height="155" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1580133975156" />
+    <state width="1487" height="155" key="GridCell.Tab.0.center" timestamp="1580133975155">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1197" height="272" key="GridCell.Tab.0.center/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868941" />
     <state width="1874" height="216" key="GridCell.Tab.0.center/0.0.1920.1035@0.0.1920.1035" timestamp="1579853363095" />
     <state width="1247" height="219" key="GridCell.Tab.0.center/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
-    <state width="1487" height="228" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1579861918745" />
-    <state width="1487" height="228" key="GridCell.Tab.0.left" timestamp="1579861918744">
+    <state width="1487" height="155" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1580133975155" />
+    <state width="1487" height="155" key="GridCell.Tab.0.left" timestamp="1580133975155">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1197" height="272" key="GridCell.Tab.0.left/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868940" />
     <state width="1874" height="216" key="GridCell.Tab.0.left/0.0.1920.1035@0.0.1920.1035" timestamp="1579853363095" />
     <state width="1247" height="219" key="GridCell.Tab.0.left/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
-    <state width="1487" height="228" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1579861918744" />
-    <state width="1487" height="228" key="GridCell.Tab.0.right" timestamp="1579861918745">
+    <state width="1487" height="155" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1580133975155" />
+    <state width="1487" height="155" key="GridCell.Tab.0.right" timestamp="1580133975155">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1197" height="272" key="GridCell.Tab.0.right/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868941" />
     <state width="1874" height="216" key="GridCell.Tab.0.right/0.0.1920.1035@0.0.1920.1035" timestamp="1579853363095" />
     <state width="1247" height="219" key="GridCell.Tab.0.right/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
-    <state width="1487" height="228" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1579861918745" />
+    <state width="1487" height="155" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1580133975155" />
     <state width="1487" height="272" key="GridCell.Tab.1.bottom" timestamp="1579773877815">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
@@ -341,10 +348,14 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state x="698" y="284" key="extract.method.dialog/0.0.1920.1035@0.0.1920.1035" timestamp="1579505854195" />
-    <state x="496" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1579795040254">
+    <state x="497" y="208" key="run.anything.popup" timestamp="1580121255539">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="497" y="208" key="run.anything.popup/67.27.1533.873@67.27.1533.873" timestamp="1580121255539" />
+    <state x="496" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1580120575372">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="537" y="219" width="842" height="804" key="search.everywhere.popup/0.0.1920.1035@0.0.1920.1035" timestamp="1579092437420" />
-    <state x="496" y="212" width="672" height="678" key="search.everywhere.popup/67.27.1533.873@67.27.1533.873" timestamp="1579795040254" />
+    <state x="496" y="212" width="672" height="678" key="search.everywhere.popup/67.27.1533.873@67.27.1533.873" timestamp="1580120575372" />
   </component>
 </project>

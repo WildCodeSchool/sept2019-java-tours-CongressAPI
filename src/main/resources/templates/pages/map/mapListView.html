@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/main/head.html :: head"></head>
+<body>
+<nav th:replace="/fragments/components/navbar.html :: navbar"></nav>
+<main id="map-viewList-container">
+    <div th:replace="/fragments/components/map/mapListCard.html :: mapListCard"></div>
+    <div th:replace="/fragments/components/map/mapFormCard.html :: mapFormCard"></div>
+</main>
+</body>
+</html>

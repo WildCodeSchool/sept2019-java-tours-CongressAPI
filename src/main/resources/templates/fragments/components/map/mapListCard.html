@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div class="card" id="map-viewList" th:fragment="mapListCard">
+    <h3 class="card-title">Maps</h3>
+    <div class="card-content" id="map-show">
+        <ul>
+            <!--/*@thymesVar id="congressList" type=""*/-->
+            <li th:each="map : ${currentCongress.maps}">
+                <ul style="display:flex;">
+                    <li th:text="${map.title}"></li>
+                    <li th:text="${map.url}"></li>
+                    <li><a th:href="@{'/congress/' + ${currentCongress.id}}">Go to congress</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+</html>

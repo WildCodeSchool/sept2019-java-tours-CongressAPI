@@ -59,12 +59,24 @@ public class Congress {
 	@OneToMany
 	private Set<About> abouts;
 
+	@OneToMany
+	private Set<Map> maps;
+
 	@ManyToMany
 	private Set<Sponsorts> sponsort;
 
 	public Congress() {
 		this.abouts = new HashSet<>();
 		this.sponsort = new HashSet<>();
+		this.maps = new HashSet<>();
+	}
+	public void addMap(Map map){
+		map.setCongress(this);
+		this.maps.add(map);
+	}
+	public void removeMap(Map toDelete){
+		toDelete.setCongress(null);
+		this.maps.remove(toDelete);
 	}
 
 	public void addAbout(About about) {

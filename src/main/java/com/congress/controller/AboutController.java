@@ -60,8 +60,7 @@ public class AboutController {
         }
         if (currentAbout == null)
             throw new NotFoundException("Can't find about with id: " + id);
-        model.addAttribute("currentCongress", congressRepository.findById(congressId));
-
+        model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
         model.addAttribute("page", "abouts");
         model.addAttribute("about", currentAbout);
         model.addAttribute("pageTitle", "About" + currentAbout.getTitle());
