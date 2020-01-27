@@ -33,7 +33,7 @@ public class Sponsor {
     private String mail;
     private String website_url;
 
-    @ManyToMany(mappedBy = "sponsort")
+    @ManyToMany(mappedBy = "sponsors")
     private Set<Congress> congress;
 
     public Sponsor() {

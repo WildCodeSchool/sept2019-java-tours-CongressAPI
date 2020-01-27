@@ -1,6 +1,7 @@
 package com.congress.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
@@ -57,10 +58,12 @@ public class Congress {
 	private MultipartFile logo;
 
 	@OneToMany
+	@JsonManagedReference
 	private Set<About> abouts;
 
 	@ManyToMany
-    private Set<Sponsor> sponsors;
+	@JsonManagedReference
+	private Set<Sponsor> sponsors;
 
 	public Congress() {
         this.abouts = new HashSet<>();
