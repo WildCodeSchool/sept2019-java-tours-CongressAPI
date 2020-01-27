@@ -460,3 +460,6 @@
             display:flex;
             flex-direction: column;
         }
+        #sponsor-viewList-container{
+            grid-template-areas :
+        }

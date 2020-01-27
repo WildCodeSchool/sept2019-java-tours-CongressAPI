@@ -38,9 +38,9 @@ public class SponsorController {
     @GetMapping
     public String getSponsors(Model model) {
         model.addAttribute("sponsorList", sponsorService.findAll());
-        model.addAttribute("page", "sponsort");
+        model.addAttribute("page", "sponsor");
         model.addAttribute("pageTitle", "List Sponsor");
-        return "sponsorListView";
+        return "pages/sponsor/sponsorListView";
 
     }
 
@@ -59,7 +59,7 @@ public class SponsorController {
         model.addAttribute("congressList", sponsorService.findAll());
         model.addAttribute("page", "sponsor");
         model.addAttribute("pageTitle", "Sponsor" + currentSponsor.getName());
-        return "sponsorMainView";
+        return "pages/sponsor/sponsorMainView";
 
     }
 
@@ -90,7 +90,7 @@ public class SponsorController {
     @GetMapping("/{id}/edit")
     public String updateSponsorForm(@PathVariable Long id, Model model) throws Exception {
         Sponsor newSponsor = sponsorService.findById(id);
-        model.addAttribute("page", "sponsort");
+        model.addAttribute("page", "sponsor");
         model.addAttribute("pathMethod", "/sponsor/" + id + "/edit");
         model.addAttribute("pageTitle", "Update " + newSponsor.getName());
 
@@ -118,6 +118,16 @@ public class SponsorController {
 
     @PostMapping("/{id}/unlinktocongress")
     public String unlinkToCongress(@PathVariable long id, Long congressId) throws Exception {
+        Congress congress = congressService.findById(congressId);
+        Sponsor sponsor = sponsorService.findById(id);
+        sponsor.removeCongress(congress);
+        sponsorService.update(sponsor);
+        congressService.update(congress);
+        return "redirect:/sponsor/" + id;
+    }
+
+    @PostMapping("/linktogether")
+    public String unlinkToCongress(Long id, Long congressId) throws Exception {
         Congress congress = congressService.findById(congressId);
         Sponsor sponsor = sponsorService.findById(id);
         sponsor.removeCongress(congress);
