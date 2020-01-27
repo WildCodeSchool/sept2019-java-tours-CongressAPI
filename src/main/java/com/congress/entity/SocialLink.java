@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
+
 @Data
 @Entity
 public class SocialLink {
@@ -20,15 +21,14 @@ public class SocialLink {
 	private long id;
 	@Size(min = 3, max = 256)
 	private String logoUrl;
-	
-	private String socialLinkUrl;
+	private String name;
+	private String url;
+
 	@ManyToOne
 	private Congress congress;
 	
 	@Transient
 	private MultipartFile logo;
 
-
-
-	}
+}
 

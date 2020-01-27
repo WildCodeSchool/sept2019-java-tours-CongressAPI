@@ -4,18 +4,18 @@
 <div class="card" id="dataform" th:fragment="socialLinkFormCard">
 	<h3 class="card-title">Social Link</h3>
 	<div class="card-content">
-		<!--/*@thymesVar id="newSocialLink" type=""*/-->
+		<!--/*@thymesVar id="newSocialLink" type="com.congress.entity.SocialLink"*/-->
 		<!--/*@thymesVar id="currentCongress" type="com.congress.entity.Congress"*/-->
 		<form enctype="multipart/form-data" th:action="@{'/congress/'+ ${currentCongress.id}+ '/socialLink/create'}" th:method="POST"
 			th:object="${newSocialLink}">
 
-			<span th:errors="*{socialLinkUrl}" th:if="${#fields.hasErrors('socialLinkUrl')}">Url Error</span>
+			<span th:errors="*{url}" th:if="${#fields.hasErrors('url')}">Url Error</span>
 			<label for="socialLinkUrl">Url</label>
-			<input id="socialLinkUrl" th:field="*{socialLinkUrl}" type="url"/>
+			<input id="socialLinkUrl" th:field="*{url}" type="url"/>
 			
-			 <span th:errors="*{logoUrl}" th:if="${#fields.hasErrors('logo_url')}">Url Error</span>
+			 <span th:errors="*{logo}" th:if="${#fields.hasErrors('logo')}">Url Error</span>
             <label for="logoUrl">Logo</label>
-            <input id="logoUrl" name="logo" th:field="*{logoUrl}" type="file"/><br>
+            <input id="logoUrl" name="logo" th:field="*{logo}" type="file"/><br>
 			
 			<input type="submit" value="add social link">
 			

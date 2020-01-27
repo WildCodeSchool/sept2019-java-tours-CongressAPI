@@ -51,7 +51,6 @@ public class SocialLinkController {
 		model.addAttribute("page","socialLink");
 		model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
 		model.addAttribute("pageTitle", "SocialLink");
-		model.addAttribute("newSocialLink", new SocialLink());
 		return "pages/socialLink/socialLinkListView";
 	}
 	 /**
@@ -153,7 +152,7 @@ public class SocialLinkController {
     		model.addAttribute("newSocialLink", newSocialLink);
 
     	model.addAttribute("pathMethod", "congress/" +  congressId + "/socialLink/" + id + "/edit");
-    	model.addAttribute("pageTitle", "Update " + newSocialLink.getSocialLinkUrl());
+    	model.addAttribute("pageTitle", "Update " + newSocialLink.getName());
     	model.addAttribute("page","currentSocialLink");
     	model.addAttribute("currentCongress",congressRepository.findById(congressId).get());
     	
@@ -170,7 +169,7 @@ public class SocialLinkController {
      @GetMapping("/create")
      public String createSocialLinkForm(@PathVariable long congressId, Model model) throws Exception {
      	 model.addAttribute("page","socialLink");
-     	 model.addAttribute("currentCongress", congressRepository.findById(congressId));
+     	 model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
     	 model.addAttribute("pathMethod", "/congress/"+congressId+"/socialLink/create");
     	 model.addAttribute("newSocialLink", new SocialLink());
     	 return "pages/socialLink/socialLinkFormView";

@@ -1,5 +1,8 @@
 function deleteUrl(deleteUrl) {
-    fetch(deleteUrl)
+    let option = {
+        method: 'DELETE',
+    };
+    fetch(deleteUrl, option)
         .then(function (response) {
             return response.blob();
         })
