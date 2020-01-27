@@ -5,7 +5,7 @@
 <!--/*@thymesVar id="currentSponsor" type="com.congress.entity.Sponsor"*/-->
 <!--/*@thymesVar id="congressList" type="com.congress.entity.Congress"*/-->
 
-<div class="card" id="sponsor-link-form" th:fragment="sponsortsLinkFormCard">
+<div class="card" id="sponsor-link-form" th:fragment="sponsorLinkFormCard">
     <h3 class="card-title">Sponsors</h3>
     <div class="card-content">
         <form enctype="multipart/form-data" th:action="@{'/sponsor/'+ ${currentSponsor.id} + '/linktocongress'}"

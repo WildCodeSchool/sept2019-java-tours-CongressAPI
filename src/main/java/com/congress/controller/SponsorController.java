@@ -40,7 +40,7 @@ public class SponsorController {
         model.addAttribute("sponsortsList", sponsorService.findAll());
         model.addAttribute("page", "sponsort");
         model.addAttribute("pageTitle", "List Sponsor");
-        return "pages/sponsorts/sponsortsListView";
+        return "sponsorListView";
 
     }
 
@@ -55,11 +55,11 @@ public class SponsorController {
     @GetMapping("/{id}")
     public String getSponsorts(@PathVariable long id, Model model) throws Exception {
         Sponsor currentSponsor = sponsorService.findById(id);
-        model.addAttribute("currentSponsorts", currentSponsor);
+        model.addAttribute("currentSponsor", currentSponsor);
         model.addAttribute("congressList", sponsorService.findAll());
-        model.addAttribute("page", "sponsort");
+        model.addAttribute("page", "sponsor");
         model.addAttribute("pageTitle", "Sponsor" + currentSponsor.getName());
-        return "pages/sponsorts/sponsortsMainView";
+        return "sponsorMainView";
 
     }
 
@@ -73,12 +73,12 @@ public class SponsorController {
     public String createSponsor(@Valid @ModelAttribute("newSponsorts") Sponsor currentSponsor, BindingResult bindingSponsors, Model model) throws NotFoundException {
         if (bindingSponsors.hasErrors()) {
             model.addAttribute("httpMethod", "POST");
-            model.addAttribute("pathMethod", "/sponsorts/create");
+            model.addAttribute("pathMethod", "/sponsor/create");
             model.addAttribute("newSponsors", currentSponsor);
-            return "pages/sponsorts/sponsortsFormView";
+            return "pages/sponsor/sponsorFormView";
         }
         sponsorService.create(currentSponsor);
-        return "redirect:/sponsorts/" + currentSponsor.getId();
+        return "redirect:/sponsor/" + currentSponsor.getId();
     }
 
     @GetMapping("/{id}/delete")
@@ -91,19 +91,19 @@ public class SponsorController {
     public String updateSponsortsForm(@PathVariable Long id, Model model) throws Exception {
         Sponsor newSponsor = sponsorService.findById(id);
         model.addAttribute("page", "sponsort");
-        model.addAttribute("pathMethod", "/sponsorts/" + id + "/edit");
+        model.addAttribute("pathMethod", "/sponsor/" + id + "/edit");
         model.addAttribute("pageTitle", "Update " + newSponsor.getName());
 
-        return "pages/sponsorts/sponsortsFormView";
+        return "pages/sponsor/sponsorFormView";
     }
 
     @GetMapping("/create")
     public String createSponsortsForm(Model model) throws Exception {
         model.addAttribute("httpMethod", "PUT");
-        model.addAttribute("page", "sponsort");
-        model.addAttribute("pathMethod", "/sponsorts/create");
+        model.addAttribute("page", "sponsor");
+        model.addAttribute("pathMethod", "/sponsor/create");
         model.addAttribute("newSponsorts", new Sponsor());
-        return "pages/sponsorts/sponsortsFormView";
+        return "pages/sponsor/sponsorFormView";
     }
 
     @PostMapping("/{id}/linktocongress")
@@ -113,7 +113,7 @@ public class SponsorController {
         sponsor.addCongress(congress);
         sponsorService.update(sponsor);
         congressService.update(congress);
-        return "redirect:/sponsorts/" + id;
+        return "redirect:/sponsor/" + id;
     }
 
     @PostMapping("/{id}/unlinktocongress")
@@ -123,7 +123,7 @@ public class SponsorController {
         sponsor.removeCongress(congress);
         sponsorService.update(sponsor);
         congressService.update(congress);
-        return "redirect:/sponsorts/" + id;
+        return "redirect:/sponsor/" + id;
     }
 }
 
