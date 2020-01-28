@@ -4,6 +4,10 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+/**
+ * voila voila
+ */
+
 @Data
 @Entity
 public class Map {
