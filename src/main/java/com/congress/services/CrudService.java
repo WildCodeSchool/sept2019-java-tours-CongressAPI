@@ -1,19 +1,18 @@
 package com.congress.services;
 
-import com.congress.entity.Congress;
-import org.springframework.http.ResponseEntity;
-
 import java.util.List;
 
 public interface CrudService<T> {
     List<T> findAll();
 
-    ResponseEntity<T> findById(long id) throws Exception;
+    T findById(long id) throws Exception;
 
-    ResponseEntity<Congress> create(Congress congress);
+    T create(T entity);
 
-    ResponseEntity<T> update(long id, T entity);
+    T update(long id, T entity) throws Exception;
 
-    ResponseEntity<T> delete(long id) throws Exception;
+    T update(T entity) throws Exception;
+
+    void delete(long id) throws Exception;
 
 }

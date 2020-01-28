@@ -1,6 +1,7 @@
 package com.congress.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
@@ -59,13 +60,29 @@ public class Congress {
 	@OneToMany
 	private Set<About> abouts;
 
+	@OneToMany
+	private Set<Map> maps;
+
 	@ManyToMany
-	private Set<Sponsorts> sponsort;
+	@JsonManagedReference
+	private Set<Sponsor> sponsors;
 
 	public Congress() {
 		this.abouts = new HashSet<>();
-		this.sponsort = new HashSet<>();
+		this.maps = new HashSet<>();
+		this.sponsors = new HashSet<>();
 	}
+
+	public void addMap(Map map) {
+		map.setCongress(this);
+		this.maps.add(map);
+	}
+
+	public void removeMap(Map toDelete) {
+		toDelete.setCongress(null);
+		this.maps.remove(toDelete);
+	}
+
 
 	public void addAbout(About about) {
 		about.setCongress(this);
@@ -77,12 +94,12 @@ public class Congress {
 		this.abouts.remove(toDelete);
 	}
 
-	public void addSponsorts(Sponsorts sponsorts) {
-		this.sponsort.add(sponsorts);
+	public void addSponsor(Sponsor sponsor) {
+		this.sponsors.add(sponsor);
 	}
 
-	public void removeSponsorts(Sponsorts toDelete) {
-		this.sponsort.remove(toDelete);
+	public void removeSponsor(Sponsor toDelete) {
+		this.sponsors.remove(toDelete);
 	}
 
 	@Override

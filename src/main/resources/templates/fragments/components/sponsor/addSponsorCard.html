@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<div class="card" id="add-congress" th:fragment="addSponsortsCard">
+<div class="card" id="add-sponsor" th:fragment="addSponsorCard">
     <h3 class="card-title">Ajouter un Sponsor</h3>
     <div class="card-content">
         <form method="get">
-            <label for="sponsorts-name"></label>
-            <input id="sponsorts-name" name="sponsorts-name" type="text">
+            <label for="sponsor-name"></label>
+            <input id="sponsor-name" name="sponsor-name" type="text">
             <input class="card-bta" formaction="/find" id="bt-select" type="submit" value="Selectionner">
-            <input class="card-bt" formaction="/sponsorts/create" id="bt-create" type="submit" value="Créer">
+            <input class="card-bt" formaction="/sponsor/create" id="bt-create" type="submit" value="Créer">
         </form>
     </div>
 </div>
