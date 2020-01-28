@@ -2,13 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!--/*@thymesVar id="pathMethod" type="java.lang.String"*/-->
 <!--/*@thymesVar id="httpMethod" type="java.lang.String"*/-->
-<!--/*@thymesVar id="currentSponsorts" type="com.congress.entity.Sponsorts"*/-->
+<!--/*@thymesVar id="currentSponsor" type="com.congress.entity.Sponsor"*/-->
 <!--/*@thymesVar id="congressList" type="com.congress.entity.Congress"*/-->
 
-<div class="card" id="sponsorts-link-form" th:fragment="sponsortsLinkFormCard">
+<div class="card" id="sponsor-link-form" th:fragment="sponsorLinkFormCard">
     <h3 class="card-title">Sponsors</h3>
     <div class="card-content">
-        <form enctype="multipart/form-data" th:action="@{'/sponsorts/'+ ${currentSponsorts.id} + '/linktocongress'}"
+        <form enctype="multipart/form-data" th:action="@{'/sponsor/'+ ${currentSponsor.id} + '/linktocongress'}"
               th:method="POST">
             <label for="congress-select">Congress to link</label>
             <select id="congress-select" name="congressId">

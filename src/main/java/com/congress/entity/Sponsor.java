@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Data
 @Entity
-public class Sponsorts {
+public class Sponsor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,20 +33,20 @@ public class Sponsorts {
     private String mail;
     private String website_url;
 
-    @ManyToMany(mappedBy = "sponsort")
+    @ManyToMany(mappedBy = "sponsors")
     private Set<Congress> congress;
 
-    public Sponsorts() {
+    public Sponsor() {
         this.congress = new HashSet<>();
     }
 
     public void addCongress(Congress congress) {
-        congress.addSponsorts(this);
+        congress.addSponsor(this);
         this.congress.add(congress);
     }
 
     public void removeCongress(Congress toDelete) {
-        toDelete.removeSponsorts(this);
+        toDelete.removeSponsor(this);
         this.congress.remove(toDelete);
     }
 

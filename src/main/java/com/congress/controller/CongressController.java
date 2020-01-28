@@ -1,35 +1,23 @@
 package com.congress.controller;
 
 import com.congress.entity.Congress;
-import com.congress.repository.CongressRepository;
-import com.congress.storage.StorageService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.congress.services.CongressService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/congress")
 public class CongressController {
 
-    @Autowired
-    private CongressRepository congressRepository;
+    private final CongressService service;
 
-    private StorageService storageService;
-
-    @Autowired
-    public void FileUploadController(StorageService storageService) {
-        this.storageService = storageService;
+    public CongressController(CongressService service) {
+        this.service = service;
     }
-
-
-    /*
-        CRUD Congress
-    */
 
     /**
      * This controller is used to display the congress creation form
@@ -60,7 +48,8 @@ public class CongressController {
             model.addAttribute("newCongress", newCongress);
             return "pages/congress/congressFormView";
         }
-        return updateFileIfPresent(newCongress);
+        newCongress = service.create(newCongress);
+        return "redirect:/congress/" + newCongress.getId();
     }
 
     /**
@@ -73,12 +62,7 @@ public class CongressController {
      */
     @GetMapping("/{id}")
     public String getCongress(@PathVariable long id, Model model) throws Exception {
-        Optional<Congress> finded = congressRepository.findById(id);
-        Congress currentCongress;
-        if (finded.isPresent())
-            currentCongress = finded.get();
-        else
-            throw new Exception("Can't find congress with id=" + id);
+        Congress currentCongress = service.findById(id);
         model.addAttribute("page", "congress");
         model.addAttribute("currentCongress", currentCongress);
         model.addAttribute("pageTitle", "Congress" + currentCongress.getName());
@@ -94,7 +78,7 @@ public class CongressController {
     @GetMapping
     public String getCongressList(Model model) {
         model.addAttribute("page", "congressListPage");
-        model.addAttribute("congressList", congressRepository.findAll());
+        model.addAttribute("congressList", service.findAll());
         model.addAttribute("pageTitle", "List Congress");
         return "pages/congress/congressListView";
     }
@@ -104,17 +88,13 @@ public class CongressController {
         if (binding.hasErrors()) {
             return "redirect:/congress/" + id + "/edit";
         }
-        return updateFileIfPresent(currentCongress);
+        service.update(currentCongress);
+        return "redirect:/congress/" + currentCongress.getId();
     }
 
     @GetMapping("/{id}/delete")
     public String deleteCongressWithPost(@PathVariable long id) throws Exception {
-        Optional<Congress> tofind = congressRepository.findById(id);
-        if (tofind.isEmpty()) {
-            throw new Exception("Can't find congress with id=" + id);
-        }
-        Congress currentCongress = tofind.get();
-        congressRepository.delete(currentCongress);
+        service.delete(id);
         return "redirect:/";
     }
 
@@ -128,31 +108,11 @@ public class CongressController {
      */
     @GetMapping("/{id}/edit")
     public String updateCongressForm(@PathVariable Long id, Model model) throws Exception {
-        Congress newCongress;
-        Optional<Congress> finded = congressRepository.findById(id);
-        if (finded.isPresent()) {
-            newCongress = finded.get();
-        } else {
-            throw new Exception("Can't find congress with id=" + id);
-        }
-        if (!model.containsAttribute("newCongress"))
-            model.addAttribute("newCongress", newCongress);
+        Congress newCongress = service.findById(id);
+        model.addAttribute("newCongress", newCongress);
         model.addAttribute("page", "congress");
         model.addAttribute("pathMethod", "/congress/" + id);
         model.addAttribute("pageTitle", "Update " + newCongress.getName());
         return "pages/congress/congressFormView";
-    }
-
-    private String updateFileIfPresent(Congress currentCongress) {
-        if (!currentCongress.getLogo().isEmpty()) {
-            storageService.store(currentCongress.getLogo());
-            currentCongress.setLogo_url("/files/" + currentCongress.getLogo().getOriginalFilename());
-        }
-        if (!currentCongress.getBanner().isEmpty()) {
-            storageService.store(currentCongress.getBanner());
-            currentCongress.setBanner_url("/files/" + currentCongress.getBanner().getOriginalFilename());
-        }
-        currentCongress = congressRepository.save(currentCongress);
-        return "redirect:/congress/" + currentCongress.getId();
     }
 }

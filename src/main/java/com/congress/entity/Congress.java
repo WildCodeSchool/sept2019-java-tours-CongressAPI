@@ -1,6 +1,7 @@
 package com.congress.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
@@ -57,36 +58,38 @@ public class Congress {
 	private MultipartFile logo;
 
 	@OneToMany
+	@JsonManagedReference
 	private Set<About> abouts;
 
 	@ManyToMany
-	private Set<Sponsorts> sponsort;
+	@JsonManagedReference
+	private Set<Sponsor> sponsors;
 
 	public Congress() {
-		this.abouts = new HashSet<>();
-		this.sponsort = new HashSet<>();
-	}
+        this.abouts = new HashSet<>();
+        this.sponsors = new HashSet<>();
+    }
 
-	public void addAbout(About about) {
-		about.setCongress(this);
-		this.abouts.add(about);
-	}
+    public void addAbout(About about) {
+        about.setCongress(this);
+        this.abouts.add(about);
+    }
 
-	public void removeAbout(About toDelete) {
-		toDelete.setCongress(null);
-		this.abouts.remove(toDelete);
-	}
+    public void removeAbout(About toDelete) {
+        toDelete.setCongress(null);
+        this.abouts.remove(toDelete);
+    }
 
-	public void addSponsorts(Sponsorts sponsorts) {
-		this.sponsort.add(sponsorts);
-	}
+    public void addSponsor(Sponsor sponsor) {
+        this.sponsors.add(sponsor);
+    }
 
-	public void removeSponsorts(Sponsorts toDelete) {
-		this.sponsort.remove(toDelete);
-	}
+    public void removeSponsor(Sponsor toDelete) {
+        this.sponsors.remove(toDelete);
+    }
 
-	@Override
-	public int hashCode() {
-		return (int) this.id;
-	}
+    @Override
+    public int hashCode() {
+        return (int) this.id;
+    }
 }

@@ -4,22 +4,19 @@ import com.congress.entity.Congress;
 import com.congress.exception.CongressNotFoundException;
 import com.congress.repository.CongressRepository;
 import com.congress.storage.StorageService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
 public class CongressService implements CrudService<Congress> {
-    @Autowired
-    private CongressRepository congressRepository;
+    private final CongressRepository congressRepository;
+    private final StorageService storageService;
 
-    private StorageService storageService;
-
-    @Autowired
-    public void FileUploadController(StorageService storageService) {
+    public CongressService(CongressRepository congressRepository, StorageService storageService) {
+        this.congressRepository = congressRepository;
         this.storageService = storageService;
     }
 
@@ -29,14 +26,59 @@ public class CongressService implements CrudService<Congress> {
     }
 
     @Override
-    public ResponseEntity<Congress> findById(long id) throws Exception {
-        return ResponseEntity.ok(congressRepository.findById(id).orElseThrow(() -> new CongressNotFoundException(id)));
+    public Congress findById(long id) throws IOException {
+        return congressRepository.findById(id).orElseThrow(() -> new CongressNotFoundException(id));
     }
 
     @Override
-    public ResponseEntity<Congress> create(Congress congress) {
+    public Congress create(Congress congress) {
         this.storeFiles(congress);
-        return ResponseEntity.ok(congressRepository.save(congress));
+        return congressRepository.save(congress);
+    }
+
+    public Congress create(Congress congress, MultipartFile logo, MultipartFile banner) {
+        congress.setLogo(logo);
+        congress.setBanner(banner);
+        this.storeFiles(congress);
+        return congressRepository.save(congress);
+    }
+
+
+    @Override
+    public Congress update(long id, Congress entity) {
+        if (!congressRepository.existsById(id)) {
+            throw new CongressNotFoundException(id);
+        }
+        entity.setId(id);
+        this.storeFiles(entity);
+        return congressRepository.save(entity);
+    }
+
+    @Override
+    public Congress update(Congress entity) {
+        if (!congressRepository.existsById(entity.getId())) {
+            throw new CongressNotFoundException(entity.getId());
+        }
+        return congressRepository.save(entity);
+    }
+
+    public Congress update(long id, MultipartFile logo, MultipartFile banner) throws IOException {
+        if (!congressRepository.existsById(id)) {
+            throw new CongressNotFoundException(id);
+        }
+        Congress entity = this.findById(id);
+        entity.setLogo(logo);
+        entity.setBanner(banner);
+        this.storeFiles(entity);
+        return this.update(entity);
+    }
+
+    @Override
+    public void delete(long id) {
+        if (!congressRepository.existsById(id)) {
+            throw new CongressNotFoundException(id);
+        }
+        congressRepository.deleteById(id);
     }
 
     public void storeFiles(Congress congress) {
@@ -48,26 +90,5 @@ public class CongressService implements CrudService<Congress> {
             storageService.store(congress.getBanner());
             congress.setBanner_url("/files/" + congress.getBanner().getOriginalFilename());
         }
-    }
-
-    @Override
-    public ResponseEntity<Congress> update(long id, Congress entity) {
-        this.storeFiles(entity);
-        entity.setId(id);
-
-        return ResponseEntity.ok(congressRepository.save(entity));
-    }
-
-    @Override
-    public ResponseEntity<Congress> delete(long id) throws Exception {
-        return ResponseEntity.ok(congressRepository.findById(id).orElseThrow(() -> new CongressNotFoundException(id)));
-    }
-
-    public ResponseEntity<Congress> update(long id, MultipartFile logo, MultipartFile banner) {
-        Congress entity = congressRepository.findById(id).orElseThrow(() -> new CongressNotFoundException(id));
-        entity.setLogo(logo);
-        entity.setBanner(banner);
-        this.storeFiles(entity);
-        return ResponseEntity.ok(congressRepository.save(entity));
     }
 }
