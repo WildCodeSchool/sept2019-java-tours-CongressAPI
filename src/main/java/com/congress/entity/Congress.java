@@ -58,38 +58,52 @@ public class Congress {
 	private MultipartFile logo;
 
 	@OneToMany
-	@JsonManagedReference
 	private Set<About> abouts;
+
+	@OneToMany
+	private Set<Map> maps;
 
 	@ManyToMany
 	@JsonManagedReference
 	private Set<Sponsor> sponsors;
 
 	public Congress() {
-        this.abouts = new HashSet<>();
-        this.sponsors = new HashSet<>();
-    }
+		this.abouts = new HashSet<>();
+		this.maps = new HashSet<>();
+		this.sponsors = new HashSet<>();
+	}
 
-    public void addAbout(About about) {
-        about.setCongress(this);
-        this.abouts.add(about);
-    }
+	public void addMap(Map map) {
+		map.setCongress(this);
+		this.maps.add(map);
+	}
 
-    public void removeAbout(About toDelete) {
-        toDelete.setCongress(null);
-        this.abouts.remove(toDelete);
-    }
+	public void removeMap(Map toDelete) {
+		toDelete.setCongress(null);
+		this.maps.remove(toDelete);
+	}
 
-    public void addSponsor(Sponsor sponsor) {
-        this.sponsors.add(sponsor);
-    }
 
-    public void removeSponsor(Sponsor toDelete) {
-        this.sponsors.remove(toDelete);
-    }
+	public void addAbout(About about) {
+		about.setCongress(this);
+		this.abouts.add(about);
+	}
 
-    @Override
-    public int hashCode() {
-        return (int) this.id;
-    }
+	public void removeAbout(About toDelete) {
+		toDelete.setCongress(null);
+		this.abouts.remove(toDelete);
+	}
+
+	public void addSponsor(Sponsor sponsor) {
+		this.sponsors.add(sponsor);
+	}
+
+	public void removeSponsor(Sponsor toDelete) {
+		this.sponsors.remove(toDelete);
+	}
+
+	@Override
+	public int hashCode() {
+		return (int) this.id;
+	}
 }
