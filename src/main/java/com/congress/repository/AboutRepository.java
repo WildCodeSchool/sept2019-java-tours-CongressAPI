@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface AboutRepository extends JpaRepository<About, Long> {
-    List<About> findAllByCongressId(long congress_id);
+    List<About> findByCongressId(long congress_id);
 }

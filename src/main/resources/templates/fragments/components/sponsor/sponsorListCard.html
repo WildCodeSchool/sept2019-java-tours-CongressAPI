@@ -2,26 +2,51 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!--/*@thymesVar id="sponsor" type="com.congress.entity.Sponsor"*/-->
 <!--/*@thymesVar id="sponsorList" type="java.util.List<>"*/-->
-<div class="card" id="congress-viewList" th:fragment="sponsorListCard">
+<div class="card" id="sponsor-viewList" th:fragment="sponsorListCard">
     <h3 class="card-title">Sponsors</h3>
-    <div class="card-content" id="congress-show">
-        <ul>
-            <li th:each="sponsor : ${sponsorList}">
-                <ul style="display:flex;">
-                    <li th:text="${sponsor.name}"></li>
-                    <li id="congress-show-logo"><img alt="" src="#" th:src="${sponsor.logo_url}"></li>
-                    <li th:text="${sponsor.address}"></li>
-                    <li th:text="${sponsor.city}"></li>
-                    <li th:text="${sponsor.contact}"></li>
-                    <li th:text="${sponsor.phone}"></li>
-                    <li th:text="${sponsor.mail}"></li>
-                    <li th:text="${sponsor.website_url}"></li>
-                    <span id="congress-show-location" th:text="${sponsor.location}"></span>
-                </ul>
-        </ul>
-
-        </li>
-        </ul>
+    <div class="card-content" id="sponsor-show">
+        <table class="actuality-item-conf">
+            <thead>
+            <tr>
+                <td>
+                    ID
+                </td>
+                <td>
+                    Name
+                </td>
+                <td>
+                    Logo
+                </td>
+                <td>
+                    Adress
+                </td>
+                <td>
+                    City
+                </td>
+                <td>
+                    Contact
+                </td>
+                <td>
+                    Phone
+                </td>
+                <td>
+                    Link
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="sponsor: ${sponsorList}">
+                <td th:text="${sponsor.id}"></td>
+                <td th:text="${sponsor.name}"></td>
+                <td th:text="${sponsor.logo_url}"></td>
+                <td th:text="${sponsor.address}"></td>
+                <td th:text="${sponsor.city}"></td>
+                <td th:text="${sponsor.contact}"></td>
+                <td th:text="${sponsor.phone}"></td>
+                <td><a th:href="@{'/sponsor/' + ${sponsor.id}}">See sponsor</a></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 </html>

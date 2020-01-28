@@ -460,3 +460,30 @@
             display:flex;
             flex-direction: column;
         }
+        #about-show{
+            width: 100%;
+            justify-content: flex-start;
+        }
+
+        #sponsor-viewList-container{
+            grid-template-areas :   "sponsor-viewList sponsor-viewList add-sponsor"
+                                    "sponsor-viewList sponsor-viewList ."
+                                    "sponsor-viewList sponsor-viewList sponsor-together-form";
+        }
+
+        #add-sponsor{
+            grid-area: add-sponsor;
+        }
+
+        #sponsor-viewList{
+            grid-area:sponsor-viewList;
+
+
+        }
+        #sponsor-together-form{
+            grid-area:sponsor-together-form;
+        }
+        #sponsor-show{
+            width:  100%;
+            justify-content: flex-start;
+        }
