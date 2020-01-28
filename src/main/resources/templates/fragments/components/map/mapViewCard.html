@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--dior j'ador-->
+<!--/*@thymesVar id="currentCongress" type="com.congress.entity.Congress"*/-->
+<div class="card" id="map-view" th:fragment="mapViewCard">
+    <h3 class="card-title">Maps</h3>
+    <div class="card-content" id="map-show">
+        <div th:text="${currentMap.title}"></div>
+        <div id="map-show-update">
+            <a th:href="@{'/map/' + ${currentMap.id} + '/edit'}">Modifier</a>
+            <a href="#" th:onclick="|deleteUrl('/map/${currentMap.id}')|">Supprimer</a>
+        </div>
+    </div>
+</div>
+</html>
