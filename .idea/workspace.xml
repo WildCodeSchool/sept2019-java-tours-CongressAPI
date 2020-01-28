@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d5c155-a598-44b6-80c6-8a5f80abfb2d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/MapController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Map.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/repository/MapRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/map/mapFormCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/map/mapListCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/map/mapViewCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/map/mapFormView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/map/mapListView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/map/mapMainView.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/AboutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Congress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Congress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/MapController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
