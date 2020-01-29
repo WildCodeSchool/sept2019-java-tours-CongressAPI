@@ -67,10 +67,15 @@ public class Congress {
 	@JsonManagedReference
 	private Set<Sponsor> sponsors;
 
+
+	@OneToMany
+	private Set<SocialLink> socialLinks;
+
 	public Congress() {
 		this.abouts = new HashSet<>();
 		this.maps = new HashSet<>();
 		this.sponsors = new HashSet<>();
+		this.socialLinks = new HashSet<>();
 	}
 
 	public void addMap(Map map) {
@@ -102,8 +107,19 @@ public class Congress {
 		this.sponsors.remove(toDelete);
 	}
 
+	public void addSocialLink(SocialLink socialLink) {
+		socialLink.setCongress(this);
+		this.socialLinks.add(socialLink);
+	}
+
+	public void removeSocialLink(SocialLink toDelete) {
+		toDelete.setCongress(null);
+		this.socialLinks.remove(toDelete);
+	}
+
 	@Override
 	public int hashCode() {
 		return (int) this.id;
 	}
+
 }
