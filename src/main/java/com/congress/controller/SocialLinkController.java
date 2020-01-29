@@ -75,9 +75,9 @@ public class SocialLinkController {
 		}
 		model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
 		model.addAttribute("page", "socialLinks");
-		model.addAttribute("socialLink", currentSocialLink);
+		model.addAttribute("currentSocialLink", currentSocialLink);
 		model.addAttribute("pageTitle", "SocialLink" + currentSocialLink.getId());
-		return "pages/socialLink/socialLinkListView";
+		return "pages/socialLink/socialLinkMainView";
 	}
 
 	/**

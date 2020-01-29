@@ -374,13 +374,11 @@
             background-color: #59ca88;
         }
 
-        nav {
-            max-width: "10%";
-        }
-
         #congress-show{
             width:100%;
             display:grid;
+            height: auto;
+            flex: 1;
             grid-template:"logo title . . date banner"
                           "desc desc desc . . location"
                           "desc desc desc . . network"
@@ -388,7 +386,7 @@
             align-content: normal;
             grid-template-columns: 10% min-content 35% auto max-content 30%;
             justify-content: stretch;
-            grid-template-rows: min-content min-content 25% auto min-content;
+            grid-template-rows: min-content min-content min-content auto min-content;
         }
 
         #congress-show-logo{
@@ -409,7 +407,16 @@
             grid-area:location;
         }
         #congress-show-network{
+            display: flex;
+            flex-direction: row;
             grid-area:network;
+        }
+        #congress-show-network li{
+            width: 30%;
+            height: auto;
+        }
+        #congress-show-network img{
+            width: 100%;
         }
         #congress-show-update{
             display: flex;

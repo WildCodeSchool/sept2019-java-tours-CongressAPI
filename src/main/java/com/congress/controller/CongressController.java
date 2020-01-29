@@ -1,6 +1,7 @@
 package com.congress.controller;
 
 import com.congress.entity.Congress;
+import com.congress.entity.SocialLink;
 import com.congress.services.CongressService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,7 +38,7 @@ public class CongressController {
     /**
      * This controller is used to create a congress
      *
-     * @param currentCongress The model of the congress
+     * @param newCongress The model of the congress
      * @param model
      * @return Redirect to the congress view
      */
@@ -66,6 +67,7 @@ public class CongressController {
         model.addAttribute("page", "congress");
         model.addAttribute("currentCongress", currentCongress);
         model.addAttribute("pageTitle", "Congress" + currentCongress.getName());
+        model.addAttribute("newSocialLink", new SocialLink());
         return "pages/congress/congressMainView";
     }
 
