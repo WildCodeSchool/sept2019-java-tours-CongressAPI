@@ -2,8 +2,8 @@ package com.congress.controller;
 
 import com.congress.entity.Congress;
 import com.congress.entity.Map;
-import com.congress.repository.CongressRepository;
 import com.congress.repository.MapRepository;
+import com.congress.services.CongressService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.Optional;
 
 /**
@@ -21,11 +22,14 @@ import java.util.Optional;
 @RequestMapping("congress/{congressId}/map")
 public class MapController {
 
-    @Autowired
-    private CongressRepository congressRepository;
+    private final CongressService congressService;
 
     @Autowired
     private MapRepository mapRepository;
+
+    public MapController(CongressService congressService) {
+        this.congressService = congressService;
+    }
 
     /**
      * this controller disply list of Map containts
@@ -35,9 +39,9 @@ public class MapController {
      * @return template of map view list
      */
     @GetMapping
-    public String getMap(@PathVariable long congressId, Model model) {
+    public String getMap(@PathVariable long congressId, Model model) throws IOException {
         model.addAttribute("page", "map");
-        model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
+        model.addAttribute("currentCongress", congressService.findById(congressId));
         model.addAttribute("pageTitle", "Map");
         model.addAttribute("currentMap", new Map());
 
@@ -55,13 +59,7 @@ public class MapController {
      */
     @GetMapping("/{id}")
     public String getMap(@PathVariable long congressId, @PathVariable long id, Model model) throws Exception {
-        Optional<Congress> finded = congressRepository.findById(congressId);
-        Congress currentCongress = finded.get();
-        if (finded.isPresent()) {
-            currentCongress = finded.get();
-        } else {
-            throw new Exception("Can't find Url, please write a comment");
-        }
+        Congress currentCongress = congressService.findById(congressId);
         Map currentMap = null;
         for (Map map : currentCongress.getMaps()) {
             if (map.getId() == id) {
@@ -71,7 +69,7 @@ public class MapController {
         if (currentMap == null) {
             throw new NotFoundException("Can't find map xith id : " + id);
         }
-        model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
+        model.addAttribute("currentCongress", congressService.findById(congressId));
         model.addAttribute("page", "maps");
         model.addAttribute("currentMap", currentMap);
         model.addAttribute("pageTitle", "Map" + currentMap.getTitle());
@@ -80,17 +78,17 @@ public class MapController {
     }
 
     @PostMapping("/create")
-    public String createMap(@PathVariable long congressId, @Valid @ModelAttribute("currentMap") Map currentMap, BindingResult bindingMap, Model model) throws NotFoundException {
+    public String createMap(@PathVariable long congressId, @Valid @ModelAttribute("currentMap") Map currentMap, BindingResult bindingMap, Model model) throws NotFoundException, IOException {
         if (bindingMap.hasErrors()) {
             model.addAttribute("httpMethod", "POST");
             model.addAttribute("pathMethod", "/congress/" + congressId + "/map/create");
             model.addAttribute("currentMap", currentMap);
             return "pages/map/mapFormView";
         }
-        Congress currentCongress = congressRepository.findById(congressId).orElseThrow(() -> new NotFoundException("Can't find congress with id : " + congressId));
+        Congress currentCongress = congressService.findById(congressId);
         currentCongress.addMap(currentMap);
         mapRepository.save(currentMap);
-        congressRepository.save(currentCongress);
+        congressService.update(currentCongress);
         return "redirect:/congress/" + congressId + "/map/" + currentMap.getId();
     }
 
@@ -104,13 +102,13 @@ public class MapController {
      * @throws NotFoundException
      */
     @GetMapping("/{id}/delete")
-    public String deleteMap(@PathVariable long congressId, @PathVariable long id, @ModelAttribute Map currentMap) throws NotFoundException {
-        Congress currentCongress = congressRepository.findById(congressId)
-                .orElseThrow(() -> new NotFoundException("Can't find congress with id : " + congressId));
+    public String deleteMap(@PathVariable long congressId, @PathVariable long id, @ModelAttribute Map currentMap) throws NotFoundException, IOException {
+        Congress currentCongress = congressService.findById(congressId);
+
         Map toDelete = mapRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Can't find map With id : " + id));
         currentCongress.removeMap(toDelete);
-        congressRepository.save(currentCongress);
+        congressService.update(currentCongress);
         return "redirect:/";
     }
 
@@ -138,7 +136,7 @@ public class MapController {
         model.addAttribute("pathMethod", "congress/" + congressId + "/map/" + id + "/edit");
         model.addAttribute("pageTitle", "Update" + newMap.getTitle());
         model.addAttribute("page", "map");
-        model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
+        model.addAttribute("currentCongress", congressService.findById(congressId));
 
         return "pages/map/mapFormView";
 
@@ -156,21 +154,20 @@ public class MapController {
     @GetMapping("/create")
     public String createMapForm(@PathVariable long congressId, Model model) throws Exception {
         model.addAttribute("page", "map");
-        model.addAttribute("currentCongress", congressRepository.findById(congressId));
+        model.addAttribute("currentCongress", congressService.findById(congressId));
         model.addAttribute("pathMethod", "/congress/" + congressId + "/about/create");
         model.addAttribute("newMap", new Map());
         return "pages/map/mapFormView";
     }
 
     @PostMapping("/{id}/edit")
-    public String updateMapWithPost(@PathVariable long congressId, @PathVariable long id, @Valid @ModelAttribute Map currentMap, BindingResult bindingMap, Model model) throws NotFoundException {
+    public String updateMapWithPost(@PathVariable long congressId, @PathVariable long id, @Valid @ModelAttribute Map currentMap, BindingResult bindingMap, Model model) throws NotFoundException, IOException {
         if (bindingMap.hasErrors()) {
             return "redirect:/congress/" + congressId + "/map/" + id + "/edit";
         }
-        Congress currentCongress = congressRepository.findById(congressId).orElseThrow(() -> new NotFoundException("Can't find congress with id : " + congressId));
-        currentCongress.addMap(currentMap);
+        Congress currentCongress = congressService.findById(congressId);        currentCongress.addMap(currentMap);
         mapRepository.save(currentMap);
-        congressRepository.save(currentCongress);
+        congressService.update(currentCongress);
         return "redirect:/congress/" + congressId + "/map/" + currentMap.getId();
 
     }

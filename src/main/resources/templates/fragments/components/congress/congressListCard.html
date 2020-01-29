@@ -4,17 +4,37 @@
 <!--/*@thymesVar id="congressList" type="java.util.List<com.congress.entity.Congress>"*/-->
 <div class="card" id="congress-viewList" th:fragment="congressListCard">
     <h3 class="card-title">Congress</h3>
-    <div class="card-content" id="congress-show">
-        <ul>
-            <li th:each="congress : ${congressList}">
-                <ul style="display:flex;">
-                    <li th:text="${congress.name}"></li>
-                    <li th:text="${congress.color}"></li>
-                    <li th:text="${congress.date}"></li>
-                    <li><a th:href="@{'/congress/' + ${congress.id}}">Go to congress</a></li>
-                </ul>
-            </li>
-        </ul>
+    <div class="card-content" id="congress-list-show">
+        <table class="actuality-item-conf">
+            <thead>
+                <tr>
+                    <td>
+                        ID
+                    </td>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        Color
+                    </td>
+                    <td>
+                        Date
+                    </td>
+                    <td>
+                        Redirection
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="congress : ${congressList}">
+                    <td th:text="${congress.id}"></td>
+                    <td th:text="${congress.name}"></td>
+                    <td th:tex="${congress.color}"></td>
+                    <td th:text="${congress.date}"></td>
+                    <td><a th:href="@{'/congress/' + ${congress.id}}">Go to congress</a></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 </html>

@@ -3,10 +3,17 @@
 <!--/*@thymesVar id="currentSponsor" type="com.congress.entity.Sponsor"*/-->
 <div class="card" id="sponsor-view" th:fragment="sponsorViewCard">
     <h3 class="card-title">Sponsors</h3>
-    <div class="card-content" id="congress-show">
+    <div class="card-content" id="sponsor-show">
         <div th:text="${currentSponsor.name}"></div>
-        <div id="congress-show-update">
-            <a th:href="@{'/sponsor/' + ${currentSponsor.id} + '/edit'}">Modifier</a>
+        <img alt="" id="sponsor-show-logo" th:src="@{${currentSponsor.logo_url}}">
+        <span id="sponsor-show-location" th:text="${currentSponsor.location}"></span>
+        <span id="sponsor-show-city" th:text="${currentSponsor.city}"></span>
+        <span id="sponsor-show-contact" th:text="${currentSponsor.contact}"></span>
+        <span id="sponsor-show-address" th:text="${currentSponsor.address}"></span>
+        <span id="sponsor-show-phone" th:text="${currentSponsor.phone}"></span>
+        <span id="sponsor-show-mail" th:text="${currentSponsor.mail}"></span>
+        <span id="sponsor-show-website" th:text="${currentSponsor.website_url}"></span>
+        <div id="sponsor-show-update">
             <a href="#" th:onclick="|deleteUrl('/sponsor/${currentSponsor.id}')|">Supprimer</a>
         </div>
     </div>

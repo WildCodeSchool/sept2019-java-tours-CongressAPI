@@ -3,10 +3,10 @@
 <!--/*@thymesVar id="pathMethod" type="java.lang.String"*/-->
 <!--/*@thymesVar id="httpMethod" type="java.lang.String"*/-->
 <!--/*@thymesVar id="newCongress" type="com.congress.entity.Congress"*/-->
-<div class="card" id="dataform" th:fragment="sponsorFormCard">
+<div class="card" id="sponsor-form-card" th:fragment="sponsorFormCard">
     <h3 class="card-title">Sponsors</h3>
     <div class="card-content">
-        <form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="${httpMethod}"
+        <form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="POST"
               th:object="${newSponsor}">
 
             <span th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Name Error</span>
@@ -39,7 +39,7 @@
             <input id="mail" name="mail" th:field="*{mail}" type="text"/><br>
 
             <span th:errors="*{website_url}" th:if="${#fields.hasErrors('website_url')}">Name Error</span>
-            <label for="website_url">Name</label>
+            <label for="website_url">Url</label>
             <input id="website_url" name="website_url" th:field="*{website_url}" type="text"/><br>
 
             <span th:errors="*{location}" th:if="${#fields.hasErrors('location')}">Name Error</span>

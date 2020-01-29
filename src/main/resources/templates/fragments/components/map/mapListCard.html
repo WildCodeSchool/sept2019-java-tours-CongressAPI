@@ -3,17 +3,35 @@
 <div class="card" id="map-viewList" th:fragment="mapListCard">
     <h3 class="card-title">Maps</h3>
     <div class="card-content" id="map-show">
-        <ul>
-            <!-- super-->
-            <!--/*@thymesVar id="congressList" type=""*/-->
-            <li th:each="map : ${currentCongress.maps}">
-                <ul style="display:flex;">
-                    <li th:text="${map.title}"></li>
-                    <li th:text="${map.url}"></li>
-                    <li><a th:href="@{'/congress/' + ${currentCongress.id}}">Go to congress</a></li>
-                </ul>
-            </li>
-        </ul>
+        <table class="actuality-item-conf" >
+            <thead>
+                <tr>
+                    <td>
+                        ID
+                    </td>
+                    <td>
+                        Title
+                    </td>
+                    <td>
+                        Map url
+                    </td>
+                    <td>
+                        Link
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="map : ${currentCongress.maps}">
+                    <td th:text="${map.id}"></td>
+                    <td th:text="${map.title}"></td>
+                    <td th:text="${map.url}"></td>
+
+                    <td> <a th:href="@{'/congress/' + ${currentCongress.id}+'/map/' + ${map.id}}"> Go to map</a></td>
+                    </tr>
+            </tbody>
+
+        </table>
+
     </div>
 </div>
 </html>

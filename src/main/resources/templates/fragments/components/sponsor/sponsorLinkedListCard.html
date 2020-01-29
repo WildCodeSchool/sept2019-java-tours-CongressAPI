@@ -8,13 +8,33 @@
 
 <div class="card" id="sponsor-linked-list" th:fragment="sponsorLinkedListCard">
     <h3 class="card-title">Linked congress</h3>
-    <div class="card-content">
-        <ul>
-            <li th:each="congress : ${currentSponsor.congress}">
-                <span th:text="${congress.name}"></span>
-                <a th:href="@{'/sponsor/' + ${currentSponsor.id} + '/unlinktocongress/' + ${congress.id}}">Unlink</a>
-            </li>
-        </ul>
+    <div class="card-content" id="sponsor-linked-show">
+        <table class="actuality-item-conf">
+            <thead>
+                <tr>
+                    <td>
+                        ID Congress
+                    </td>
+                    <td>
+                        Name Congress
+                    </td>
+                    <td>
+                        Go to Congress
+                    </td>
+                    <td>
+                        Default
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="congress : ${currentSponsor.congress}">
+                    <td th:text="${congress.id}"></td>
+                    <td th:text="${congress.name}"></td>
+                    <td><a th:href="@{'/congress/' + ${congress.id}}">go to congress</a></td>
+                    <td><a th:href="@{'/sponsor/' + ${currentSponsor.id} + '/unlinktocongress/' + ${congress.id}}">Unlink</a></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 </html>

@@ -430,9 +430,12 @@
         }
 
         #sponsor-view-container {
-            grid-template-areas: "sponsor-view sponsor-view sponsor-linked-list" "sponsor-link-form . sponsor-linked-list";
+            grid-template-areas: "sponsor-view sponsor-view sponsor-linked-list"
+            "sponsor-link-form sponsor-form-card sponsor-linked-list";
         }
-
+        #sponsor-form-card{
+            grid-area:sponsor-form-card;
+        }
         #sponsor-link-form {
             grid-area: sponsor-link-form;
         }
@@ -486,4 +489,72 @@
         #sponsor-show{
             width:  100%;
             justify-content: flex-start;
+        }
+        #about-main-preview{
+            grid-template-areas:"about-preview about-form"
+                                "about-preview about-form"
+                                "about-preview about-form";
+
+        }
+        #about-preview{
+            grid-area: about-preview;
+
+        }
+        #map-show{
+            width: 100%;
+            justify-content: flex-start;
+        }
+        #map-form form{
+             display:flex;
+             flex-direction: column;
+        }
+        #congress-list-show{
+            width: 100%;
+            display:flex;
+            justify-content: flex-start;
+        }
+        #sponsor-linked-show{
+            width: 100%;
+            justify-content: flex-start;
+        }
+        #sponsor-show{
+            width:100%;
+            display:grid;
+            align-content: normal;
+            grid-template-areas:"logo . . name location city"
+                                "logo . . contact address phone"
+                                "logo mail website . . update";
+             grid-template-columns: 20% auto auto auto auto auto;
+             justify-content: stretch;
+             grid-template-rows: max-content min-content min-content;
+        }
+        #sponsor-show-logo{
+            width:100%;
+            grid-area: logo;
+        }
+        #sponsor-show-location{
+            grid-area: location;
+        }
+        #sponsor-show-city{
+            grid-area: city;
+        }
+        #sponsor-show-contact{
+            grid-area: contact;
+        }
+        #sponsor-show-address{
+            grid-area: address;
+        }
+        #sponsor-show-phone{
+            grid-area: phone;
+        }
+        #sponsor-show-mail{
+            grid-area: mail
+        }
+        #sponsor-show-website{
+            grid-area: website;
+        }
+        #sponsor-show-update{
+            display: flex;
+            justify-content: space-around;
+            grid-area: update;
         }
