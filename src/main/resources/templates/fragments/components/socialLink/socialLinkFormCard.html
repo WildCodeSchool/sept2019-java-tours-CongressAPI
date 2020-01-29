@@ -8,7 +8,11 @@
         <!--/*@thymesVar id="currentCongress" type="com.congress.entity.Congress"*/-->
         <form enctype="multipart/form-data" th:action="@{'/congress/'+ ${currentCongress.id}+ '/socialLink/create'}"
               th:method="POST"
-              th:object="${newSocialLink}">
+              th:object="${newSocialLink}" id="socialLink-form-show">
+
+            <span th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Url Error</span>
+            <label for="socialLinkName">Name</label>
+            <input id="socialLinkName" th:field="*{name}" type="text"/>
 
             <span th:errors="*{url}" th:if="${#fields.hasErrors('url')}">Url Error</span>
             <label for="socialLinkUrl">Url</label>

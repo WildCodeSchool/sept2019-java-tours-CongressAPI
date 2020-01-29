@@ -55,7 +55,7 @@ public class SocialLinkController {
 	 * @throws Exception
 	 */
 	@GetMapping("/{id}")
-	public String getSocialLink(@PathVariable long congressId, @PathVariable long id, Model model) throws Exception {
+	public String getSocialLink(@PathVariable long congressId, @PathVariable long id,@Valid @ModelAttribute SocialLink newSocialLink, Model model) throws Exception {
 		Optional<Congress> finded = congressRepository.findById(congressId);
 		Congress currentCongress = finded.get();
 		if (finded.isPresent()) {
@@ -73,6 +73,7 @@ public class SocialLinkController {
 		if (currentSocialLink == null) {
 			throw new NotFoundException("Can't find social link : " + id);
 		}
+		model.addAttribute("newSocialLink", currentSocialLink);
 		model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
 		model.addAttribute("page", "socialLinks");
 		model.addAttribute("currentSocialLink", currentSocialLink);

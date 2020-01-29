@@ -438,7 +438,7 @@
 
         #sponsor-view-container {
             grid-template-areas: "sponsor-view sponsor-view sponsor-linked-list"
-            "sponsor-link-form sponsor-form-card sponsor-linked-list";
+                                 "sponsor-link-form sponsor-form-card sponsor-linked-list";
         }
         #sponsor-form-card{
             grid-area:sponsor-form-card;
@@ -523,6 +523,7 @@
         #sponsor-linked-show{
             width: 100%;
             justify-content: flex-start;
+
         }
         #sponsor-show{
             width:100%;
@@ -564,4 +565,21 @@
             display: flex;
             justify-content: space-around;
             grid-area: update;
+        }
+        #socialLink-main-view-container{
+            grid-template-areas:"socialLink-form socialLink-view"
+                                 "socialLink-form socialLink-view"
+                                    "socialLink-form socialLink-view";
+        }
+        #socialLink-data{
+            grid-area: socialLink-form;
+        }
+        #socialLink-viewCard{
+            disay: flex;
+            flex-direction: column;
+            grid-area: socialLink-view;
+        }
+        #socialLink-form-show{
+            display: flex;
+            flex-direction: column;
         }
