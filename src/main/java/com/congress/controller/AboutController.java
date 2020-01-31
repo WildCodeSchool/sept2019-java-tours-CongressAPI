@@ -33,9 +33,11 @@ public class AboutController {
      */
     @GetMapping
     public String getAbout(@PathVariable long congressId, Model model) throws Exception {
+        Congress currentCongress = congressService.findById(congressId);
         model.addAttribute("page", "about");
-        model.addAttribute("currentCongress", congressService.findById(congressId));
+        model.addAttribute("currentCongress", currentCongress);
         model.addAttribute("pageTitle", "About");
+        model.addAttribute("pathMethod", "/congress/" + currentCongress.getId() + "/about/create");
         model.addAttribute("newAbout", new About());
         return "/pages/about/aboutListView";
     }

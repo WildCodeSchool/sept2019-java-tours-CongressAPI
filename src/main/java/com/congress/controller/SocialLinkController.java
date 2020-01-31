@@ -47,38 +47,39 @@ public class SocialLinkController {
 	}
 
 	/**
-	 * This controller display the social link with specific {id}
-	 *
-	 * @param id    The id of the social link
-	 * @param model
-	 * @return Template of social link view
-	 * @throws Exception
-	 */
-	@GetMapping("/{id}")
-	public String getSocialLink(@PathVariable long congressId, @PathVariable long id, Model model) throws Exception {
-		Optional<Congress> finded = congressRepository.findById(congressId);
-		Congress currentCongress = finded.get();
-		if (finded.isPresent()) {
-			currentCongress = finded.get();
-		} else {
-			throw new Exception("Can't find social link with id=\" + id);");
-		}
-		SocialLink currentSocialLink = null;
-		for (SocialLink socialLink : currentCongress.getSocialLinks()) {
-			if (socialLink.getId() == id) {
-				currentSocialLink = socialLink;
-			}
-		}
+     * This controller display the social link with specific {id}
+     *
+     * @param id    The id of the social link
+     * @param model
+     * @return Template of social link view
+     * @throws Exception
+     */
+    @GetMapping("/{id}")
+    public String getSocialLink(@PathVariable long congressId, @PathVariable long id, @Valid @ModelAttribute SocialLink newSocialLink, Model model) throws Exception {
+        Optional<Congress> finded = congressRepository.findById(congressId);
+        Congress currentCongress = finded.get();
+        if (finded.isPresent()) {
+            currentCongress = finded.get();
+        } else {
+            throw new Exception("Can't find social link with id=\" + id);");
+        }
+        SocialLink currentSocialLink = null;
+        for (SocialLink socialLink : currentCongress.getSocialLinks()) {
+            if (socialLink.getId() == id) {
+                currentSocialLink = socialLink;
+            }
+        }
 
-		if (currentSocialLink == null) {
-			throw new NotFoundException("Can't find social link : " + id);
-		}
-		model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
-		model.addAttribute("page", "socialLinks");
-		model.addAttribute("socialLink", currentSocialLink);
-		model.addAttribute("pageTitle", "SocialLink" + currentSocialLink.getId());
-		return "pages/socialLink/socialLinkListView";
-	}
+        if (currentSocialLink == null) {
+            throw new NotFoundException("Can't find social link : " + id);
+        }
+        model.addAttribute("newSocialLink", currentSocialLink);
+        model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
+        model.addAttribute("page", "socialLinks");
+        model.addAttribute("currentSocialLink", currentSocialLink);
+        model.addAttribute("pageTitle", "SocialLink" + currentSocialLink.getId());
+        return "pages/socialLink/socialLinkMainView";
+    }
 
 	/**
 	 * This controller is used to create a social link
