@@ -67,6 +67,9 @@ public class Congress {
 	@JsonManagedReference
 	private Set<Sponsor> sponsors;
 
+	@ManyToMany
+	@JsonManagedReference
+	private Set<Speaker> speakers;
 
 	@OneToMany
 	private Set<SocialLink> socialLinks;
@@ -115,6 +118,12 @@ public class Congress {
 	public void removeSocialLink(SocialLink toDelete) {
 		toDelete.setCongress(null);
 		this.socialLinks.remove(toDelete);
+	}
+	public void addSpeaker(Speaker speaker){
+		this.speakers.add(speaker);
+	}
+	public void removeSpeaker(Speaker toDelete){
+		this.speakers.remove(toDelete);
 	}
 
 	@Override

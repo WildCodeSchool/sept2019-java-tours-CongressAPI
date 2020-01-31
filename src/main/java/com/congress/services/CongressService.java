@@ -82,7 +82,7 @@ public class CongressService implements CrudService<Congress> {
     }
 
     public void storeFiles(Congress congress) {
-        if (!congress.getLogo().isEmpty()) {
+        if (congress.getLogo() != null && !congress.getLogo().isEmpty()) {
             storageService.store(congress.getLogo());
             congress.setLogo_url("/files/" + congress.getLogo().getOriginalFilename());
         }

@@ -58,8 +58,10 @@ public class SponsorService implements CrudService<Sponsor> {
         if (!sponsorRepository.existsById(entity.getId())) {
             throw new SponsorNotFoundException(entity.getId());
         }
-        storageService.store(entity.getLogo());
-        entity.setLogo_url("/files/" + entity.getLogo().getOriginalFilename());
+        if(entity.getLogo() != null && !entity.getLogo().isEmpty()) {
+            storageService.store(entity.getLogo());
+            entity.setLogo_url("/files/" + entity.getLogo().getOriginalFilename());
+        }
         return sponsorRepository.save(entity);
     }
 
