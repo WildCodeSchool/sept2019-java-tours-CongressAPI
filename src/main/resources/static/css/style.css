@@ -341,7 +341,7 @@
         }
 
         #congress-view-container {
-            grid-template: "congressview congressview" "congressdetails congressdata" "congressdetails congressdata" "congressdetails congressdata" "congressdetails congressdata"
+            grid-template: "congressview congressview" "congressdetails socialLink-data" "congressdetails socialLink-data" "congressdetails socialLink-data" "congressdetails socialLink-data"
         }
 
         #congress-viewList-container {
@@ -364,7 +364,7 @@
         }
 
         #congress-data {
-            grid-area: congressdata;
+            grid-area: congress-data;
             background-color: white
         }
 
@@ -374,13 +374,11 @@
             background-color: #59ca88;
         }
 
-        nav {
-            max-width: "10%";
-        }
-
         #congress-show{
             width:100%;
             display:grid;
+            height: auto;
+            flex: 1;
             grid-template:"logo title . . date banner"
                           "desc desc desc . . location"
                           "desc desc desc . . network"
@@ -388,7 +386,7 @@
             align-content: normal;
             grid-template-columns: 10% min-content 35% auto max-content 30%;
             justify-content: stretch;
-            grid-template-rows: min-content min-content 25% auto min-content;
+            grid-template-rows: min-content min-content min-content auto min-content;
         }
 
         #congress-show-logo{
@@ -409,7 +407,16 @@
             grid-area:location;
         }
         #congress-show-network{
+            display: flex;
+            flex-direction: row;
             grid-area:network;
+        }
+        #congress-show-network li{
+            width: 30%;
+            height: auto;
+        }
+        #congress-show-network img{
+            width: 100%;
         }
         #congress-show-update{
             display: flex;
@@ -431,7 +438,7 @@
 
         #sponsor-view-container {
             grid-template-areas: "sponsor-view sponsor-view sponsor-linked-list"
-            "sponsor-link-form sponsor-form-card sponsor-linked-list";
+                                 "sponsor-link-form sponsor-form-card sponsor-linked-list";
         }
         #sponsor-form-card{
             grid-area:sponsor-form-card;
@@ -516,6 +523,7 @@
         #sponsor-linked-show{
             width: 100%;
             justify-content: flex-start;
+
         }
         #sponsor-show{
             width:100%;
@@ -557,4 +565,22 @@
             display: flex;
             justify-content: space-around;
             grid-area: update;
+        }
+        #socialLink-main-view-container{
+            grid-template-areas:"socialLink-view socialLink-data";
+                    }
+        #socialLink-data{
+            grid-area: socialLink-data;
+        }
+        #socialLink-viewCard{
+            disay: flex;
+            flex-direction: column;
+            grid-area: socialLink-view;
+        }
+        #socialLink-form-show{
+            display: flex;
+            flex-direction: column;
+        }
+        #socialLink-view-show img{
+            width:100%;
         }

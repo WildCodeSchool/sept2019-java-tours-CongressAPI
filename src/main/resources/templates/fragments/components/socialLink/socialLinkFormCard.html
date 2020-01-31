@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<div class="card" id="dataform" th:fragment="socialLinkFormCard">
+<div class="card" id="socialLink-data" th:fragment="socialLinkFormCard">
     <h3 class="card-title">Social Link</h3>
     <div class="card-content">
         <!--/*@thymesVar id="newSocialLink" type="com.congress.entity.SocialLink"*/-->
         <!--/*@thymesVar id="currentCongress" type="com.congress.entity.Congress"*/-->
         <form enctype="multipart/form-data" th:action="@{'/congress/'+ ${currentCongress.id}+ '/socialLink/create'}"
               th:method="POST"
-              th:object="${newSocialLink}">
+              id="socialLink-form-show" th:object="${newSocialLink}">
+
+            <span th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Url Error</span>
+            <label for="socialLinkName">Name</label>
+            <input id="socialLinkName" th:field="*{name}" type="text"/>
 
             <span th:errors="*{url}" th:if="${#fields.hasErrors('url')}">Url Error</span>
             <label for="socialLinkUrl">Url</label>

@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<div class="card" id="congress-viewList" th:fragment="socialLinkViewCard">
+<div class="card" id="socialLink-viewCard" th:fragment="socialLinkViewCard">
     <h3 class="card-title">Social Link</h3>
-    <div class="card-content" id="congress-show">
-        <img alt="" id="congress-show-logo" src="#" th:src="${currentSocialLink.logo_url}">
-        <ul>
-            <li th:each="socialLink : ${congress.socialLink}">
-                <a th:href="@{${socialLink.url}}" th:text="${socialLink.logo}">Go to Social Link</a>
-            </li>
-        </ul>
+    <div class="card-content" id="socialLink-view-show">
+        <h3 th:text="${currentSocialLink.name}"></h3>
+        <img th:src="@{${currentSocialLink.logoUrl}}"/>
+        <!--/*@thymesVar id="currentSocialLink" type="com.congress.entity.SocialLink"*/-->
+        <a th:href="${currentSocialLink.url}" th:text="${currentSocialLink.url}"></a>
+        <a th:href="@{'/congress/' + ${currentCongress.id}}">go to congress</a>
     </div>
 </div>
 </html>
