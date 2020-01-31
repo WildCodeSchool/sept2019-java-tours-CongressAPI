@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div class="card" id="congress-viewList" th:fragment="posterViewCard">
+    <h3 class="card-title">Poster/Paper</h3>
+    <div class="card-content" id="congress-show">
+        <ul>
+            <li th:each="poster : ${congress.posters}">
+            <li><a th:href="@{${poster.url}}" th:text="${poster.name}">Go to poster</a></li>
+            </li>
+        </ul>
+    </div>
+</div>
+</html>

@@ -12,9 +12,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.io.IOException;
 
 @Controller
-@RequestMapping("sponsor")
+@RequestMapping("/sponsor")
 public class SponsorController {
 
     private final SponsorService sponsorService;
@@ -57,9 +58,11 @@ public class SponsorController {
     public String getSponsor(@PathVariable long id, Model model) throws Exception {
         Sponsor currentSponsor = sponsorService.findById(id);
         model.addAttribute("currentSponsor", currentSponsor);
+        model.addAttribute("newSponsor", currentSponsor);
         model.addAttribute("congressList", congressService.findAll());
         model.addAttribute("page", "sponsor");
         model.addAttribute("pageTitle", "Sponsor" + currentSponsor.getName());
+        model.addAttribute("pathMethod", "/sponsor/" + id + "/edit");
         return "pages/sponsor/sponsorMainView";
 
     }
@@ -94,8 +97,24 @@ public class SponsorController {
         model.addAttribute("page", "sponsor");
         model.addAttribute("pathMethod", "/sponsor/" + id + "/edit");
         model.addAttribute("pageTitle", "Update " + newSponsor.getName());
+        model.addAttribute("newSponsor", newSponsor);
 
         return "pages/sponsor/sponsorFormView";
+    }
+    @PostMapping("/{id}/edit")
+    public String update(@PathVariable long id,@Valid @ModelAttribute("newSponsor") Sponsor newSponsor,BindingResult bindingResult,  Model model) throws Exception {
+        Sponsor currentSponsor = sponsorService.findById(id);
+        if(bindingResult.hasErrors()){
+            model.addAttribute("currentSponsor", currentSponsor);
+            model.addAttribute("newSponsor", newSponsor);
+            model.addAttribute("congressList", congressService.findAll());
+            model.addAttribute("page", "sponsor");
+            model.addAttribute("pageTitle", "Sponsor " + currentSponsor.getName());
+            model.addAttribute("pathMethod", "/sponsor/" + id + "/edit");
+            return "pages/sponsor/sponsorMainView";
+        }
+        sponsorService.update(newSponsor);
+        return "redirect:/sponsor/" + id;
     }
 
     @GetMapping("/create")

@@ -4,11 +4,15 @@
 </head>
 <body>
 <nav th:replace="/fragments/components/navbar.html :: navbar"></nav>
-    <main id="main-congress-form">
-        <h3 class="card-title" th:text="${about.title}"></h3>
-        <div class="card-content">
-        <p th:text="${about.description}"></p>
+    <main id="about-main-preview">
+        <div  class="card" id="about-preview" >
+            <h3 class="card-title" th:text="${about.title}"></h3>
+            <div class="card-content">
+                <p th:text="${about.description}"></p>
+            </div>
         </div>
+        <div th:replace="/fragments/components/about/aboutFormCard.html :: aboutFormCard"></div>
+
     </main>
 </body>
 </html>

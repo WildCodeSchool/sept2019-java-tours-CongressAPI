@@ -15,19 +15,7 @@
                     Name
                 </td>
                 <td>
-                    Logo
-                </td>
-                <td>
-                    Adress
-                </td>
-                <td>
                     City
-                </td>
-                <td>
-                    Contact
-                </td>
-                <td>
-                    Phone
                 </td>
                 <td>
                     Link
@@ -38,11 +26,7 @@
             <tr th:each="sponsor: ${sponsorList}">
                 <td th:text="${sponsor.id}"></td>
                 <td th:text="${sponsor.name}"></td>
-                <td th:text="${sponsor.logo_url}"></td>
-                <td th:text="${sponsor.address}"></td>
                 <td th:text="${sponsor.city}"></td>
-                <td th:text="${sponsor.contact}"></td>
-                <td th:text="${sponsor.phone}"></td>
                 <td><a th:href="@{'/sponsor/' + ${sponsor.id}}">See sponsor</a></td>
             </tr>
             </tbody>

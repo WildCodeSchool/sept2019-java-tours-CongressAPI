@@ -29,7 +29,7 @@ public class Sponsor {
     private String city;
     private String contact;
     private String address;
-    private int phone;
+    private String phone;
     private String mail;
     private String website_url;
 

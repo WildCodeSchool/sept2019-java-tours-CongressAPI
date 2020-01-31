@@ -45,11 +45,14 @@ public class AboutController {
      */
     @GetMapping("/{id}")
     public String getAbout(@PathVariable long congressId, @PathVariable long id, Model model) throws Exception {
+        Congress currentCongress = congressService.findById(congressId);
         About currentAbout = aboutService.findById(id);
-        model.addAttribute("currentCongress", congressService.findById(congressId));
+        model.addAttribute("currentCongress", currentCongress);
         model.addAttribute("page", "abouts");
         model.addAttribute("about", currentAbout);
         model.addAttribute("pageTitle", "About" + currentAbout.getTitle());
+        model.addAttribute("pathMethod",         "/congress/"+ currentCongress.getId()+ "/about/"+id+"/edit");
+        model.addAttribute("newAbout", currentAbout);
         return "pages/about/aboutOneDescription";
     }
 
@@ -100,15 +103,21 @@ public class AboutController {
      * @return      template of about view form
      * @throws Exception
      */
-    @GetMapping("/{id}/edit")
-    public String updateAboutForm(@PathVariable long congressId, @PathVariable Long id, Model model) throws Exception {
-        About newAbout = aboutService.findById(id);
-        model.addAttribute("pathMethod", "congress/" + congressId + "/about/" + id + "/edit");
-        model.addAttribute("pageTitle", "Update " + newAbout.getTitle());
-        model.addAttribute("page", "about");
-        model.addAttribute("currentCongress", congressService.findById(congressId));
-
-        return "pages/about/aboutFormView";
+    @PostMapping("/{id}/edit")
+    public String updateAboutForm(@PathVariable long congressId, @PathVariable Long id, @ModelAttribute About about,BindingResult bindingResult, Model model) throws Exception {
+        if(bindingResult.hasErrors()){
+            Congress currentCongress = congressService.findById(congressId);
+            About currentAbout = aboutService.findById(id);
+            model.addAttribute("currentCongress", currentCongress);
+            model.addAttribute("page", "abouts");
+            model.addAttribute("about", currentAbout);
+            model.addAttribute("pageTitle", "About" + currentAbout.getTitle());
+            model.addAttribute("pathMethod",         "/congress/"+ currentCongress.getId()+ "/about/edit");
+            model.addAttribute("newAbout", currentAbout);
+            return "pages/about/aboutOneDescription";
+        }
+        aboutService.update(about);
+       return "redirect:/congress/" + congressId + "/about/"+ id;
     }
     @GetMapping("/create")
     public String createAboutForm(@PathVariable long congressId, Model model) throws Exception{

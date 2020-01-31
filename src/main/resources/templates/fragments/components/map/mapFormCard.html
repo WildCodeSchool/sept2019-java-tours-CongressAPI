@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div class="card" id="map-form" th:fragment="mapFormCard">
+    <h3 class="card-title">Maps</h3>
+    <div class="card-content">
+        <form enctype="multipart/form-data" th:action="@{'/congress/'+ ${currentCongress.id}+ '/map/create'}"
+              th:method="POST"
+              th:object="${currentMap}">
+
+            <span th:errors="*{title}" th:if="${#fields.hasErrors('title')}">Title Error</span>
+            <label for="title">Title</label>
+            <input id="title" th:field="*{title}" title="title" type="text"/><br>
+
+            <span th:errors="*{url}" th:if="${#fields.hasErrors('url')}">Name Error</span>
+            <label for="url">Url</label>
+            <input id="url" name="url" th:field="*{url}" type="url"/><br>
+            <input type="submit" value="Valider">
+        </form>
+    </div>
+</div>
+</html>
