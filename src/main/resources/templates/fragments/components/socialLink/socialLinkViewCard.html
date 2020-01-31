@@ -8,7 +8,7 @@
         <img th:src="@{${currentSocialLink.logoUrl}}"/>
         <!--/*@thymesVar id="currentSocialLink" type="com.congress.entity.SocialLink"*/-->
         <a th:text="${currentSocialLink.url}" th:href="${currentSocialLink.url}"></a>
-        <a th:href="@{'/congress/' + congressId}">go to congress</a>
+        <a th:href="@{'/congress/' + ${currentCongress.id}}">go to congress</a>
        </div>
 </div>
 </html>

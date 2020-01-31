@@ -12,7 +12,9 @@
         <span id="congress-show-location" th:text="${currentCongress.location}"></span>
         <ul id="congress-show-network">
             <li th:each="social : ${currentCongress.socialLinks}">
-                <img th:src="${social.logoUrl}">
+                <a th:href="@{'/congress/' + ${currentCongress.id} + '/socialLink/' + ${social.id}}">
+                    <img th:src="${social.logoUrl}">
+                </a>
             </li>
         </ul>
         <div id="congress-show-update">

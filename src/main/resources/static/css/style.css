@@ -341,7 +341,7 @@
         }
 
         #congress-view-container {
-            grid-template: "congressview congressview" "congressdetails congressdata" "congressdetails congressdata" "congressdetails congressdata" "congressdetails congressdata"
+            grid-template: "congressview congressview" "congressdetails socialLink-data" "congressdetails socialLink-data" "congressdetails socialLink-data" "congressdetails socialLink-data"
         }
 
         #congress-viewList-container {
@@ -364,7 +364,7 @@
         }
 
         #congress-data {
-            grid-area: congressdata;
+            grid-area: congress-data;
             background-color: white
         }
 
@@ -567,12 +567,10 @@
             grid-area: update;
         }
         #socialLink-main-view-container{
-            grid-template-areas:"socialLink-form socialLink-view"
-                                 "socialLink-form socialLink-view"
-                                    "socialLink-form socialLink-view";
-        }
+            grid-template-areas:"socialLink-view socialLink-data";
+                    }
         #socialLink-data{
-            grid-area: socialLink-form;
+            grid-area: socialLink-data;
         }
         #socialLink-viewCard{
             disay: flex;
@@ -582,4 +580,7 @@
         #socialLink-form-show{
             display: flex;
             flex-direction: column;
+        }
+        #socialLink-view-show img{
+            width:100%;
         }
