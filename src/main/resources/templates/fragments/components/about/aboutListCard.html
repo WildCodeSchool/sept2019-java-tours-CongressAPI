@@ -21,7 +21,8 @@
                 <tr th:each="about : ${currentCongress.abouts}">
                     <td th:text="${about.id}"></td>
                     <td th:text="${about.title}"></td>
-                    <td><a th:href="@{'/congress/' +${congressId} + '/about/' + ${about.id}}">See description</a></td>
+                    <td><a th:href="@{'/congress/' +${currentCongress.id} + '/about/' + ${about.id}}">See
+                        description</a></td>
                 </tr>
                 </tbody>
             </table>

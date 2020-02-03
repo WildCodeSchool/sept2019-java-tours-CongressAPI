@@ -61,6 +61,9 @@ public class Congress {
 	private Set<About> abouts;
 
 	@OneToMany
+	private Set<FloorPlan> floorPlans;
+
+	@OneToMany
 	private Set<Map> maps;
 
 	@ManyToMany
@@ -76,6 +79,7 @@ public class Congress {
 		this.maps = new HashSet<>();
 		this.sponsors = new HashSet<>();
 		this.socialLinks = new HashSet<>();
+		this.floorPlans = new HashSet<>();
 	}
 
 	public void addMap(Map map) {
@@ -97,6 +101,17 @@ public class Congress {
 	public void removeAbout(About toDelete) {
 		toDelete.setCongress(null);
 		this.abouts.remove(toDelete);
+	}
+
+	public void addFloorPlan(FloorPlan floorPlan) {
+		floorPlan.setCongress(this);
+		this.floorPlans.add(floorPlan);
+
+	}
+
+	public void removeFloorPlan(FloorPlan toDelete) {
+		toDelete.setCongress(this);
+		this.floorPlans.remove(toDelete);
 	}
 
 	public void addSponsor(Sponsor sponsor) {

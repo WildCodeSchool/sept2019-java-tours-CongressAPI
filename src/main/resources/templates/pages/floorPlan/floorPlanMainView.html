@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/main/head.html :: head">
+</head>
+<body>
+<nav th:replace="/fragments/components/navbar.html :: navbar"></nav>
+<main id="floorPlan-main-preview">
+    <div class="card" id="floorPlan-preview">
+        <h3 class="card-title" th:text="${currentFloorPlan.title}"></h3>
+        <div class="card-content">
+            <img alt="" id="floorPlan-show-logo" th:src="${currentFloorPlan.plan_url}">
+
+        </div>
+    </div>
+    <div th:replace="/fragments/components/floorPlan/floorPlanFormCard.html :: floorPlanFormCard"></div>
+
+</main>
+</body>
+</html>

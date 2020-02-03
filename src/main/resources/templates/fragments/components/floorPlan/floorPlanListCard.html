@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div class="card" id="floorPlan-viewList" th:fragment="floorPlanListCard">
+    <h3 class="card-title">Floor Plan</h3>
+    <div class="card-content" id="floorPlan-show">
+        <table class="actuality-item-conf">
+            <thead>
+            <tr>
+                <td>
+                    ID
+                </td>
+                <td>
+                    Title
+                </td>
+                <td>
+                    Redirection
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="floorPlan : ${currentCongress.floorPlans}">
+                <td th:text="${floorPlan.id}"></td>
+                <td th:text="${floorPlan.title}"></td>
+                <td><a th:href="@{'/congress/' +${currentCongress.id} + '/floorPlan/' + ${floorPlan.id}}">See
+                    description</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+</html>

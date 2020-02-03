@@ -7,10 +7,8 @@
     <ul class="navlist">
         <li th:class="${page} == 'congress' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
                 th:text="${currentCongress.name}" th:href="@{'/congress/' + ${currentCongress.id}}"></a></li>
-        <li th:class="${page} == 'location' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
-                th:href="@{'/congress/' + ${currentCongress.id} + '/location'}">Location</a></li>
         <li th:class="${page} == 'floorplan' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
-                th:href="@{'/congress/' + ${currentCongress.id} + '/floorplan'}">Floorplan</a></li>
+                th:href="@{'/congress/' + ${currentCongress.id} + '/floorPlan'}">Floorplan</a></li>
         <li th:class="${page} == 'activity' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
                 th:href="@{'/congress/' + ${currentCongress.id} + '/activity'}">Activities</a></li>
         <li th:class="${page} == 'about' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
