@@ -2,28 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d5c155-a598-44b6-80c6-8a5f80abfb2d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/HotelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Hotel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/exception/HotelNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/exception/MapNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/repository/HotelRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/services/HotelService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/hotel/hotelFormCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/hotel/hotelLinkFormCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/hotel/hotelLinkedListCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/hotel/hotelLinkedUniversalList.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/hotel/hotelListCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/hotel/hotelViewCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/hotel/hotelFormView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/hotel/hotelListView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/hotel/hotelMainView.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Congress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Congress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/repository/MapRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/repository/MapRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorLinkedListCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorLinkedListCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/PosterController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Poster.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/repository/PosterRepository.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +196,7 @@
       <workItem from="1579849933968" duration="4289000" />
       <workItem from="1580310307340" duration="6191000" />
       <workItem from="1580713689271" duration="97000" />
-      <workItem from="1580713912269" duration="11486000" />
+      <workItem from="1580713912269" duration="11743000" />
     </task>
     <task id="LOCAL-00001" summary="Make some refactor and start js to perform no browser supported request">
       <created>1578927160656</created>
@@ -237,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580716281567</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Hotel done">
+      <created>1580737858956</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1580737858956</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +236,8 @@
     <MESSAGE value="Make some refactor and start js to perform no browser supported request" />
     <MESSAGE value="Fix template path for PostMapping on error" />
     <MESSAGE value="Fix SpeakerService" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix SpeakerService" />
+    <MESSAGE value="Hotel done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hotel done" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -295,40 +285,40 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state x="743" y="399" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1035@0.0.1920.1035" timestamp="1579448473257" />
-    <state x="698" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580461290218">
+    <state x="698" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580737995846">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
-    <state x="698" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1035@0.0.1920.1035" timestamp="1580461290218" />
-    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2" timestamp="1580716281208">
+    <state x="698" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1035@0.0.1920.1035" timestamp="1580737995846" />
+    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2" timestamp="1580737858053">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
-    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2/0.0.1920.1035@0.0.1920.1035" timestamp="1580716281208" />
-    <state width="1874" height="207" key="GridCell.Tab.0.bottom" timestamp="1580732631542">
+    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2/0.0.1920.1035@0.0.1920.1035" timestamp="1580737858053" />
+    <state width="1874" height="207" key="GridCell.Tab.0.bottom" timestamp="1580737996545">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state width="1354" height="207" key="GridCell.Tab.0.bottom/0.0.1400.1005@0.0.1400.1005" timestamp="1580479611998" />
-    <state width="1874" height="207" key="GridCell.Tab.0.bottom/0.0.1920.1035@0.0.1920.1035" timestamp="1580732631542" />
+    <state width="1874" height="207" key="GridCell.Tab.0.bottom/0.0.1920.1035@0.0.1920.1035" timestamp="1580737996545" />
     <state width="1247" height="219" key="GridCell.Tab.0.bottom/67.27.1293.741@67.27.1293.741" timestamp="1578578621249" />
     <state width="1487" height="155" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1580460999633" />
-    <state width="1874" height="207" key="GridCell.Tab.0.center" timestamp="1580732631542">
+    <state width="1874" height="207" key="GridCell.Tab.0.center" timestamp="1580737996545">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state width="1354" height="207" key="GridCell.Tab.0.center/0.0.1400.1005@0.0.1400.1005" timestamp="1580479611998" />
-    <state width="1874" height="207" key="GridCell.Tab.0.center/0.0.1920.1035@0.0.1920.1035" timestamp="1580732631542" />
+    <state width="1874" height="207" key="GridCell.Tab.0.center/0.0.1920.1035@0.0.1920.1035" timestamp="1580737996545" />
     <state width="1247" height="219" key="GridCell.Tab.0.center/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
     <state width="1487" height="155" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1580460999632" />
-    <state width="1874" height="207" key="GridCell.Tab.0.left" timestamp="1580732631542">
+    <state width="1874" height="207" key="GridCell.Tab.0.left" timestamp="1580737996544">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state width="1354" height="207" key="GridCell.Tab.0.left/0.0.1400.1005@0.0.1400.1005" timestamp="1580479611997" />
-    <state width="1874" height="207" key="GridCell.Tab.0.left/0.0.1920.1035@0.0.1920.1035" timestamp="1580732631542" />
+    <state width="1874" height="207" key="GridCell.Tab.0.left/0.0.1920.1035@0.0.1920.1035" timestamp="1580737996544" />
     <state width="1247" height="219" key="GridCell.Tab.0.left/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
     <state width="1487" height="155" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1580460999632" />
-    <state width="1874" height="207" key="GridCell.Tab.0.right" timestamp="1580732631542">
+    <state width="1874" height="207" key="GridCell.Tab.0.right" timestamp="1580737996545">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state width="1354" height="207" key="GridCell.Tab.0.right/0.0.1400.1005@0.0.1400.1005" timestamp="1580479611998" />
-    <state width="1874" height="207" key="GridCell.Tab.0.right/0.0.1920.1035@0.0.1920.1035" timestamp="1580732631542" />
+    <state width="1874" height="207" key="GridCell.Tab.0.right/0.0.1920.1035@0.0.1920.1035" timestamp="1580737996545" />
     <state width="1247" height="219" key="GridCell.Tab.0.right/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
     <state width="1487" height="155" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1580460999632" />
     <state width="1487" height="272" key="GridCell.Tab.1.bottom" timestamp="1579773877815">
@@ -382,10 +372,10 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state width="562" height="468" key="SwitcherDM/0.0.1920.1035@0.0.1920.1035" timestamp="1579531356045" />
-    <state x="560" y="242" key="Vcs.Push.Dialog.v2" timestamp="1580716284116">
+    <state x="560" y="242" key="Vcs.Push.Dialog.v2" timestamp="1580737860658">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
-    <state x="560" y="242" key="Vcs.Push.Dialog.v2/0.0.1920.1035@0.0.1920.1035" timestamp="1580716284116" />
+    <state x="560" y="242" key="Vcs.Push.Dialog.v2/0.0.1920.1035@0.0.1920.1035" timestamp="1580737860658" />
     <state x="684" y="197" width="367" height="530" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1580311243812">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
