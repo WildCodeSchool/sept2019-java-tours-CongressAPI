@@ -61,24 +61,30 @@ public class Congress {
 	private Set<About> abouts;
 
 	@OneToMany
-	private Set<Map> maps;
+    private Set<Map> maps;
 
-	@ManyToMany
-	@JsonManagedReference
-	private Set<Sponsor> sponsors;
+    @ManyToMany
+    @JsonManagedReference
+    private Set<Sponsor> sponsors;
 
 
-	@OneToMany
-	private Set<SocialLink> socialLinks;
+    @OneToMany
+    private Set<SocialLink> socialLinks;
 
-	public Congress() {
-		this.abouts = new HashSet<>();
-		this.maps = new HashSet<>();
-		this.sponsors = new HashSet<>();
-		this.socialLinks = new HashSet<>();
-	}
 
-	public void addMap(Map map) {
+    @ManyToMany
+    @JsonManagedReference
+    private Set<Hotel> hotels;
+
+    public Congress() {
+        this.abouts = new HashSet<>();
+        this.maps = new HashSet<>();
+        this.sponsors = new HashSet<>();
+        this.socialLinks = new HashSet<>();
+        this.hotels = new HashSet<>();
+    }
+
+    public void addMap(Map map) {
 		map.setCongress(this);
 		this.maps.add(map);
 	}
@@ -97,25 +103,34 @@ public class Congress {
 	public void removeAbout(About toDelete) {
 		toDelete.setCongress(null);
 		this.abouts.remove(toDelete);
-	}
+    }
 
-	public void addSponsor(Sponsor sponsor) {
-		this.sponsors.add(sponsor);
-	}
+    public void addSponsor(Sponsor sponsor) {
+        this.sponsors.add(sponsor);
+    }
 
-	public void removeSponsor(Sponsor toDelete) {
-		this.sponsors.remove(toDelete);
-	}
+    public void removeSponsor(Sponsor toDelete) {
+        this.sponsors.remove(toDelete);
+    }
 
-	public void addSocialLink(SocialLink socialLink) {
-		socialLink.setCongress(this);
-		this.socialLinks.add(socialLink);
-	}
+    public void addHotel(Hotel hotel) {
+        this.hotels.add(hotel);
+    }
 
-	public void removeSocialLink(SocialLink toDelete) {
-		toDelete.setCongress(null);
-		this.socialLinks.remove(toDelete);
-	}
+    public void removeHotel(Hotel toDelete) {
+        this.hotels.remove(toDelete);
+    }
+
+
+    public void addSocialLink(SocialLink socialLink) {
+        socialLink.setCongress(this);
+        this.socialLinks.add(socialLink);
+    }
+
+    public void removeSocialLink(SocialLink toDelete) {
+        toDelete.setCongress(null);
+        this.socialLinks.remove(toDelete);
+    }
 
 	@Override
 	public int hashCode() {

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/main/head.html :: head"></head>
+<body>
+<nav th:replace="/fragments/components/navbar.html :: navbar"></nav>
+<main id="hotel-view-container">
+    <div th:replace="/fragments/components/hotel/hotelViewCard.html :: hotelViewCard"></div>
+    <div th:replace="/fragments/components/hotel/hotelLinkFormCard.html :: hotelLinkFormCard"></div>
+    <div th:replace="/fragments/components/hotel/hotelFormCard.html :: hotelFormCard"></div>
+    <div th:replace="/fragments/components/hotel/hotelLinkedListCard.html :: hotelLinkedListCard"></div>
+
+
+</main>
+</body>
+</html>

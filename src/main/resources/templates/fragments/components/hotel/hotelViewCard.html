@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="currentHotel" type="com.congress.entity.Hotel"*/-->
+<div class="card" id="hotel-view" th:fragment="hotelViewCard">
+    <h3 class="card-title">Hotels</h3>
+    <div class="card-content" id="hotel-show">
+        <div th:text="${currentHotel.name}"></div>
+        <img alt="" id="hotel-show-logo" th:src="@{${currentHotel.name}}">
+        <span id="hotel-show-location" th:text="${currentHotel.url}"></span>
+        <div id="hotel-show-update">
+            <a href="#" th:onclick="|deleteUrl('/hotel/${currentHotel.id}')|">Supprimer</a>
+        </div>
+    </div>
+</div>
+</html>

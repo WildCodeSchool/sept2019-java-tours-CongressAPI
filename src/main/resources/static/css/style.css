@@ -577,10 +577,48 @@
             flex-direction: column;
             grid-area: socialLink-view;
         }
-        #socialLink-form-show{
+
+        #socialLink-form-show {
             display: flex;
             flex-direction: column;
         }
-        #socialLink-view-show img{
-            width:100%;
+
+        #socialLink-view-show img {
+            width: 100%;
+        }
+
+        #hotel-viewList-container {
+            grid-template-areas: "hotel-viewList hotel-viewList hotel-form-card" "hotel-viewList hotel-viewList ." "hotel-viewList hotel-viewList hotel-together-form";
+        }
+
+        #hotel-together-form {
+            grid-area: hotel-together-form;
+        }
+
+        #hotel-form-card {
+            grid-area: hotel-form-card;
+        }
+
+        #hotel-together-form {
+            grid-area: hotel-together-form;
+        }
+
+        #hotel-link-form {
+            grid-area: hotel-link-form;
+        }
+
+        #hotel-viewList {
+            grid-area: hotel-viewList;
+        }
+
+        #hotel-view {
+            grid-area: hotel-view;
+        }
+
+        #hotel-view-container {
+            grid-template-areas: "hotel-view hotel-form-card hotel-linked-list" "hotel-link-form . hotel-linked-list";
+        }
+
+        #hotel-linked-list {
+            grid-area: hotel-linked-list;
         }
