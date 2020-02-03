@@ -577,10 +577,45 @@
             flex-direction: column;
             grid-area: socialLink-view;
         }
-        #socialLink-form-show{
+
+        #socialLink-form-show {
             display: flex;
             flex-direction: column;
         }
-        #socialLink-view-show img{
-            width:100%;
+
+        #socialLink-view-show img {
+            width: 100%;
+        }
+
+        #speaker-viewList-container {
+            grid-template-areas: "speaker-viewList speaker-form-card speaker-together-form";
+
+        }
+
+        #speaker-together-form {
+            grid-area: speaker-together-form;
+        }
+
+        #speaker-form-card {
+            grid-area: speaker-form-card;
+        }
+
+        #speaker-viewList {
+            grid-area: speaker-viewList;
+        }
+
+        #speaker-linked-list {
+            grid-area: speaker-linked-list;
+        }
+
+        #speaker-link-form {
+            grid-area: speaker-link-form;
+        }
+
+        #speaker-view-container {
+            grid-template-areas: "speaker-view speaker-form-card speaker-linked-list" "speaker-view speaker-link-form speaker-linked-list";
+        }
+
+        #speaker-view {
+            grid-area: speaker-view;
         }

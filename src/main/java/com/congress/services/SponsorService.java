@@ -2,7 +2,7 @@ package com.congress.services;
 
 import com.congress.entity.Congress;
 import com.congress.entity.Sponsor;
-import com.congress.exception.SponsorNotFoundException;
+import com.congress.exception.entity.SponsorNotFoundException;
 import com.congress.repository.SponsorRepository;
 import com.congress.storage.StorageService;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,7 @@ public class SponsorService implements CrudService<Sponsor> {
         return sponsorRepository.findAll();
     }
 
-    public List<Congress> findByCongressId(long congressId) {
+    public List<Sponsor> findByCongressId(long congressId) {
         return sponsorRepository.findByCongressId(congressId);
     }
 

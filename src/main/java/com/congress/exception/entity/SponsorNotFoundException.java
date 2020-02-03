@@ -1,5 +1,6 @@
-package com.congress.exception;
+package com.congress.exception.entity;
 
+import com.congress.exception.ApiException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 

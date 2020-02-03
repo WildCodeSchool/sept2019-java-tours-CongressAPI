@@ -1,7 +1,7 @@
 package com.congress.services;
 
 import com.congress.entity.About;
-import com.congress.exception.AboutNotFoundExcepetion;
+import com.congress.exception.entity.AboutNotFoundExcepetion;
 import com.congress.repository.AboutRepository;
 import org.springframework.stereotype.Service;
 

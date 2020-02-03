@@ -2,22 +2,23 @@ package com.congress.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 
-/**
- * voila voila
- */
-
 @Data
 @Entity
-public class Map {
-
+public class InteractiveFloorPlan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String title;
-    private String url;
+
+    private String name;
+
+    @Transient
+    private MultipartFile map;
+
+    private String map_url;
 
     @ManyToOne
     @JsonBackReference

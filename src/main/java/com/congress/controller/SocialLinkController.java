@@ -2,35 +2,30 @@ package com.congress.controller;
 
 import com.congress.entity.Congress;
 import com.congress.entity.SocialLink;
-import com.congress.repository.CongressRepository;
-import com.congress.repository.SocialLinkRepository;
+import com.congress.services.CongressService;
+import com.congress.services.SocialLinkService;
 import com.congress.storage.StorageService;
 import javassist.NotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Optional;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("congress/{congressId}/socialLink")
 public class SocialLinkController {
 
-	@Autowired
-	private CongressRepository congressRepository;
+	private final CongressService congressService;
+	private final SocialLinkService socialLinkService;
 
-	@Autowired
-	private SocialLinkRepository socialLinkRepository;
-
-	private StorageService storageService;
-
-	@Autowired
-	public void FileUploadController(StorageService storageService) {
-		this.storageService = storageService;
+	public SocialLinkController(CongressService congressService, SocialLinkService socialLinkService, StorageService storageService) {
+		this.congressService = congressService;
+		this.socialLinkService = socialLinkService;
 	}
+
 
 	/**
 	 * This controller display the list of social link
@@ -39,9 +34,9 @@ public class SocialLinkController {
 	 * @return Template of link view list
 	 */
 	@GetMapping
-	public String getSocialLink(@PathVariable long congressId, Model model) {
+	public String getSocialLink(@PathVariable long congressId, Model model) throws IOException {
 		model.addAttribute("page", "socialLink");
-		model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
+		model.addAttribute("currentCongress", congressService.findById(congressId));
 		model.addAttribute("pageTitle", "SocialLink");
 		return "pages/socialLink/socialLinkListView";
 	}
@@ -56,30 +51,15 @@ public class SocialLinkController {
      */
     @GetMapping("/{id}")
     public String getSocialLink(@PathVariable long congressId, @PathVariable long id, @Valid @ModelAttribute SocialLink newSocialLink, Model model) throws Exception {
-        Optional<Congress> finded = congressRepository.findById(congressId);
-        Congress currentCongress = finded.get();
-        if (finded.isPresent()) {
-            currentCongress = finded.get();
-        } else {
-            throw new Exception("Can't find social link with id=\" + id);");
-        }
-        SocialLink currentSocialLink = null;
-        for (SocialLink socialLink : currentCongress.getSocialLinks()) {
-            if (socialLink.getId() == id) {
-                currentSocialLink = socialLink;
-            }
-        }
-
-        if (currentSocialLink == null) {
-            throw new NotFoundException("Can't find social link : " + id);
-        }
-        model.addAttribute("newSocialLink", currentSocialLink);
-        model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
-        model.addAttribute("page", "socialLinks");
-        model.addAttribute("currentSocialLink", currentSocialLink);
-        model.addAttribute("pageTitle", "SocialLink" + currentSocialLink.getId());
-        return "pages/socialLink/socialLinkMainView";
-    }
+		Congress currentCongress = congressService.findById(congressId);
+		SocialLink currentSocialLink = socialLinkService.findById(id);
+		model.addAttribute("newSocialLink", currentSocialLink);
+		model.addAttribute("currentCongress", currentCongress);
+		model.addAttribute("page", "socialLinks");
+		model.addAttribute("currentSocialLink", currentSocialLink);
+		model.addAttribute("pageTitle", "SocialLink" + currentSocialLink.getId());
+		return "pages/socialLink/socialLinkMainView";
+	}
 
 	/**
 	 * This controller is used to create a social link
@@ -89,20 +69,17 @@ public class SocialLinkController {
 	 * @return Redirect to the social link view
 	 */
 	@PostMapping("/create")
-	public String createSocialLink(@PathVariable long congressId, @Valid @ModelAttribute("newSocialLink") SocialLink currentSocialLink, BindingResult binding, Model model) throws NotFoundException {
+	public String createSocialLink(@PathVariable long congressId, @Valid @ModelAttribute("newSocialLink") SocialLink currentSocialLink, BindingResult binding, Model model) throws NotFoundException, IOException {
 		if (binding.hasErrors()) {
 			model.addAttribute("httpMethod", "POST");
 			model.addAttribute("pathMethod", "/congress/" + congressId + "/socialLink/create");
 			model.addAttribute("newSocialLink", currentSocialLink);
 			return "pages/socialLink/socialLinkFormView";
 		}
-		storageService.store(currentSocialLink.getLogo());
-
-		currentSocialLink.setLogoUrl("/files/" + currentSocialLink.getLogo().getOriginalFilename());
-		Congress currentCongress = congressRepository.findById(congressId).orElseThrow(() -> new NotFoundException("Can't find congress with id:" + congressId));
+		Congress currentCongress = congressService.findById(congressId);
 		currentCongress.addSocialLink(currentSocialLink);
-		socialLinkRepository.save(currentSocialLink);
-		congressRepository.save(currentCongress);
+		currentSocialLink = socialLinkService.create(currentSocialLink);
+		congressService.update(currentCongress);
 		return "redirect:/congress/" + congressId + "/socialLink/" + currentSocialLink.getId();
 	}
 
@@ -115,13 +92,11 @@ public class SocialLinkController {
 	 * @return Redirect to the home page
 	 */
 	@GetMapping("/{id}/delete")
-	public String deleteSocialLink(@PathVariable long congressId, @PathVariable long id, @ModelAttribute SocialLink currentSocialLink) throws NotFoundException {
-		Congress currentCongress = congressRepository.findById(congressId)
-				.orElseThrow(() -> new NotFoundException("Can't find congress with id:" + congressId));
-		SocialLink toDelete = socialLinkRepository.findById(id)
-				.orElseThrow(() -> new NotFoundException("Can't find social link with id: " + id));
+	public String deleteSocialLink(@PathVariable long congressId, @PathVariable long id, @ModelAttribute SocialLink currentSocialLink) throws Exception {
+		Congress currentCongress = congressService.findById(congressId);
+		SocialLink toDelete = socialLinkService.findById(id);
 		currentCongress.removeSocialLink(toDelete);
-		congressRepository.save(currentCongress);
+		congressService.update(currentCongress);
 		return "redirect:/";
 
 	}
@@ -136,21 +111,12 @@ public class SocialLinkController {
 	 */
 	@GetMapping("/{id}/edit")
 	public String updateSocialLinkForm(@PathVariable long congressId, @PathVariable long id, Model model) throws Exception {
-		SocialLink newSocialLink;
-		Optional<SocialLink> finded = socialLinkRepository.findById(id);
-		if (finded.isPresent()) {
-			newSocialLink = finded.get();
-		} else {
-			throw new Exception("Can't find poster with id=" + id);
-		}
-		if (!model.containsAttribute("newSocialLink"))
-			model.addAttribute("newSocialLink", newSocialLink);
-
+		SocialLink newSocialLink = socialLinkService.findById(id);
+		model.addAttribute("newSocialLink", newSocialLink);
 		model.addAttribute("pathMethod", "congress/" + congressId + "/socialLink/" + id + "/edit");
 		model.addAttribute("pageTitle", "Update " + newSocialLink.getName());
 		model.addAttribute("page", "currentSocialLink");
-		model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
-
+		model.addAttribute("currentCongress", congressService.findById(congressId));
 		return "pages/socialLink/socialLinkFormView";
 	}
 
@@ -164,7 +130,7 @@ public class SocialLinkController {
 	@GetMapping("/create")
 	public String createSocialLinkForm(@PathVariable long congressId, Model model) throws Exception {
 		model.addAttribute("page", "socialLink");
-		model.addAttribute("currentCongress", congressRepository.findById(congressId).get());
+		model.addAttribute("currentCongress", congressService.findById(congressId));
 		model.addAttribute("pathMethod", "/congress/" + congressId + "/socialLink/create");
 		model.addAttribute("newSocialLink", new SocialLink());
 		return "pages/socialLink/socialLinkFormView";

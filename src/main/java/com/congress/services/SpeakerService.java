@@ -39,7 +39,7 @@ public class SpeakerService implements CrudService<Speaker> {
     @Override
     public Speaker create(Speaker entity) {
         storageService.store(entity.getPhoto());
-        entity.setPhoto_url("/flies/" + entity.getPhoto().getOriginalFilename());
+        entity.setPhoto_url("/files/" + entity.getPhoto().getOriginalFilename());
         return speakerRepository.save(entity);
     }
 
@@ -71,6 +71,7 @@ public class SpeakerService implements CrudService<Speaker> {
         }
         speakerRepository.deleteById(id);
     }
+
     public void linkToCongress(Long congressId, long id) throws Exception{
         Congress congress = congressService.findById(congressId);
         Speaker speaker = this.findById(id);
@@ -78,6 +79,7 @@ public class SpeakerService implements CrudService<Speaker> {
         this.update(speaker);
         congressService.update(congress);
     }
+
     public void unLinkToCongress(Long congressId, long id) throws Exception{
         Congress congress = congressService.findById(congressId);
         Speaker speaker = this.findById(id);

@@ -34,8 +34,11 @@ public class SpeakerController{
     public String getSpeakers(Model model){
         model.addAttribute("congressList", congressService.findAll());
         model.addAttribute("speakerList", speakerService.findAll());
-        model.addAttribute("page","speaker");
+        model.addAttribute("page", "speaker");
         model.addAttribute("pageTitle", "List Speaker");
+        model.addAttribute("newSpeaker", new Speaker());
+        model.addAttribute("pathMethod", "/speaker/create");
+
         return "pages/speaker/speakerListView";
     }
     @GetMapping("/{id}")
@@ -95,24 +98,27 @@ public class SpeakerController{
             model.addAttribute("congressList", congressService.findAll());
             model.addAttribute("page", "speaker");
             model.addAttribute("pageTitle", "Speaker" + currentSpeaker.getName());
-            model.addAttribute("pathMethod", "/speaker/"+ id + "/edit");
+            model.addAttribute("pathMethod", "/speaker/" + id + "/edit");
             return "pages/speaker/speakerMainView";
         }
         speakerService.update(newSpeaker);
         return "redirect:/speaker/" + id;
     }
-    @PostMapping("/{Id}/linktocongress")
-    public String linkToCongress(@PathVariable long id, Long congressId) throws Exception{
+
+    @PostMapping("/{id}/linktocongress")
+    public String linkToCongress(@PathVariable long id, long congressId) throws Exception {
         speakerService.linkToCongress(congressId, id);
-        return "redirect:/speaker" + id;
+        return "redirect:/speaker/" + id;
     }
-    @GetMapping("/{id}/unlinkTocongress/{congressId}")
-    public String unlinkToCongress(@PathVariable Long id, @PathVariable Long congressId) throws Exception {
+
+    @GetMapping("/{id}/unlinktocongress/{congressId}")
+    public String unlinkToCongress(@PathVariable long id, @PathVariable long congressId) throws Exception {
         speakerService.unLinkToCongress(congressId, id);
         return "redirect:/speaker/" + id;
     }
+
     @PostMapping("/linktogether")
-    public String linkTogether(Long speakerId, Long congressId) throws Exception{
+    public String linkTogether(Long speakerId, Long congressId) throws Exception {
         Congress congress = congressService.findById(congressId);
         Speaker speaker = speakerService.findById(congressId);
         speaker.addCongress(congress);

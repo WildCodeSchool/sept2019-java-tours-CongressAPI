@@ -55,31 +55,38 @@ public class Congress {
 	private MultipartFile banner;
 	@Transient
 	@JsonIgnore
-	private MultipartFile logo;
+    private MultipartFile logo;
 
-	@OneToMany
-	private Set<About> abouts;
+    @OneToMany
+    @JsonManagedReference
+    private Set<About> abouts;
 
-	@OneToMany
-	private Set<Map> maps;
+    @OneToMany
+    @JsonManagedReference
+    private Set<Map> maps;
 
-	@ManyToMany
-	@JsonManagedReference
-	private Set<Sponsor> sponsors;
+    @OneToMany
+    @JsonManagedReference
+    private Set<InteractiveFloorPlan> interactiveFloorPlans;
 
-	@ManyToMany
-	@JsonManagedReference
-	private Set<Speaker> speakers;
+    @ManyToMany
+    @JsonManagedReference
+    private Set<Sponsor> sponsors;
 
-	@OneToMany
+    @ManyToMany
+    @JsonManagedReference
+    private Set<Speaker> speakers;
+
+    @OneToMany
 	private Set<SocialLink> socialLinks;
 
 	public Congress() {
-		this.abouts = new HashSet<>();
-		this.maps = new HashSet<>();
-		this.sponsors = new HashSet<>();
-		this.socialLinks = new HashSet<>();
-	}
+        this.abouts = new HashSet<>();
+        this.maps = new HashSet<>();
+        this.sponsors = new HashSet<>();
+        this.socialLinks = new HashSet<>();
+        this.interactiveFloorPlans = new HashSet<>();
+    }
 
 	public void addMap(Map map) {
 		map.setCongress(this);
@@ -116,19 +123,32 @@ public class Congress {
 	}
 
 	public void removeSocialLink(SocialLink toDelete) {
-		toDelete.setCongress(null);
-		this.socialLinks.remove(toDelete);
-	}
-	public void addSpeaker(Speaker speaker){
-		this.speakers.add(speaker);
-	}
-	public void removeSpeaker(Speaker toDelete){
-		this.speakers.remove(toDelete);
-	}
+        toDelete.setCongress(null);
+        this.socialLinks.remove(toDelete);
+    }
 
-	@Override
-	public int hashCode() {
-		return (int) this.id;
-	}
+    public void addSpeaker(Speaker speaker) {
+        this.speakers.add(speaker);
+    }
+
+    public void removeSpeaker(Speaker toDelete) {
+        this.speakers.remove(toDelete);
+    }
+
+
+    public void addInteractiveFloorPlan(InteractiveFloorPlan interactiveFloorPlans) {
+        interactiveFloorPlans.setCongress(this);
+        this.interactiveFloorPlans.add(interactiveFloorPlans);
+    }
+
+    public void removeInteractiveFloorPlan(InteractiveFloorPlan toDelete) {
+        toDelete.setCongress(null);
+        this.interactiveFloorPlans.remove(toDelete);
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) this.id;
+    }
 
 }
