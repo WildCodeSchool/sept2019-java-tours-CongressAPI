@@ -2,9 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div class="card" id="add-speaker" th:fragment="addSpeakerCard">
     <h3 class="card-title">Add a Speaker</h3>
-    <div class="card-content">
+    <div class="card-content" >
         <form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="POST"
-              th:object="${newSpeaker}">
+              th:object="${newSpeaker}"id="add-speaker-form">
 
             <span th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Name Error</span>
             <label for="name">Name</label>

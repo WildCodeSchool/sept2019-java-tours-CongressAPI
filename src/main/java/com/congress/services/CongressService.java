@@ -55,7 +55,7 @@ public class CongressService implements CrudService<Congress> {
     }
 
     @Override
-    public Congress update(Congress entity) {
+    public Congress update(Congress entity) throws IOException {
         if (!congressRepository.existsById(entity.getId())) {
             throw new CongressNotFoundException(entity.getId());
         }

@@ -7,7 +7,7 @@
     <h3 class="card-title">Hotels</h3>
     <div class="card-content">
         <form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="POST"
-              th:object="${newHotel}">
+              th:object="${newHotel}" >
 
             <span th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Name Error</span>
             <label for="name">Name</label>

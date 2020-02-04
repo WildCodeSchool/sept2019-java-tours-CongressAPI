@@ -4,8 +4,8 @@
 <div class="card" id="sponsor-view" th:fragment="sponsorViewCard">
     <h3 class="card-title">Sponsors</h3>
     <div class="card-content" id="sponsor-show">
-        <div th:text="${currentSponsor.name}"></div>
         <img alt="" id="sponsor-show-logo" th:src="@{${currentSponsor.logo_url}}">
+        <div th:text="${currentSponsor.name}"></div>
         <span id="sponsor-show-location" th:text="${currentSponsor.location}"></span>
         <span id="sponsor-show-city" th:text="${currentSponsor.city}"></span>
         <span id="sponsor-show-contact" th:text="${currentSponsor.contact}"></span>

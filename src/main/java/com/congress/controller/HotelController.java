@@ -72,12 +72,12 @@ public class HotelController {
     }
 
     @PostMapping("/linktogether")
-    public String linkTogether(Long sponsorId, Long congressId) throws Exception {
+    public String linkTogether(Long hotelId, Long congressId) throws Exception {
         Congress congress = congressService.findById(congressId);
-        Hotel sponsor = hotelService.findById(sponsorId);
+        Hotel sponsor = hotelService.findById(hotelId);
         sponsor.addCongress(congress);
         hotelService.update(sponsor);
         congressService.update(congress);
-        return "redirect:/hotel/" + sponsorId;
+        return "redirect:/hotel/" + hotelId;
     }
 }

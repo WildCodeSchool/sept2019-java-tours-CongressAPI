@@ -16,6 +16,7 @@
                 <option th:each="congress : ${congressList}" th:text="${congress.name}"
                         th:value="${congress.id}"></option>
             </select>
+            <label for="hotel-select">Hotel to link</label>
 
             <select id="hotel-select" name="hotelId">
                 <option value="">--Please choose an option--</option>

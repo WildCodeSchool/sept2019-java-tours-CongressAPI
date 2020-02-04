@@ -341,7 +341,11 @@
         }
 
         #congress-view-container {
-            grid-template: "congressview congressview" "congressdetails socialLink-data" "congressdetails socialLink-data" "congressdetails socialLink-data" "congressdetails socialLink-data"
+            grid-template: "congressview congressview"
+                           "about-viewList socialLink-data"
+                           "about-viewList socialLink-data"
+                           "about-viewList socialLink-data"
+                           "about-viewList socialLink-data"
         }
 
         #congress-viewList-container {
@@ -358,10 +362,7 @@
             background-color: white;
         }
 
-        #congress-details {
-            grid-area: congressdetails;
-            background-color: white;
-        }
+
 
         #congress-data {
             grid-area: congress-data;
@@ -384,7 +385,8 @@
                           "desc desc desc . . network"
                           "desc desc desc . . update";
             align-content: normal;
-            grid-template-columns: 10% min-content 35% auto max-content 30%;
+                align-items: flex-start;
+            grid-template-columns: 10% auto 35% auto max-content 30%;
             justify-content: stretch;
             grid-template-rows: min-content min-content min-content auto min-content;
         }
@@ -419,12 +421,14 @@
             width: 100%;
         }
         #congress-show-update{
+        align-self: center;
             display: flex;
             justify-content: space-around;
             grid-area:update;
         }
 
         #congress-show-desc {
+        align-self: center;
             grid-area: desc;
         }
 
@@ -437,7 +441,8 @@
         }
 
         #sponsor-view-container {
-            grid-template-areas: "sponsor-view sponsor-view sponsor-linked-list"
+            grid-template-areas: "sponsor-view  sponsor-form-card sponsor-linked-list"
+                                 "sponsor-view sponsor-form-card sponsor-linked-list"
                                  "sponsor-link-form sponsor-form-card sponsor-linked-list";
         }
         #sponsor-form-card{
@@ -493,9 +498,17 @@
         #sponsor-together-form{
             grid-area:sponsor-together-form;
         }
-        #sponsor-show{
+        #sponsor-together-form form{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    height:100%
+        }
+        #sponsor-list-show{
             width:  100%;
             justify-content: flex-start;
+
         }
         #about-main-preview{
             grid-template-areas:"about-preview about-form"
@@ -526,15 +539,10 @@
 
         }
         #sponsor-show{
-            width:100%;
-            display:grid;
-            align-content: normal;
-            grid-template-areas:"logo . . name location city"
-                                "logo . . contact address phone"
-                                "logo mail website . . update";
-             grid-template-columns: 20% auto auto auto auto auto;
-             justify-content: stretch;
-             grid-template-rows: max-content min-content min-content;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
         }
         #sponsor-show-logo{
             width:100%;
@@ -566,6 +574,12 @@
             justify-content: space-around;
             grid-area: update;
         }
+        #sponsor-form-card form{
+            display: flex;
+            flex-direction: column;
+            justify-content:space-evenly;
+            height:100%;
+        }
         #socialLink-main-view-container{
             grid-template-areas: "socialLink-view socialLink-data";
         }
@@ -583,6 +597,9 @@
         #socialLink-form-show {
             display: flex;
             flex-direction: column;
+            flex: 1;
+            justify-content: space-evenly;
+            width: 100%;
         }
 
         #socialLink-view-show img {
@@ -597,12 +614,19 @@
             grid-area: hotel-together-form;
         }
 
-        #hotel-form-card {
+        #hotel-form-card  form{
             grid-area: hotel-form-card;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
         }
 
-        #hotel-together-form {
-            grid-area: hotel-together-form;
+        #hotel-together-form  form{
+            width:100%;
+            display:flex;
+            flex-direction:column;
+            justify-content:space-evenly;
+            height:100%;
         }
 
         #hotel-link-form {
@@ -624,20 +648,45 @@
         #hotel-linked-list {
             grid-area: hotel-linked-list;
         }
+        #hotel-show{
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+        }
+        #hotel-linked-show{
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+        }
 
         #speaker-viewList-container {
-            grid-template-areas: "speaker-viewList speaker-form-card speaker-together-form";
+            grid-template-areas: "speaker-viewList speaker-viewList speaker-form-card "
+                                 "speaker-viewList speaker-viewList speaker-together-form";
 
+        }
+        #speaker-show-logo{
+            width: 100%;
         }
 
         #speaker-together-form {
             grid-area: speaker-together-form;
-        }
 
+        }
+        #speaker-together-form form{
+            display:flex;
+            flex-direction:column;
+            width:100%;
+            justify-content:space-evenly;
+            height:100%;
+        }
         #speaker-form-card {
             grid-area: speaker-form-card;
         }
-
+        #speaker-form-card form{
+            width:100%;
+            display:flex;
+            flex-direction:column;
+        }
         #speaker-viewList {
             grid-area: speaker-viewList;
         }
@@ -645,7 +694,10 @@
         #speaker-linked-list {
             grid-area: speaker-linked-list;
         }
-
+        #speaker-linked-show{
+            justify-content:flex-start;
+            width:100%;
+        }
         #speaker-link-form {
             grid-area: speaker-link-form;
         }
@@ -656,4 +708,29 @@
 
         #speaker-view {
             grid-area: speaker-view;
+            }
+        #speaker-show{
+            width: 100%;
+            display: flex;
+            justify-content : flex-start;
+        }
+        #speaker-show-logo img{
+            width: 100%;
+        }
+        #add-speaker-form{
+            display: flex;
+            flex-direction: column;
+        }
+        #floorPlan-show{
+            width:100%;
+            display:flex;
+            justify-content:flex-start;
+
+        }
+        #floorPlan-form form{
+            display:flex;
+            flex-direction:column;
+        }
+        #floorPlan-show-logo{
+            width:100%;
         }

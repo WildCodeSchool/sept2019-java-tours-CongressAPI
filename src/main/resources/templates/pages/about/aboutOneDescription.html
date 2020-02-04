@@ -10,6 +10,9 @@
             <div class="card-content">
                 <p th:text="${about.description}"></p>
             </div>
+            <div id="about-show-update">
+                <a th:href="@{'/congress/' + ${currentCongress.id} + '/about/' + ${about.id} + '/delete'}">Supprimer</a>
+            </div>
         </div>
         <div th:replace="/fragments/components/about/aboutFormCard.html :: aboutFormCard"></div>
 

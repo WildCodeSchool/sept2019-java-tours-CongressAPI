@@ -66,18 +66,18 @@ public class AboutController {
      * @return redirect to about view
      */
     @PostMapping("/create")
-    public String createAbout(@PathVariable long congressId, @Valid @ModelAttribute About titleAbout, BindingResult bindingAbout, Model model) throws NotFoundException, IOException {
+    public String createAbout(@PathVariable long congressId, @Valid @ModelAttribute About currentAbout, BindingResult bindingAbout, Model model) throws NotFoundException, IOException {
         if (bindingAbout.hasErrors()) {
             model.addAttribute("httpMethod", "POST");
             model.addAttribute("pathMethod", "/congress/" + congressId + "/about/create");
-            model.addAttribute("newAbout", titleAbout);
+            model.addAttribute("newAbout", currentAbout);
             return "pages/about/aboutFormView";
         }
         Congress currentCongress = congressService.findById(congressId);
-        currentCongress.addAbout(titleAbout);
-        aboutService.create(titleAbout);
+        currentCongress.addAbout(currentAbout);
+        aboutService.create(currentAbout);
         congressService.update(currentCongress);
-        return "redirect:/congress/" + congressId + "/about/" + titleAbout.getId();
+        return "redirect:/congress/" + congressId + "/about/" + currentAbout.getId();
     }
 
 
@@ -88,11 +88,13 @@ public class AboutController {
      * @param titleAbout the model of the page About
      * @return redirect to the home page
      */
-    @GetMapping("/{id}/delete")
+    @GetMapping("/{id}/delete"  )
     public String deleteAbout(@PathVariable long congressId, @PathVariable long id, @ModelAttribute About titleAbout) throws Exception {
         Congress currentCongress = congressService.findById(congressId);
         About toDelete = aboutService.findById(id);
         currentCongress.removeAbout(toDelete);
+        aboutService.delete(id);
+
         congressService.update(currentCongress);
         return "redirect:/";
     }
@@ -118,7 +120,7 @@ public class AboutController {
             model.addAttribute("newAbout", currentAbout);
             return "pages/about/aboutOneDescription";
         }
-        aboutService.update(about);
+        aboutService.update(id, about);
        return "redirect:/congress/" + congressId + "/about/"+ id;
     }
     @GetMapping("/create")

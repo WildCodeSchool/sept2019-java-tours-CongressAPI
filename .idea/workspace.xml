@@ -2,50 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6a2fe5b-5632-4698-9cfb-fa4975a4c2ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/SpeakerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/InteractiveFloorPlan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Speaker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/exception/SpeakerNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/exception/entity/InteractiveFloorPlanNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/exception/entity/MapNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/exception/entity/SocialLinkNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/repository/InteractiveFloorPlanRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/repository/SpeakerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/services/InteractiveFloorPlanService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/services/MapService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/services/SocialLinkService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/congress/services/SpeakerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/speaker/addSpeakerCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/speaker/speakerFormCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/speaker/speakerLinkFormCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/speaker/speakerLinkedListCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/speaker/speakerLinkedUniversalListCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/speaker/speakerListCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/speaker/speakerViewCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/speaker/speakerListView.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/speaker/speakerMainView.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/MapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/AboutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/CongressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/CongressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/HotelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/SocialLinkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/SocialLinkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/SponsorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/api/ApiAboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/api/ApiAboutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Congress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Congress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/entity/Sponsor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/exception/AboutNotFoundExcepetion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/exception/entity/AboutNotFoundExcepetion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/exception/CongressNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/exception/entity/CongressNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/exception/SponsorNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/exception/entity/SponsorNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/repository/MapRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/repository/MapRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/repository/SocialLinkRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/repository/SocialLinkRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/repository/SponsorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/repository/SponsorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/services/AboutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/services/AboutService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/services/CongressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/services/CongressService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/services/SponsorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/services/SponsorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/poster/posterFormCard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/poster/posterListCard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/poster/posterViewCard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/poster/posterFormView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/speaker/speakerFormView.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/poster/posterListView.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/about/aboutFormCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/about/aboutFormCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/congress/congressViewCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/congress/congressViewCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/hotel/hotelFormCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/hotel/hotelFormCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/hotel/hotelLinkedUniversalList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/hotel/hotelLinkedUniversalList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/hotel/hotelListCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/hotel/hotelListCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/map/mapViewCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/map/mapViewCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/socialLink/socialLinkFormCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/socialLink/socialLinkFormCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/speaker/addSpeakerCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/speaker/addSpeakerCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/speaker/speakerLinkedUniversalListCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/speaker/speakerLinkedUniversalListCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/speaker/speakerListCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/speaker/speakerListCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/speaker/speakerViewCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/speaker/speakerViewCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorFormCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorFormCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorLinkedListCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorLinkedListCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorLinkedUniversalListCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorLinkedUniversalListCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorListCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorListCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorViewCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/sponsor/sponsorViewCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/about/aboutOneDescription.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/about/aboutOneDescription.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/congress/congressMainView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/congress/congressMainView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/floorPlan/floorPlanMainView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/floorPlan/floorPlanMainView.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +112,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -209,7 +192,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e4d5c155-a598-44b6-80c6-8a5f80abfb2d" name="Default Changelist" comment="" />
+      <changelist id="f6a2fe5b-5632-4698-9cfb-fa4975a4c2ae" name="Default Changelist" comment="" />
       <created>1578558459173</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -267,10 +250,11 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state x="560" y="179" key="#Notifications/0.0.1920.1035@0.0.1920.1035" timestamp="1579092529546" />
-    <state x="560" y="179" key="#Project_Structure" timestamp="1579164350161">
-      <screen x="0" y="0" width="1920" height="1035" />
+    <state x="514" y="178" width="800" height="677" key="#Project_Structure" timestamp="1580804725784">
+      <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="560" y="179" key="#Project_Structure/0.0.1920.1035@0.0.1920.1035" timestamp="1579164350161" />
+    <state x="514" y="178" width="800" height="677" key="#Project_Structure/67.27.1533.873@67.27.1533.873" timestamp="1580804725784" />
     <state x="291" y="120" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580311208552">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
@@ -309,34 +293,34 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="167" y="125" width="1333" height="675" key="DiffContextDialog/67.27.1533.873@67.27.1533.873" timestamp="1580738645198" />
-    <state width="1487" height="45" key="GridCell.Tab.0.bottom" timestamp="1580742628668">
+    <state width="1487" height="60" key="GridCell.Tab.0.bottom" timestamp="1580829813761">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1197" height="272" key="GridCell.Tab.0.bottom/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868942" />
     <state width="1874" height="216" key="GridCell.Tab.0.bottom/0.0.1920.1035@0.0.1920.1035" timestamp="1580198500552" />
     <state width="1247" height="219" key="GridCell.Tab.0.bottom/67.27.1293.741@67.27.1293.741" timestamp="1578578621249" />
-    <state width="1487" height="45" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1580742628668" />
-    <state width="1487" height="45" key="GridCell.Tab.0.center" timestamp="1580742628667">
+    <state width="1487" height="60" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1580829813761" />
+    <state width="1487" height="60" key="GridCell.Tab.0.center" timestamp="1580829813761">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1197" height="272" key="GridCell.Tab.0.center/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868941" />
     <state width="1874" height="216" key="GridCell.Tab.0.center/0.0.1920.1035@0.0.1920.1035" timestamp="1580198500551" />
     <state width="1247" height="219" key="GridCell.Tab.0.center/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
-    <state width="1487" height="45" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1580742628667" />
-    <state width="1487" height="45" key="GridCell.Tab.0.left" timestamp="1580742628667">
+    <state width="1487" height="60" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1580829813761" />
+    <state width="1487" height="60" key="GridCell.Tab.0.left" timestamp="1580829813760">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1197" height="272" key="GridCell.Tab.0.left/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868940" />
     <state width="1874" height="216" key="GridCell.Tab.0.left/0.0.1920.1035@0.0.1920.1035" timestamp="1580198500550" />
     <state width="1247" height="219" key="GridCell.Tab.0.left/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
-    <state width="1487" height="45" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1580742628667" />
-    <state width="1487" height="45" key="GridCell.Tab.0.right" timestamp="1580742628667">
+    <state width="1487" height="60" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1580829813760" />
+    <state width="1487" height="60" key="GridCell.Tab.0.right" timestamp="1580829813761">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1197" height="272" key="GridCell.Tab.0.right/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868941" />
     <state width="1874" height="216" key="GridCell.Tab.0.right/0.0.1920.1035@0.0.1920.1035" timestamp="1580198500551" />
     <state width="1247" height="219" key="GridCell.Tab.0.right/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
-    <state width="1487" height="45" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1580742628667" />
+    <state width="1487" height="60" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1580829813761" />
     <state width="1487" height="455" key="GridCell.Tab.1.bottom" timestamp="1580740404207">
       <screen x="67" y="27" width="1533" height="873" />
     </state>

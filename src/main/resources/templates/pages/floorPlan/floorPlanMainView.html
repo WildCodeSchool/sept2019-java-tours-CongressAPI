@@ -9,7 +9,9 @@
         <h3 class="card-title" th:text="${currentFloorPlan.title}"></h3>
         <div class="card-content">
             <img alt="" id="floorPlan-show-logo" th:src="${currentFloorPlan.plan_url}">
-
+            <div>
+            <a th:href="@{'congress/'+ currentCongress.id+'/floorPlan/' + ${currentFloorPlan.id} + '/delete'}">Supprimer</a>
+        </div>
         </div>
     </div>
     <div th:replace="/fragments/components/floorPlan/floorPlanFormCard.html :: floorPlanFormCard"></div>

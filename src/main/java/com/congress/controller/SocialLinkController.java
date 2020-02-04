@@ -38,6 +38,8 @@ public class SocialLinkController {
         model.addAttribute("page", "socialLink");
         model.addAttribute("currentCongress", congressService.findById(congressId));
         model.addAttribute("pageTitle", "SocialLink");
+        model.addAttribute("pathMethod", "/congress/" + congressId + "/socialLink/create");
+
         return "pages/socialLink/socialLinkListView";
     }
 
@@ -58,6 +60,8 @@ public class SocialLinkController {
         model.addAttribute("page", "socialLinks");
         model.addAttribute("currentSocialLink", currentSocialLink);
         model.addAttribute("pageTitle", "SocialLink" + currentSocialLink.getId());
+        model.addAttribute("pathMethod", "/congress/" + congressId + "/socialLink/" + id + "/edit");
+
         return "pages/socialLink/socialLinkMainView";
     }
 
@@ -80,6 +84,19 @@ public class SocialLinkController {
         currentCongress.addSocialLink(currentSocialLink);
         currentSocialLink = socialLinkService.create(currentSocialLink);
         congressService.update(currentCongress);
+        return "redirect:/congress/" + congressId + "/socialLink/" + currentSocialLink.getId();
+    }
+
+    @PostMapping("/{id}/edit")
+    public String editSocialLink(@PathVariable long congressId, @PathVariable long id, @Valid @ModelAttribute("newSocialLink") SocialLink currentSocialLink, BindingResult binding, Model model) throws Exception {
+        if (binding.hasErrors()) {
+            model.addAttribute("httpMethod", "POST");
+            model.addAttribute("pathMethod", "/congress/" + congressId + "/socialLink/" + id + "/edit");
+            model.addAttribute("newSocialLink", currentSocialLink);
+            return "pages/socialLink/socialLinkFormView";
+        }
+        currentSocialLink.setId(id);
+        currentSocialLink = socialLinkService.update(currentSocialLink);
         return "redirect:/congress/" + congressId + "/socialLink/" + currentSocialLink.getId();
     }
 
