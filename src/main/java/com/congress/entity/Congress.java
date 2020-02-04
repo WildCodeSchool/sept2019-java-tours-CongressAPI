@@ -74,11 +74,17 @@ public class Congress {
 	@OneToMany
 	private Set<SocialLink> socialLinks;
 
+
+	@ManyToMany
+	@JsonManagedReference
+	private Set<Hotel> hotels;
+
 	public Congress() {
 		this.abouts = new HashSet<>();
 		this.maps = new HashSet<>();
 		this.sponsors = new HashSet<>();
 		this.socialLinks = new HashSet<>();
+		this.hotels = new HashSet<>();
 		this.floorPlans = new HashSet<>();
 	}
 
@@ -121,6 +127,15 @@ public class Congress {
 	public void removeSponsor(Sponsor toDelete) {
 		this.sponsors.remove(toDelete);
 	}
+
+	public void addHotel(Hotel hotel) {
+		this.hotels.add(hotel);
+	}
+
+	public void removeHotel(Hotel toDelete) {
+		this.hotels.remove(toDelete);
+	}
+
 
 	public void addSocialLink(SocialLink socialLink) {
 		socialLink.setCongress(this);
