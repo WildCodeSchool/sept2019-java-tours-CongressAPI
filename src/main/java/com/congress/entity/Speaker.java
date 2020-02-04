@@ -1,7 +1,5 @@
 package com.congress.entity;
 
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,7 +11,7 @@ import java.util.Set;
 
 @Data
 @Entity
-public class Sponsor {
+public class Speaker {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,34 +19,27 @@ public class Sponsor {
     @Size(min = 3, max = 255)
     private String name;
 
-    private String logo_url;
+    private String photo_url;
     @Transient
     @JsonIgnore
-    private MultipartFile logo;
+    private MultipartFile photo;
 
-    private String location;
-    private String city;
-    private String contact;
-    private String address;
-    private String phone;
-    private String mail;
-    private String website_url;
+    private String biography;
 
-    @ManyToMany(mappedBy = "sponsors")
-    @JsonBackReference
+    @ManyToMany(mappedBy = "speakers")
     private Set<Congress> congress;
 
-    public Sponsor() {
+    public Speaker() {
         this.congress = new HashSet<>();
     }
 
     public void addCongress(Congress congress) {
-        congress.addSponsor(this);
+        congress.addSpeaker(this);
         this.congress.add(congress);
     }
 
     public void removeCongress(Congress toDelete) {
-        toDelete.removeSponsor(this);
+        toDelete.removeSpeaker(this);
         this.congress.remove(toDelete);
     }
 

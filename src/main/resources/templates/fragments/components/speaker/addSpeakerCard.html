@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div class="card" id="add-speaker" th:fragment="addSpeakerCard">
+    <h3 class="card-title">Add a Speaker</h3>
+    <div class="card-content">
+        <form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="POST"
+              th:object="${newSpeaker}">
+
+            <span th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Name Error</span>
+            <label for="name">Name</label>
+            <input id="name" name="name" th:field="*{name}" type="text"/><br>
+
+            <!-- A changer pour inserer une image -->
+            <span th:errors="*{photo}" th:if="${#fields.hasErrors('photo')}">Name Error</span>
+            <label for="photo">Picture</label>
+            <input id="photo" name="photo" th:field="*{photo}" type="file"/><br>
+
+
+            <label for="biography">Biography</label>
+            <textarea id="biography" name="biography" th:field="*{biography}"></textarea><br>
+
+            <input type="submit" value="Valider">
+        </form>
+    </div>
+</div>
+</html>

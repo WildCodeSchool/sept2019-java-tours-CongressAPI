@@ -1,4 +1,6 @@
-package com.congress.exception;
+package com.congress.exception.entity;
+
+import com.congress.exception.ApiException;
 
 public class AboutNotFoundExcepetion extends ApiException {
     public AboutNotFoundExcepetion(long id) {

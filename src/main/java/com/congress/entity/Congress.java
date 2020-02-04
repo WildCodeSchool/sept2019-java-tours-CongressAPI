@@ -64,12 +64,20 @@ public class Congress {
 	private Set<FloorPlan> floorPlans;
 
 	@OneToMany
+	@JsonManagedReference
 	private Set<Map> maps;
+
+	@OneToMany
+	@JsonManagedReference
+	private Set<InteractiveFloorPlan> interactiveFloorPlans;
 
 	@ManyToMany
 	@JsonManagedReference
 	private Set<Sponsor> sponsors;
 
+	@ManyToMany
+	@JsonManagedReference
+	private Set<Speaker> speakers;
 
 	@OneToMany
 	private Set<SocialLink> socialLinks;
@@ -86,6 +94,7 @@ public class Congress {
 		this.socialLinks = new HashSet<>();
 		this.hotels = new HashSet<>();
 		this.floorPlans = new HashSet<>();
+		this.interactiveFloorPlans = new HashSet<>();
 	}
 
 	public void addMap(Map map) {
@@ -145,6 +154,25 @@ public class Congress {
 	public void removeSocialLink(SocialLink toDelete) {
 		toDelete.setCongress(null);
 		this.socialLinks.remove(toDelete);
+	}
+
+	public void addSpeaker(Speaker speaker) {
+		this.speakers.add(speaker);
+	}
+
+	public void removeSpeaker(Speaker toDelete) {
+		this.speakers.remove(toDelete);
+	}
+
+
+	public void addInteractiveFloorPlan(InteractiveFloorPlan interactiveFloorPlans) {
+		interactiveFloorPlans.setCongress(this);
+		this.interactiveFloorPlans.add(interactiveFloorPlans);
+	}
+
+	public void removeInteractiveFloorPlan(InteractiveFloorPlan toDelete) {
+		toDelete.setCongress(null);
+		this.interactiveFloorPlans.remove(toDelete);
 	}
 
 	@Override

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="sponsor" type="com.congress.entity.Sponsor"*/-->
+<!--/*@thymesVar id="sponsorList" type="java.util.List<>"*/-->
+<div class="card" id="speaker-viewList" th:fragment="speakerListCard">
+    <h3 class="card-title">Sponsors</h3>
+    <div class="card-content" id="speaker-show">
+        <table class="actuality-item-conf">
+            <thead>
+            <tr>
+                <td>
+                    ID
+                </td>
+                <td>
+                    Name
+                </td>
+                <td>
+                    Photo
+                </td>
+                <td>
+                    Link
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="speaker: ${speakerList}">
+                <td th:text="${speaker.id}"></td>
+                <td th:text="${speaker.name}"></td>
+                <td th:src="${speaker.photo_url}"></td>
+                <td><a th:href="@{'/speaker/' + ${speaker.id}}">See speaker</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</html>
