@@ -73,6 +73,7 @@ public class FloorPlanController {
         FloorPlan toDelete = floorPlanService.findById(id);
         currentCongress.removeFloorPlan(toDelete);
         congressService.update(currentCongress);
+        floorPlanService.delete(id);
         return "redirect:/";
     }
 

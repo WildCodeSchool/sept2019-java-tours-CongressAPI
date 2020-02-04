@@ -1,5 +1,6 @@
 package com.congress.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Hotel {
     private String url;
 
     @ManyToMany(mappedBy = "hotels")
+    @JsonBackReference
     private Set<Congress> congress;
 
     public void addCongress(Congress congress) {

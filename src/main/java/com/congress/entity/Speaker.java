@@ -1,5 +1,6 @@
 package com.congress.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,6 +28,7 @@ public class Speaker {
     private String biography;
 
     @ManyToMany(mappedBy = "speakers")
+    @JsonBackReference
     private Set<Congress> congress;
 
     public Speaker() {

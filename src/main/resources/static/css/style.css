@@ -410,8 +410,14 @@
         }
         #congress-show-network{
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             grid-area:network;
+        }
+        #congress-show-network ul{
+                    display:flex;
+        }
+        #congress-show-network a{
+            text-align:center;
         }
         #congress-show-network li{
             width: 30%;

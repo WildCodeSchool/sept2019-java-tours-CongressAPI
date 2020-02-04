@@ -10,13 +10,16 @@
         <img alt="" id="congress-show-banner" src="#" th:src="${currentCongress.banner_url}">
         <span id="congress-show-date" th:text="${#dates.format(currentCongress.date, 'dd-MMM-yyyy')}"></span>
         <span id="congress-show-location" th:text="${currentCongress.location}"></span>
-        <ul id="congress-show-network">
-            <li th:each="social : ${currentCongress.socialLinks}">
-                <a th:href="@{'/congress/' + ${currentCongress.id} + '/socialLink/' + ${social.id}}">
-                    <img th:src="${social.logoUrl}">
-                </a>
-            </li>
-        </ul>
+        <div id="congress-show-network">
+            <ul>
+                <li th:each="social : ${currentCongress.socialLinks}">
+                    <a th:href="@{'/congress/' + ${currentCongress.id} + '/socialLink/' + ${social.id}}">
+                        <img th:src="${social.logoUrl}">
+                    </a>
+                </li>
+            </ul>
+            <a th:href="@{'/congress/' + ${currentCongress.id} + '/socialLink'}" >Go to socialLink list</a>
+        </div>
 
         <div id="congress-show-update">
             <a th:href="@{'/congress/' + ${currentCongress.id} + '/edit'}">Modifier</a>

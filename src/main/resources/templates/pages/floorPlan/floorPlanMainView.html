@@ -10,7 +10,7 @@
         <div class="card-content">
             <img alt="" id="floorPlan-show-logo" th:src="${currentFloorPlan.plan_url}">
             <div>
-            <a th:href="@{'congress/'+ currentCongress.id+'/floorPlan/' + ${currentFloorPlan.id} + '/delete'}">Supprimer</a>
+            <a th:href="@{'/congress/'+ ${currentCongress.id}+'/floorPlan/' + ${currentFloorPlan.id} + '/delete'}">Supprimer</a>
         </div>
         </div>
     </div>

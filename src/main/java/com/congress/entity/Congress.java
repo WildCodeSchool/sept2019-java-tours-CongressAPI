@@ -58,9 +58,11 @@ public class Congress {
 	private MultipartFile logo;
 
 	@OneToMany
+	@JsonManagedReference
 	private Set<About> abouts;
 
 	@OneToMany
+	@JsonManagedReference
 	private Set<FloorPlan> floorPlans;
 
 	@OneToMany

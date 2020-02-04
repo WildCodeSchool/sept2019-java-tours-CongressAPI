@@ -15,7 +15,7 @@
 
             <!-- A changer pour inserer une image -->
             <span th:errors="*{url}" th:if="${#fields.hasErrors('url')}">Name Error</span>
-            <label for="url">Logo</label>
+            <label for="url">Url</label>
             <input id="url" name="url" th:field="*{url}" type="url"/><br>
             <input type="submit" value="Valider">
         </form>
