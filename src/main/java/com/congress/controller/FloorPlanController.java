@@ -36,7 +36,7 @@ public class FloorPlanController {
         model.addAttribute("pageTitle", "Floor Plan");
         model.addAttribute("pathMethod", "/congress/" + currentCongress.getId() + "/floorPlan/create");
         model.addAttribute("newFloorPlan", new FloorPlan());
-        return "/pages/floorPlan/floorPlanListView";
+        return "pages/floorPlan/floorPlanListView";
     }
 
     @GetMapping("/{id}")

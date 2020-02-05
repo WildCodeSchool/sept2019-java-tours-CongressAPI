@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f6a2fe5b-5632-4698-9cfb-fa4975a4c2ae" name="Default Changelist" comment="">
+    <list default="true" id="f6a2fe5b-5632-4698-9cfb-fa4975a4c2ae" name="Default Changelist" comment="README.md">
+      <change afterPath="$PROJECT_DIR$/dump.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/SocialLinkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/SocialLinkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/services/SponsorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/services/SponsorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/socialLink/socialLinkListCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/components/socialLink/socialLinkListCard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/AboutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/congress/controller/FloorPlanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/congress/controller/FloorPlanController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/about/aboutFormView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/about/aboutFormView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/about/aboutListView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/about/aboutListView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/about/aboutOneDescription.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/about/aboutOneDescription.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/congress/congressFormView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/congress/congressFormView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/congress/congressListView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/congress/congressListView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/congress/congressMainView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/congress/congressMainView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/floorPlan/floorPlanListView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/floorPlan/floorPlanListView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/floorPlan/floorPlanMainView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/floorPlan/floorPlanMainView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/hotel/hotelFormView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/hotel/hotelFormView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/hotel/hotelListView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/hotel/hotelListView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/hotel/hotelMainView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/hotel/hotelMainView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/map/mapFormView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/map/mapFormView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/map/mapListView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/map/mapListView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/map/mapMainView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/map/mapMainView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/socialLink/socialLinkFormView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/socialLink/socialLinkFormView.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/socialLink/socialLinkListView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/socialLink/socialLinkListView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/socialLink/socialLinkMainView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/socialLink/socialLinkMainView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/speaker/speakerFormView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/speaker/speakerFormView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/speaker/speakerListView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/speaker/speakerListView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/speaker/speakerMainView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/speaker/speakerMainView.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsor/sponsorFormView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsor/sponsorFormView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsor/sponsorListView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsor/sponsorListView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsor/sponsorMainView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sponsor/sponsorMainView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/congress/CongressApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/congress/CongressApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,10 +258,10 @@
     </state>
     <state x="560" y="179" key="#Project_Structure/0.0.1920.1035@0.0.1920.1035" timestamp="1579164350161" />
     <state x="514" y="178" width="800" height="677" key="#Project_Structure/67.27.1533.873@67.27.1533.873" timestamp="1580804725784" />
-    <state x="291" y="120" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580311208552">
+    <state x="291" y="120" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580897501461">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
-    <state x="291" y="120" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1533.873@67.27.1533.873" timestamp="1580311208552" />
+    <state x="291" y="120" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1533.873@67.27.1533.873" timestamp="1580897501461" />
     <state x="684" y="221" width="374" height="626" key="#com.intellij.ide.util.MemberChooser" timestamp="1580722756071">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
@@ -265,42 +288,43 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state x="743" y="399" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1035@0.0.1920.1035" timestamp="1579448473257" />
-    <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2" timestamp="1580800844474">
-      <screen x="0" y="0" width="1920" height="1035" />
+    <state x="519" y="132" width="900" height="806" key="CommitChangelistDialog2" timestamp="1580898033488">
+      <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="566" y="125" width="900" height="806" key="CommitChangelistDialog2/0.0.1920.1035@0.0.1920.1035" timestamp="1580800844474" />
+    <state x="519" y="132" key="CommitChangelistDialog2/67.27.1533.873@67.27.1533.873" timestamp="1580898033488" />
     <state x="167" y="125" width="1333" height="675" key="DiffContextDialog" timestamp="1580738645198">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="167" y="125" width="1333" height="675" key="DiffContextDialog/67.27.1533.873@67.27.1533.873" timestamp="1580738645198" />
-    <state width="1487" height="285" key="GridCell.Tab.0.bottom" timestamp="1580845598389">
+    <state width="1487" height="285" key="GridCell.Tab.0.bottom" timestamp="1580891927424">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1197" height="272" key="GridCell.Tab.0.bottom/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868942" />
     <state width="1874" height="216" key="GridCell.Tab.0.bottom/0.0.1920.1035@0.0.1920.1035" timestamp="1580198500552" />
     <state width="1247" height="219" key="GridCell.Tab.0.bottom/67.27.1293.741@67.27.1293.741" timestamp="1578578621249" />
-    <state width="1487" height="285" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1580845598389" />
-    <state width="1487" height="285" key="GridCell.Tab.0.center" timestamp="1580845598388">
+    <state width="1487" height="285" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1580891927424" />
+    <state width="1487" height="285" key="GridCell.Tab.0.center" timestamp="1580891927420">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1197" height="272" key="GridCell.Tab.0.center/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868941" />
     <state width="1874" height="216" key="GridCell.Tab.0.center/0.0.1920.1035@0.0.1920.1035" timestamp="1580198500551" />
     <state width="1247" height="219" key="GridCell.Tab.0.center/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
-    <state width="1487" height="285" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1580845598388" />
-    <state width="1487" height="285" key="GridCell.Tab.0.left" timestamp="1580845598387">
+    <state width="1487" height="285" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1580891927420" />
+    <state width="1487" height="285" key="GridCell.Tab.0.left" timestamp="1580891927419">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1197" height="272" key="GridCell.Tab.0.left/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868940" />
     <state width="1874" height="216" key="GridCell.Tab.0.left/0.0.1920.1035@0.0.1920.1035" timestamp="1580198500550" />
     <state width="1247" height="219" key="GridCell.Tab.0.left/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
-    <state width="1487" height="285" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1580845598387" />
-    <state width="1487" height="285" key="GridCell.Tab.0.right" timestamp="1580845598388">
+    <state width="1487" height="285" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1580891927419" />
+    <state width="1487" height="285" key="GridCell.Tab.0.right" timestamp="1580891927423">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1197" height="272" key="GridCell.Tab.0.right/0.0.1400.1005@0.0.1400.1005" timestamp="1579072868941" />
     <state width="1874" height="216" key="GridCell.Tab.0.right/0.0.1920.1035@0.0.1920.1035" timestamp="1580198500551" />
     <state width="1247" height="219" key="GridCell.Tab.0.right/67.27.1293.741@67.27.1293.741" timestamp="1578578621248" />
-    <state width="1487" height="285" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1580845598388" />
+    <state width="1487" height="285" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1580891927423" />
     <state width="1487" height="455" key="GridCell.Tab.1.bottom" timestamp="1580740404207">
       <screen x="67" y="27" width="1533" height="873" />
     </state>

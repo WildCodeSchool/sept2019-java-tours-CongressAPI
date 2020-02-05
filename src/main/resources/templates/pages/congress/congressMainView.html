@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="/fragments/main/head.html :: head"></head>
+<head th:replace="fragments/main/head.html :: head"></head>
 <body>
-<nav th:replace="/fragments/components/navbar.html :: navbar"></nav>
+<nav th:replace="fragments/components/navbar.html :: navbar"></nav>
 <main id="congress-view-container">
     <div th:replace="fragments/components/congress/congressViewCard.html :: congressViewCard"></div>
-    <div th:replace="/fragments/components/socialLink/socialLinkFormCard.html :: socialLinkFormCard"></div>
-    <div th:replace="/fragments/components/about/aboutListCard.html :: aboutListCard"></div>
+    <div th:replace="fragments/components/socialLink/socialLinkFormCard.html :: socialLinkFormCard"></div>
+    <div th:replace="fragments/components/about/aboutListCard.html :: aboutListCard"></div>
 
 </main>
 </body>

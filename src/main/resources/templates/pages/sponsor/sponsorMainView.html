@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/fragments/main/head.html :: head"></head>
+<head th:replace="fragments/main/head.html :: head"></head>
 <body>
-<nav th:replace="/fragments/components/navbar.html :: navbar"></nav>
+<nav th:replace="fragments/components/navbar.html :: navbar"></nav>
 <main id="sponsor-view-container">
-    <div th:replace="/fragments/components/sponsor/sponsorViewCard.html :: sponsorViewCard"></div>
-    <div th:replace="/fragments/components/sponsor/sponsorLinkFormCard.html :: sponsorLinkFormCard"></div>
-    <div th:replace="/fragments/components/sponsor/sponsorLinkedListCard.html :: sponsorLinkedListCard"></div>
-    <div th:replace="/fragments/components/sponsor/sponsorFormCard.html :: sponsorFormCard"></div>
+    <div th:replace="fragments/components/sponsor/sponsorViewCard.html :: sponsorViewCard"></div>
+    <div th:replace="fragments/components/sponsor/sponsorLinkFormCard.html :: sponsorLinkFormCard"></div>
+    <div th:replace="fragments/components/sponsor/sponsorLinkedListCard.html :: sponsorLinkedListCard"></div>
+    <div th:replace="fragments/components/sponsor/sponsorFormCard.html :: sponsorFormCard"></div>
 
 </main>
 </body>

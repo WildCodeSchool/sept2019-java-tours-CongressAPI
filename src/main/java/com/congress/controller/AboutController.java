@@ -39,7 +39,7 @@ public class AboutController {
         model.addAttribute("pageTitle", "About");
         model.addAttribute("pathMethod", "/congress/" + currentCongress.getId() + "/about/create");
         model.addAttribute("newAbout", new About());
-        return "/pages/about/aboutListView";
+        return "pages/about/aboutListView";
     }
 
     /**
