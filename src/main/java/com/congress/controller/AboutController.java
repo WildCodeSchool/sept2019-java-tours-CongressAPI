@@ -50,7 +50,7 @@ public class AboutController {
         Congress currentCongress = congressService.findById(congressId);
         About currentAbout = aboutService.findById(id);
         model.addAttribute("currentCongress", currentCongress);
-        model.addAttribute("page", "abouts");
+        model.addAttribute("page", "about");
         model.addAttribute("about", currentAbout);
         model.addAttribute("pageTitle", "About" + currentAbout.getTitle());
         model.addAttribute("pathMethod",         "/congress/"+ currentCongress.getId()+ "/about/"+id+"/edit");

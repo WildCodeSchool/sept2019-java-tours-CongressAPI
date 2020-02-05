@@ -618,7 +618,8 @@
         }
 
         #socialLink-view-show img {
-            width: 100%;
+            max-width: 100%;
+            max-height:50%;
         }
         #socialLink-viewList-container{
             grid-template-areas: "socialLink-viewList  socialLink-viewList socialLink-data"

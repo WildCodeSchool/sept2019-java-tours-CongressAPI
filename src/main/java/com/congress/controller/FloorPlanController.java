@@ -44,7 +44,7 @@ public class FloorPlanController {
         Congress currentCongress = congressService.findById(congressId);
         FloorPlan currentFloorPlan = floorPlanService.findById(id);
         model.addAttribute("currentCongress", currentCongress);
-        model.addAttribute("page", "floorPlans");
+        model.addAttribute("page", "floorPlan");
         model.addAttribute("currentFloorPlan", currentFloorPlan);
         model.addAttribute("pageTitle", "Floor Plan" + currentFloorPlan.getTitle());
         model.addAttribute("pathMethod", "/congress/" + currentCongress.getId() + "/floorPlan/" + id + "/edit");

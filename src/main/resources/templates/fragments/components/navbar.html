@@ -7,12 +7,12 @@
     <ul class="navlist">
         <li th:class="${page} == 'congress' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
                 th:text="${currentCongress.name}" th:href="@{'/congress/' + ${currentCongress.id}}"></a></li>
-        <li th:class="${page} == 'floorplan' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
-                th:href="@{'/congress/' + ${currentCongress.id} + '/floorPlan'}">Floorplan</a></li>
+        <li th:class="${page} == 'floorPlan' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
+                th:href="@{'/congress/' + ${currentCongress.id} + '/floorPlan'}">Floorplans</a></li>
         <li th:class="${page} == 'activity' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
                 th:href="@{'/congress/' + ${currentCongress.id} + '/activity'}">Activities</a></li>
         <li th:class="${page} == 'about' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
-                th:href="@{'/congress/' + ${currentCongress.id} + '/about'}">About</a></li>
+                th:href="@{'/congress/' + ${currentCongress.id} + '/about'}">Abouts</a></li>
         <li th:class="${page} == 'map' ? 'nav-item active' : 'nav-item'" th:if="${currentCongress}"><a
                 th:href="@{'/congress/' + ${currentCongress.id} + '/map'}">Maps</a></li>
         <hr th:if="${currentCongress}">
@@ -21,11 +21,11 @@
         </li>
         <li th:class="${page} == 'sponsor' ? 'nav-item active' : 'nav-item'"><a th:href="@{'/sponsor'}">Sponsors</a>
         </li>
-        <li th:class="${page} == 'speaker' ? 'nav-item active' : 'nav-item'"><a th:href="@{'/speaker'}">Speackers</a>
+        <li th:class="${page} == 'speaker' ? 'nav-item active' : 'nav-item'"><a th:href="@{'/speaker'}">Speakers</a>
         </li>
-        <li th:class="${page} == 'hotel' ? 'nav-item active' : 'nav-item'"><a th:href="@{'/hotel'}">Hotel</a>
+        <li th:class="${page} == 'hotel' ? 'nav-item active' : 'nav-item'"><a th:href="@{'/hotel'}">Hotels</a>
         </li>
-        <li class="nav-item"><a th:href="@{'/logout'}">Deconnection</a></li>
+        <li class="nav-item"><a th:href="@{'/logout'}">Disconnect</a></li>
     </ul>
 </nav>
 </html>

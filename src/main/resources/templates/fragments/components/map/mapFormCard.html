@@ -3,7 +3,7 @@
 <div class="card" id="map-form" th:fragment="mapFormCard">
     <h3 class="card-title">Maps</h3>
     <div class="card-content">
-        <form enctype="multipart/form-data" th:action="@{'/congress/'+ ${currentCongress.id}+ '/map/create'}"
+        <form enctype="multipart/form-data" th:action="@{${pathMethod}}"
               th:method="POST"
               th:object="${currentMap}">
 

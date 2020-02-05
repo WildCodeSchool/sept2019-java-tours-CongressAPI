@@ -41,6 +41,7 @@ public class MapController {
         model.addAttribute("currentCongress", congressService.findById(congressId));
         model.addAttribute("pageTitle", "Map");
         model.addAttribute("currentMap", new Map());
+        model.addAttribute("pathMethod", "/congress/"+ congressId+ "/map/create");
 
         return "pages/map/mapListView";
     }
@@ -59,10 +60,10 @@ public class MapController {
         Congress currentCongress = congressService.findById(congressId);
         Map currentMap = mapService.findById(id);
         model.addAttribute("currentCongress", congressService.findById(congressId));
-        model.addAttribute("page", "maps");
+        model.addAttribute("page", "map");
         model.addAttribute("currentMap", currentMap);
         model.addAttribute("pageTitle", "Map" + currentMap.getTitle());
-
+        model.addAttribute("pathMethod", "/congress/"+ congressId+ "/map/" + id + "/edit");
         return "pages/map/mapMainView";
     }
 
@@ -142,9 +143,9 @@ public class MapController {
             return "redirect:/congress/" + congressId + "/map/" + id + "/edit";
         }
         Congress currentCongress = congressService.findById(congressId);
-        currentCongress.addMap(currentMap);
+        //currentCongress.addMap(currentMap);
         mapService.update(currentMap);
-        congressService.update(currentCongress);
+       // congressService.update(currentCongress);
         return "redirect:/congress/" + congressId + "/map/" + currentMap.getId();
 
     }

@@ -35,7 +35,7 @@ public class SocialLinkController {
      */
     @GetMapping
     public String getSocialLink(@PathVariable long congressId, Model model) throws IOException {
-        model.addAttribute("page", "socialLink");
+        model.addAttribute("page", "congress");
         model.addAttribute("currentCongress", congressService.findById(congressId));
         model.addAttribute("pageTitle", "SocialLink");
         model.addAttribute("pathMethod", "/congress/" + congressId + "/socialLink/create");
@@ -58,7 +58,7 @@ public class SocialLinkController {
         SocialLink currentSocialLink = socialLinkService.findById(id);
         model.addAttribute("newSocialLink", currentSocialLink);
         model.addAttribute("currentCongress", currentCongress);
-        model.addAttribute("page", "socialLinks");
+        model.addAttribute("page", "congress");
         model.addAttribute("currentSocialLink", currentSocialLink);
         model.addAttribute("pageTitle", "SocialLink" + currentSocialLink.getId());
         model.addAttribute("pathMethod", "/congress/" + congressId + "/socialLink/" + id + "/edit");
@@ -133,7 +133,7 @@ public class SocialLinkController {
         model.addAttribute("newSocialLink", newSocialLink);
         model.addAttribute("pathMethod", "congress/" + congressId + "/socialLink/" + id + "/edit");
         model.addAttribute("pageTitle", "Update " + newSocialLink.getName());
-        model.addAttribute("page", "currentSocialLink");
+        model.addAttribute("page", "congress");
         model.addAttribute("currentCongress", congressService.findById(congressId));
         return "pages/socialLink/socialLinkFormView";
     }
@@ -147,7 +147,7 @@ public class SocialLinkController {
 	 */
 	@GetMapping("/create")
 	public String createSocialLinkForm(@PathVariable long congressId, Model model) throws Exception {
-        model.addAttribute("page", "socialLink");
+        model.addAttribute("page", "congress");
         model.addAttribute("currentCongress", congressService.findById(congressId));
         model.addAttribute("pathMethod", "/congress/" + congressId + "/socialLink/create");
         model.addAttribute("newSocialLink", new SocialLink());
