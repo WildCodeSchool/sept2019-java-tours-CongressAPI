@@ -39,8 +39,10 @@ public class SponsorService implements CrudService<Sponsor> {
 
     @Override
     public Sponsor create(Sponsor entity) {
-        storageService.store(entity.getLogo());
-        entity.setLogo_url("/files/" + entity.getLogo().getOriginalFilename());
+        if(entity.getLogo()!= null && !entity.getLogo().isEmpty()) {
+            storageService.store(entity.getLogo());
+            entity.setLogo_url("/files/" + entity.getLogo().getOriginalFilename());
+        }
         return sponsorRepository.save(entity);
     }
 

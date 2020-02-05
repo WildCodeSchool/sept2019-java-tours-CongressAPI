@@ -491,6 +491,11 @@
                                     "sponsor-viewList sponsor-viewList ."
                                     "sponsor-viewList sponsor-viewList sponsor-together-form";
         }
+        #main-sponsor-form{
+            grid-template-areas: "sponsor-form-card sponsor-form-card";
+
+        }
+
 
         #add-sponsor{
             grid-area: add-sponsor;
@@ -599,6 +604,10 @@
             flex-direction: column;
             grid-area: socialLink-view;
         }
+        #socialLink-show {
+            display: block;
+            width:100%;
+        }
 
         #socialLink-form-show {
             display: flex;
@@ -610,6 +619,17 @@
 
         #socialLink-view-show img {
             width: 100%;
+        }
+        #socialLink-viewList-container{
+            grid-template-areas: "socialLink-viewList  socialLink-viewList socialLink-data"
+                                 "socialLink-viewList  socialLink-viewList ."
+                                 "socialLink-viewList  socialLink-viewList .";
+        }
+        #socialLink-viewList{
+            grid-area: socialLink-viewList;
+        }
+        #socialLink-data{
+            grid-area:socialLink-data;
         }
 
         #hotel-viewList-container {

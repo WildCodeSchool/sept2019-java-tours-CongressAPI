@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<div class="card" id="congress-viewList" th:fragment="socialLinkListCard">
+<div class="card" id="socialLink-viewList" th:fragment="socialLinkListCard">
     <h3 class="card-title">Social Links</h3>
-    <div class="card-content" id="congress-show">
-        <ul>
-            <!--/*@thymesVar id="socialLink" type="com.congress.entity.SocialLink"*/-->
-
-            <!--/*@thymesVar id="currentCongress" type="com.congress.entity.Congress"*/-->
-            <li th:each="socialLink : ${currentCongress.socialLinks}">
-                <ul style="display:flex;">
-                    <li th:text="${socialLink.url}"></li>
-                    <li>
-                        <a th:href="@{/congress/{id}/socialLink/{idSocialLink}(id=${currentCongress.id},idSocialLink=${socialLink.id})}">
-                            Go to Social Link</a></li>
-                </ul>
-            </li>
-        </ul>
+    <div class="card-content" id="socialLink-show">
+        <table class="actuality-item-conf" >
+            <thead>
+            <tr>
+                <td>
+                    ID
+                </td>
+                <td>
+                    Title
+                </td>
+                <td>
+                    Link
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="social : ${currentCongress.socialLinks}">
+                <td th:text="${social.id}"></td>
+                <td th:text="${social.name}"></td>
+                <td> <a th:href="@{'/congress/' + ${currentCongress.id}+'/socialLink/' + ${social.id}}"> Go to social link</a></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 </html>

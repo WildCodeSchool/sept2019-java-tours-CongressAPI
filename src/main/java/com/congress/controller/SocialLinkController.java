@@ -39,6 +39,7 @@ public class SocialLinkController {
         model.addAttribute("currentCongress", congressService.findById(congressId));
         model.addAttribute("pageTitle", "SocialLink");
         model.addAttribute("pathMethod", "/congress/" + congressId + "/socialLink/create");
+        model.addAttribute("newSocialLink", new SocialLink());
 
         return "pages/socialLink/socialLinkListView";
     }
