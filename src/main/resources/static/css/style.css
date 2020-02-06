@@ -260,6 +260,7 @@
             width: 100%;
             margin: 0;
             padding: 0;
+            justify-content:center;
             height: 100%;
             flex-direction: row;
         }
@@ -290,6 +291,7 @@
         .actuality-item {
             display: flex;
             height: 100%;
+            width:48%;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
