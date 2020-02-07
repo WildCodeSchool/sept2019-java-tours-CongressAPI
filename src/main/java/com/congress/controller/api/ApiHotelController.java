@@ -46,5 +46,5 @@ public class ApiHotelController {
     public ResponseEntity<Hotel> getHotel(@PathVariable long id) throws Exception {
         return ResponseEntity.ok(hotelService.findById(id));
     }
-    
+
 }
