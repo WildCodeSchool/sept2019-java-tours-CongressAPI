@@ -13,7 +13,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/sponsor")
+@RequestMapping("/api/map")
 public class ApiMapController {
 
     private final MapService serviceMap;
