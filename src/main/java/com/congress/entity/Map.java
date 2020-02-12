@@ -19,7 +19,7 @@ public class Map {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Size(min = 2, max = 256)
+    @Size(min = 2, max = 256, message = "There is too much character or too few")
     @NotNull
     private String title;
 

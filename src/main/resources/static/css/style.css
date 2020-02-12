@@ -535,6 +535,9 @@
             grid-area: about-preview;
 
         }
+        #main-map-form{
+            grid-template-areas:". map-form map-form ."
+        }
         #map-show{
             width: 100%;
             justify-content: flex-start;
@@ -542,6 +545,9 @@
         #map-form form{
              display:flex;
              flex-direction: column;
+        }
+        #map-form{
+            grid-area: map-form;
         }
         #congress-list-show{
             width: 100%;
