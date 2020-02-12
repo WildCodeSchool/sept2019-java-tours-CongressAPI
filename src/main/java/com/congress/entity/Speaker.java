@@ -18,7 +18,7 @@ public class Speaker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Size(min = 3, max = 255)
+    @Size(min = 3, max = 255, message = "There is too much character or too few")
     @NotNull
     private String name;
 
@@ -26,7 +26,7 @@ public class Speaker {
     @Transient
     @JsonIgnore
     private MultipartFile photo;
-    @Column(length = 1000)
+    @Column(length = 2000)
     private String biography;
 
     @ManyToMany(mappedBy = "speakers")

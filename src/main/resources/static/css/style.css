@@ -595,6 +595,9 @@
             justify-content:space-evenly;
             height:100%;
         }
+        #main-socialLink-form{
+            grid-template-areas: ". socialLink-data ."
+        }
         #socialLink-main-view-container{
             grid-template-areas: "socialLink-view socialLink-data";
         }
@@ -688,6 +691,10 @@
             width: 100%;
             display: flex;
             justify-content: flex-start;
+        }
+        #main-speaker-form{
+            grid-template-areas : "speaker-form-card speaker-form-card";
+
         }
 
         #speaker-viewList-container {

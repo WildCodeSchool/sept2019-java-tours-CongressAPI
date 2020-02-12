@@ -15,9 +15,9 @@ public class SocialLink {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@Size(min = 3, max = 256)
+
 	private String logoUrl;
-	@Size(min = 3, max = 256)
+	@Size(min = 3, max = 256, message = "There is too much character or to few")
 	@NotNull
 	private String name;
 	private String url;
