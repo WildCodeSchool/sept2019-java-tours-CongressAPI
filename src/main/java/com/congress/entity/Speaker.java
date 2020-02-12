@@ -6,6 +6,7 @@ import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,13 +19,14 @@ public class Speaker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Size(min = 3, max = 255)
+    @NotNull
     private String name;
 
     private String photo_url;
     @Transient
     @JsonIgnore
     private MultipartFile photo;
-
+    @Column(length = 1000)
     private String biography;
 
     @ManyToMany(mappedBy = "speakers")

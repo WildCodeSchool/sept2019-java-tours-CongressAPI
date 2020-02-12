@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Data
@@ -16,6 +17,8 @@ public class SocialLink {
 	private long id;
 	@Size(min = 3, max = 256)
 	private String logoUrl;
+	@Size(min = 3, max = 256)
+	@NotNull
 	private String name;
 	private String url;
 
