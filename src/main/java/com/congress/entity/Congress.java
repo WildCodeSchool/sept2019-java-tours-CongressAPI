@@ -27,7 +27,7 @@ public class Congress {
 
 	private String logo_url;
 
-	@Size(min = 3, max = 7)
+	@Size(min = 3, max = 7, message = "La coulour doit etre sous le format exa")
 	@Pattern(regexp = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$")
 	@NotNull
 	private String color;
@@ -69,9 +69,6 @@ public class Congress {
 	@JsonManagedReference
 	private Set<Map> maps;
 
-	@OneToMany
-	@JsonManagedReference
-	private Set<InteractiveFloorPlan> interactiveFloorPlans;
 
 	@ManyToMany
 	@JsonManagedReference
@@ -89,6 +86,9 @@ public class Congress {
 	@JsonManagedReference
 	private Set<Hotel> hotels;
 
+	@OneToMany
+	private Set<Activity> activities;
+
 	public Congress() {
 		this.abouts = new HashSet<>();
 		this.maps = new HashSet<>();
@@ -96,7 +96,6 @@ public class Congress {
 		this.socialLinks = new HashSet<>();
 		this.hotels = new HashSet<>();
 		this.floorPlans = new HashSet<>();
-		this.interactiveFloorPlans = new HashSet<>();
 	}
 
 	public void addMap(Map map) {
@@ -109,6 +108,16 @@ public class Congress {
 		this.maps.remove(toDelete);
 	}
 
+
+	public void addActivity(Activity activity) {
+		activity.setCongress(this);
+		this.activities.add(activity);
+	}
+
+	public void removeActivity(Activity toDelete) {
+		toDelete.setCongress(null);
+		this.activities.remove(toDelete);
+	}
 
 	public void addAbout(About about) {
 		about.setCongress(this);
@@ -167,15 +176,6 @@ public class Congress {
 	}
 
 
-	public void addInteractiveFloorPlan(InteractiveFloorPlan interactiveFloorPlans) {
-		interactiveFloorPlans.setCongress(this);
-		this.interactiveFloorPlans.add(interactiveFloorPlans);
-	}
-
-	public void removeInteractiveFloorPlan(InteractiveFloorPlan toDelete) {
-		toDelete.setCongress(null);
-		this.interactiveFloorPlans.remove(toDelete);
-	}
 
 	@Override
 	public int hashCode() {

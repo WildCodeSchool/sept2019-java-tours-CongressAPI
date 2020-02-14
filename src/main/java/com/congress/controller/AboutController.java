@@ -94,7 +94,6 @@ public class AboutController {
         About toDelete = aboutService.findById(id);
         currentCongress.removeAbout(toDelete);
         aboutService.delete(id);
-
         congressService.update(currentCongress);
         return "redirect:/";
     }

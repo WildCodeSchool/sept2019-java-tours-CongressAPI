@@ -6,5 +6,4 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 @JsonTest
 @AutoConfigureMockMvc
 public class CongressApplicationTests {
-
 }

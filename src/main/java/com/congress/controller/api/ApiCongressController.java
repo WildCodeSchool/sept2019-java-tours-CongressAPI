@@ -33,12 +33,12 @@ public class ApiCongressController {
      * @param newCongress The congress to create
      * @return Created congress
      */
-    @PostMapping(consumes = {"multipart/form-data"})
+    @PostMapping(consumes = {"multipart/form-data", "application/json"}, headers = "content-type=application/json")
     @Valid
-    public ResponseEntity<Congress> createCongress(@RequestPart(value = "congress", required = true) Congress newCongress,
+    public ResponseEntity<Congress> createCongress(@ModelAttribute Congress congress,
                                                    @RequestPart(value = "logo", required = true) MultipartFile logo,
                                                    @RequestPart(value = "banner", required = true) MultipartFile banner) {
-        Congress savedCongress = service.create(newCongress, logo, banner);
+        Congress savedCongress = service.create(congress, logo, banner);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(savedCongress.getId()).toUri();
         return ResponseEntity.created(location).build();
@@ -51,12 +51,12 @@ public class ApiCongressController {
      * @param newCongress The model of the congress
      * @return Redirect to the congress view
      */
-    @PutMapping(value = "/{id}", consumes = {"multipart/form-data"})
+    @PutMapping(consumes = {"multipart/form-data"})
     @Valid
-    public ResponseEntity<Congress> updateCongress(@PathVariable long id, @RequestPart(value = "congress", required = true) Congress newCongress,
+    public ResponseEntity<Congress> updateCongress(@ModelAttribute Congress newCongress,
                                                    @RequestPart(value = "logo", required = true) MultipartFile logo,
                                                    @RequestPart(value = "banner", required = true) MultipartFile banner) throws Exception {
-        return ResponseEntity.ok(service.update(id, logo, banner));
+        return ResponseEntity.ok(service.update(newCongress.getId(), logo, banner));
     }
 
     /**

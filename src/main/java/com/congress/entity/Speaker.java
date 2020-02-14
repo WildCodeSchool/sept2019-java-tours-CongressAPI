@@ -31,8 +31,23 @@ public class Speaker {
     @JsonBackReference
     private Set<Congress> congress;
 
+
+    @ManyToMany(mappedBy = "speakers")
+    private Set<Activity> activities;
+
     public Speaker() {
         this.congress = new HashSet<>();
+        this.activities = new HashSet<>();
+    }
+
+    public void addActivity(Activity activity) {
+        activity.addSpeaker(this);
+        this.activities.add(activity);
+    }
+
+    public void removeActivity(Activity toDelete) {
+        toDelete.removeSpeaker(this);
+        this.activities.remove(toDelete);
     }
 
     public void addCongress(Congress congress) {
