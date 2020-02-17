@@ -16,32 +16,38 @@ public class ApiSpeakerController {
 
     private final SpeakerService speakerService;
 
-    public ApiSpeakerController(SpeakerService speakerService){
+    public ApiSpeakerController(SpeakerService speakerService) {
         this.speakerService = speakerService;
     }
+
     @GetMapping
-    List<Speaker> all(){
+    List<Speaker> all() {
         return speakerService.findAll();
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Speaker> getSpeaker(@PathVariable long id) throws Exception {
+        return ResponseEntity.ok(speakerService.findById(id));
+    }
+
     @PostMapping(consumes = {"multipart/form-data"})
     @Valid
-    public ResponseEntity<Speaker> createSpeaker(Speaker speaker){
+    public ResponseEntity<Speaker> createSpeaker(Speaker speaker) {
         Speaker savedCongress = speakerService.create(speaker);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(savedCongress.getId()).toUri();
         return ResponseEntity.created(location).build();
     }
+
     @PutMapping(value = "/{id}", consumes = {"multipart/form-data"})
     @Valid
     public ResponseEntity<Speaker> updateSpeaker(Speaker speaker) throws Exception{
         return ResponseEntity.ok(speakerService.update(speaker));
     }
+
     @DeleteMapping("/{id}")
     public void deleteSpeaker(@PathVariable long id) throws Exception {
         speakerService.delete(id);
     }
-    @GetMapping("/{id}")
-    public ResponseEntity<Speaker> getSpeaker(@PathVariable long id) throws Exception{
-        return ResponseEntity.ok(speakerService.findById(id));
-    }
+
 }

@@ -10,13 +10,14 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
 @Entity
-public class Congress {
+public class Congress implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,15 +58,15 @@ public class Congress {
 	@JsonIgnore
 	private MultipartFile logo;
 
-	@OneToMany
+	@OneToMany(mappedBy = "congress", cascade = CascadeType.ALL)
 	@JsonManagedReference
 	private Set<About> abouts;
 
-	@OneToMany
+	@OneToMany(mappedBy = "congress", cascade = CascadeType.ALL)
 	@JsonManagedReference
 	private Set<FloorPlan> floorPlans;
 
-	@OneToMany
+	@OneToMany(mappedBy = "congress", cascade = CascadeType.ALL)
 	@JsonManagedReference
 	private Set<Map> maps;
 
@@ -78,7 +79,7 @@ public class Congress {
 	@JsonManagedReference
 	private Set<Speaker> speakers;
 
-	@OneToMany
+	@OneToMany(mappedBy = "congress", cascade = CascadeType.ALL)
 	private Set<SocialLink> socialLinks;
 
 
@@ -86,7 +87,7 @@ public class Congress {
 	@JsonManagedReference
 	private Set<Hotel> hotels;
 
-	@OneToMany
+	@OneToMany(mappedBy = "congress", cascade = CascadeType.ALL)
 	private Set<Activity> activities;
 
 	public Congress() {
@@ -96,6 +97,8 @@ public class Congress {
 		this.socialLinks = new HashSet<>();
 		this.hotels = new HashSet<>();
 		this.floorPlans = new HashSet<>();
+		this.speakers = new HashSet<>();
+		this.activities = new HashSet<>();
 	}
 
 	public void addMap(Map map) {
