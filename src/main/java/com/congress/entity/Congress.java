@@ -28,6 +28,7 @@ public class Congress implements Serializable {
 
 	private String logo_url;
 
+
 	@Size(min = 3, max = 7, message = "La coulour doit etre sous le format exa")
 	@Pattern(regexp = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$")
 	@NotNull

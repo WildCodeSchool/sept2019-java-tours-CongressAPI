@@ -536,7 +536,7 @@
 
         }
         #main-map-form{
-            grid-template-areas:". map-form map-form ."
+            grid-template-areas:". map-form map-form .";
         }
         #map-show{
             width: 100%;
@@ -549,10 +549,21 @@
         #map-form{
             grid-area: map-form;
         }
-        #congress-list-show{
-            width: 100%;
-            display:flex;
-            justify-content: flex-start;
+        #map-view-container{
+            grid-template-areas:"map-view map-view map-form"
+                                "map-view map-view ."
+                                "map-view map-view .";
+        }
+        #map-view{
+            grid-area: map-view;
+        }
+        #map-listView-container{
+            grid-template-areas:"map-listView map-form"
+                                "map-listView ."
+                                "map-listView .";
+        }
+        #map-listView{
+            grid-area: map-listView;
         }
         #sponsor-linked-show{
             width: 100%;

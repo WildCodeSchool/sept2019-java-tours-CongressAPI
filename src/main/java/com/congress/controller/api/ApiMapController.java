@@ -50,7 +50,7 @@ public class ApiMapController {
         return ResponseEntity.ok(updatedMap);
     }
 
-    @PutMapping(value = "/{id}", consumes = {"multipart/form-data"})
+    @PostMapping(value = "/{id}", consumes = {"multipart/form-data"})
     @Valid
     public void deleteMap(@PathVariable long id) throws Exception {
         service.delete(id);
