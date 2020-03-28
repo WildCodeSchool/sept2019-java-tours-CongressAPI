@@ -349,6 +349,10 @@
                            "about-viewList socialLink-data"
                            "about-viewList socialLink-data"
         }
+        #congress-list-show{
+            justify-content: flex-start;
+            width: 100%;
+        }
 
         #congress-viewList-container {
             grid-template: "congressviewlist"
