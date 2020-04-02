@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<div class="card" id="dataform" th:fragment="activityFormCard">
+    <h3 class="card-title">Activity</h3>
+    <div class="card-content">
+        <form enctype="multipart/form-data" method="POST" th:action="@{${pathMethod}}"
+              th:object="${newActivity}">
+
+            <span th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Name Error</span>
+            <label for="name">Name</label>
+            <input id="name" th:field="*{name}" type="text"/><br>
+
+
+            <span th:errors="*{location}" th:if="${#fields.hasErrors('location')}">Name Error</span>
+            <label for="location">location</label>
+            <input id="location" th:field="*{location}" type="text"/><br>
+
+
+            <span th:errors="*{startDate}" th:if="${#fields.hasErrors('startDate')}">Name Error</span>
+            <label for="startDate">Start</label>
+            <input id="startDate" th:field="*{startDate}" type="time"/><br>
+
+            <span th:errors="*{endDate}" th:if="${#fields.hasErrors('endDate')}">Name Error</span>
+            <label for="endDate">End</label>
+            <input id="endDate" th:field="*{endDate}" type="time"/><br>
+
+
+            <input type="submit" value="Valider">
+        </form>
+    </div>
+</div>
+</html>

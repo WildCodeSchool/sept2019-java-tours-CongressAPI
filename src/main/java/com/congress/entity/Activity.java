@@ -1,6 +1,7 @@
 package com.congress.entity;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -20,7 +21,9 @@ public class Activity {
     @ManyToOne
     private Congress congress;
 
+    @DateTimeFormat(pattern = "HH:mm")
     private Date startDate;
+    @DateTimeFormat(pattern = "HH:mm")
     private Date endDate;
     private String name;
     private String location;

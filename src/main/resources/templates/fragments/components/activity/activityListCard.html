@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div class="card" id="activity-viewList" th:fragment="activityListCard">
+    <h3 class="card-title">Activity</h3>
+    <div class="card-content" id="activity-show">
+        <table class="actuality-item-conf">
+            <thead>
+            <tr>
+                <td>
+                    ID
+                </td>
+                <td>
+                    Name
+                </td>
+                <td>
+                    location
+                </td>
+                <td>
+                    Begining
+                </td>
+                <td>
+                    End
+                </td>
+                <td>
+                    Redirection
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="activity : ${currentCongress.activities}">
+                <td th:text="${activity.id}"></td>
+                <td th:text="${activity.name}"></td>
+                <td th:text="${activity.location}"></td>
+                <td th:text="${#dates.format(activity.startDate, 'HH:mm')}"></td>
+                <td th:text="${#dates.format(activity.endDate, 'HH:mm')}"></td>
+                <td><a th:href="@{'/congress/' +${currentCongress.id} + '/activity/' + ${activity.id}}">See
+                    description</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+</html>

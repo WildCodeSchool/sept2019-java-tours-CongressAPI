@@ -1,5 +1,6 @@
 package com.congress.controller;
 
+import com.congress.entity.Activity;
 import com.congress.entity.Congress;
 import com.congress.entity.FloorPlan;
 import com.congress.services.CongressService;
@@ -86,7 +87,7 @@ public class FloorPlanController {
             model.addAttribute("page", "floorPlans");
             model.addAttribute("floorPlan", currentFloorPlan);
             model.addAttribute("pageTitle", "Floor Plan" + currentFloorPlan.getTitle());
-            model.addAttribute("pathMethod", "/congress/" + currentCongress.getId() + "floorPlan/edit");
+            model.addAttribute("pathMethod", "/congress/" + currentCongress.getId() + "/floorPlan/edit");
             model.addAttribute("newFloorPlan", currentFloorPlan);
             return "pages/floorPlan/floorPlanMainView";
         }

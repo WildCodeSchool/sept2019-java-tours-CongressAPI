@@ -101,7 +101,7 @@ public class MapController {
     }
 
     /**
-     * this controller is used to display the about update formulaire
+     * this controller is used to display the map update formulaire
      *
      * @param congressId
      * @param id

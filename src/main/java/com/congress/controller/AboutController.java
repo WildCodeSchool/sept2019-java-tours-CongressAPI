@@ -32,7 +32,7 @@ public class AboutController {
      * @return Template of about view list
      */
     @GetMapping
-    public String getAbout(@PathVariable long congressId, Model model) throws Exception {
+    public String getAbouts(@PathVariable long congressId, Model model) throws Exception {
         Congress currentCongress = congressService.findById(congressId);
         model.addAttribute("page", "about");
         model.addAttribute("currentCongress", currentCongress);
@@ -62,7 +62,6 @@ public class AboutController {
      * this controller is used to create description in About
      *
      * @param model      The id of update about
-     * @param titleAbout The model of About table
      * @return redirect to about view
      */
     @PostMapping("/create")
@@ -74,7 +73,6 @@ public class AboutController {
             return "pages/about/aboutFormView";
         }
         Congress currentCongress = congressService.findById(congressId);
-        currentCongress.addAbout(currentAbout);
         aboutService.create(currentAbout);
         congressService.update(currentCongress);
         return "redirect:/congress/" + congressId + "/about/" + currentAbout.getId();
@@ -107,20 +105,21 @@ public class AboutController {
      * @throws Exception
      */
     @PostMapping("/{id}/edit")
-    public String updateAboutForm(@PathVariable long congressId, @PathVariable Long id, @ModelAttribute About about,BindingResult bindingResult, Model model) throws Exception {
+    public String updateAboutForm(@PathVariable long congressId, @PathVariable Long id, @ModelAttribute("newAbout") About newAbout,BindingResult bindingResult, Model model) throws Exception {
+        Congress currentCongress = congressService.findById(congressId);
+        About currentAbout = aboutService.findById(id);
         if(bindingResult.hasErrors()){
-            Congress currentCongress = congressService.findById(congressId);
-            About currentAbout = aboutService.findById(id);
             model.addAttribute("currentCongress", currentCongress);
             model.addAttribute("page", "abouts");
-            model.addAttribute("about", currentAbout);
+            model.addAttribute("currentAbout", currentAbout);
             model.addAttribute("pageTitle", "About" + currentAbout.getTitle());
-            model.addAttribute("pathMethod",         "/congress/"+ currentCongress.getId()+ "/about/edit");
-            model.addAttribute("newAbout", currentAbout);
+            model.addAttribute("pathMethod","/congress/"+ currentCongress.getId()+ "/about/edit");
+            model.addAttribute("newAbout", newAbout);
             return "pages/about/aboutOneDescription";
         }
-        aboutService.update(id, about);
-       return "redirect:/congress/" + congressId + "/about/"+ id;
+        congressService.update(currentCongress);
+        aboutService.update(id, newAbout);
+        return "redirect:/congress/" + congressId + "/about/"+ id;
     }
     @GetMapping("/create")
     public String createAboutForm(@PathVariable long congressId, Model model) throws Exception{
@@ -130,5 +129,6 @@ public class AboutController {
         model.addAttribute("newAbout", new About());
         return "pages/about/aboutFormView";
     }
-}
 
+
+}
