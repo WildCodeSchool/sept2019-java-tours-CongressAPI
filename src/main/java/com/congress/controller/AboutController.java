@@ -32,14 +32,14 @@ public class AboutController {
      * @return Template of about view list
      */
     @GetMapping
-    public String getAbouts(@PathVariable long congressId, Model model) throws Exception {
+    public String getAbout(@PathVariable long congressId, Model model) throws Exception {
         Congress currentCongress = congressService.findById(congressId);
         model.addAttribute("page", "about");
         model.addAttribute("currentCongress", currentCongress);
         model.addAttribute("pageTitle", "About");
         model.addAttribute("pathMethod", "/congress/" + currentCongress.getId() + "/about/create");
         model.addAttribute("newAbout", new About());
-        return "pages/about/aboutListView";
+        return "/pages/about/aboutListView";
     }
 
     /**
@@ -50,7 +50,7 @@ public class AboutController {
         Congress currentCongress = congressService.findById(congressId);
         About currentAbout = aboutService.findById(id);
         model.addAttribute("currentCongress", currentCongress);
-        model.addAttribute("page", "about");
+        model.addAttribute("page", "abouts");
         model.addAttribute("about", currentAbout);
         model.addAttribute("pageTitle", "About" + currentAbout.getTitle());
         model.addAttribute("pathMethod",         "/congress/"+ currentCongress.getId()+ "/about/"+id+"/edit");
@@ -62,20 +62,22 @@ public class AboutController {
      * this controller is used to create description in About
      *
      * @param model      The id of update about
+     * @param titleAbout The model of About table
      * @return redirect to about view
      */
     @PostMapping("/create")
-    public String createAbout(@PathVariable long congressId, @Valid @ModelAttribute About currentAbout, BindingResult bindingAbout, Model model) throws NotFoundException, IOException {
+    public String createAbout(@PathVariable long congressId, @Valid @ModelAttribute About titleAbout, BindingResult bindingAbout, Model model) throws NotFoundException, IOException {
         if (bindingAbout.hasErrors()) {
             model.addAttribute("httpMethod", "POST");
             model.addAttribute("pathMethod", "/congress/" + congressId + "/about/create");
-            model.addAttribute("newAbout", currentAbout);
+            model.addAttribute("newAbout", titleAbout);
             return "pages/about/aboutFormView";
         }
         Congress currentCongress = congressService.findById(congressId);
-        aboutService.create(currentAbout);
+        currentCongress.addAbout(titleAbout);
+        aboutService.create(titleAbout);
         congressService.update(currentCongress);
-        return "redirect:/congress/" + congressId + "/about/" + currentAbout.getId();
+        return "redirect:/congress/" + congressId + "/about/" + titleAbout.getId();
     }
 
 
@@ -86,12 +88,11 @@ public class AboutController {
      * @param titleAbout the model of the page About
      * @return redirect to the home page
      */
-    @GetMapping("/{id}/delete"  )
+    @GetMapping("/{id}/delete")
     public String deleteAbout(@PathVariable long congressId, @PathVariable long id, @ModelAttribute About titleAbout) throws Exception {
         Congress currentCongress = congressService.findById(congressId);
         About toDelete = aboutService.findById(id);
         currentCongress.removeAbout(toDelete);
-        aboutService.delete(id);
         congressService.update(currentCongress);
         return "redirect:/";
     }
@@ -105,20 +106,19 @@ public class AboutController {
      * @throws Exception
      */
     @PostMapping("/{id}/edit")
-    public String updateAboutForm(@PathVariable long congressId, @PathVariable Long id, @ModelAttribute("newAbout") About newAbout,BindingResult bindingResult, Model model) throws Exception {
-        Congress currentCongress = congressService.findById(congressId);
-        About currentAbout = aboutService.findById(id);
+    public String updateAboutForm(@PathVariable long congressId, @PathVariable Long id, @ModelAttribute About about,BindingResult bindingResult, Model model) throws Exception {
         if(bindingResult.hasErrors()){
+            Congress currentCongress = congressService.findById(congressId);
+            About currentAbout = aboutService.findById(id);
             model.addAttribute("currentCongress", currentCongress);
             model.addAttribute("page", "abouts");
-            model.addAttribute("currentAbout", currentAbout);
+            model.addAttribute("about", currentAbout);
             model.addAttribute("pageTitle", "About" + currentAbout.getTitle());
-            model.addAttribute("pathMethod","/congress/"+ currentCongress.getId()+ "/about/edit");
-            model.addAttribute("newAbout", newAbout);
+            model.addAttribute("pathMethod",         "/congress/"+ currentCongress.getId()+ "/about/edit");
+            model.addAttribute("newAbout", currentAbout);
             return "pages/about/aboutOneDescription";
         }
-        congressService.update(currentCongress);
-        aboutService.update(id, newAbout);
+        aboutService.update(about);
         return "redirect:/congress/" + congressId + "/about/"+ id;
     }
     @GetMapping("/create")
@@ -129,6 +129,4 @@ public class AboutController {
         model.addAttribute("newAbout", new About());
         return "pages/about/aboutFormView";
     }
-
-
 }
