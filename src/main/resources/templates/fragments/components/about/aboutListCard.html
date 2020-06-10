@@ -18,10 +18,12 @@
                 </tr>
                 </thead>
                 <tbody>
+                <!--/*@thymesVar id="currentCongress" type="com.entity.Congress"*/-->
                 <tr th:each="about : ${currentCongress.abouts}">
+                    <!--/*@thymesVar id="about" type="com.congress.entity.About"*/-->
                     <td th:text="${about.id}"></td>
                     <td th:text="${about.title}"></td>
-                    <td><a th:href="@{'/congress/' +${currentCongress.id} + '/about/' + ${about.id}}">See
+                    <a th:href="@{'/congress/' +${currentCongress.id} + '/about/' + ${about.id}}">See
                         description</a></td>
                 </tr>
                 </tbody>
