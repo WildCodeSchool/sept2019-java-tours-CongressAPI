@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="pathMethod" type="java.lang.String"*/-->
+<!--/*@thymesVar id="httpMethod" type="java.lang.String"*/-->
+<!--/*@thymesVar id="currentSponsor" type="com.congress.entity.Sponsor"*/-->
+<!--/*@thymesVar id="hotelList" type="com.congress.entity.Hotel"*/-->
+
+<div class="card" id="hotel-together-form" th:fragment="hotelLinkedUniversalList">
+    <h3 class="card-title">Hotels</h3>
+    <div class="card-content">
+        <form enctype="multipart/form-data" th:action="@{'/hotel/linktogether'}"
+              th:method="POST">
+            <label for="congress-select">Congress to link</label>
+            <select id="congress-select" name="congressId">
+                <option value="">--Please choose an option--</option>
+                <option th:each="congress : ${congressList}" th:text="${congress.name}"
+                        th:value="${congress.id}"></option>
+            </select>
+            <label for="hotel-select">Hotel to link</label>
+
+            <select id="hotel-select" name="hotelId">
+                <option value="">--Please choose an option--</option>
+                <option th:each="hotel : ${hotelList}" th:text="${hotel.name}"
+                        th:value="${hotel.id}"></option>
+            </select>
+            <input type="submit" value="Valider">
+        </form>
+    </div>
+</div>
+</html>

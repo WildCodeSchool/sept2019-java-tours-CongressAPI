@@ -5,10 +5,8 @@ import com.congress.services.CongressService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
-import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -30,33 +28,30 @@ public class ApiCongressController {
     /**
      * This controller is used to create a congress
      *
-     * @param newCongress The congress to create
+     * @param congress The congress to create
      * @return Created congress
      */
-    @PostMapping(consumes = {"multipart/form-data"})
+    @PostMapping(consumes = {"multipart/form-data", "application/json"}, headers = "content-type=application/json")
     @Valid
-    public ResponseEntity<Congress> createCongress(@RequestPart(value = "congress", required = true) Congress newCongress,
+    public ResponseEntity<Congress> createCongress(@ModelAttribute Congress congress,
                                                    @RequestPart(value = "logo", required = true) MultipartFile logo,
                                                    @RequestPart(value = "banner", required = true) MultipartFile banner) {
-        Congress savedCongress = service.create(newCongress, logo, banner);
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(savedCongress.getId()).toUri();
-        return ResponseEntity.created(location).build();
+        Congress savedCongress = service.create(congress, logo, banner);
+        return ResponseEntity.ok(savedCongress);
     }
 
     /**
      * This controller is used to update a congress
      *
-     * @param id          The id of the updated congress
      * @param newCongress The model of the congress
      * @return Redirect to the congress view
      */
-    @PutMapping(value = "/{id}", consumes = {"multipart/form-data"})
+    @PutMapping(consumes = {"multipart/form-data"})
     @Valid
-    public ResponseEntity<Congress> updateCongress(@PathVariable long id, @RequestPart(value = "congress", required = true) Congress newCongress,
+    public ResponseEntity<Congress> updateCongress(@ModelAttribute("congress") Congress newCongress,
                                                    @RequestPart(value = "logo", required = true) MultipartFile logo,
                                                    @RequestPart(value = "banner", required = true) MultipartFile banner) throws Exception {
-        return ResponseEntity.ok(service.update(id, logo, banner));
+        return ResponseEntity.ok(service.update(newCongress.getId(), logo, banner));
     }
 
     /**

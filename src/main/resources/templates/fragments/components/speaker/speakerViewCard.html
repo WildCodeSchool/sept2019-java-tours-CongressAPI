@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="currentSponsor" type="com.congress.entity.Sponsor"*/-->
+<div class="card" id="speaker-view" th:fragment="speakerViewCard">
+    <h3 class="card-title">Speakers</h3>
+    <div class="card-content" id="speaker-show">
+        <div th:text="${currentSpeaker.name}"></div>
+        <img alt="" id="speaker-show-logo" th:src="@{${currentSpeaker.photo_url}}">
+        <p th:text="${currentSpeaker.biography}"></p>
+        <div id="speaker-show-update">
+            <a href="#" th:onclick="|deleteUrl('/sponsor/${currentSpeaker.id}')|">Supprimer</a>
+        </div>
+    </div>
+</div>
+</html>

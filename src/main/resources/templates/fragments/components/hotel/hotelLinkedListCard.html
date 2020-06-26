@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="pathMethod" type="java.lang.String"*/-->
+<!--/*@thymesVar id="httpMethod" type="java.lang.String"*/-->
+<!--/*@thymesVar id="currentSponsor" type="com.congress.entity.Sponsor"*/-->
+<!--/*@thymesVar id="congressList" type="com.congress.entity.Congress"*/-->
+<!--/*@thymesVar id="currentSponsor" type="java.util.List<com.congress.entity.Sponsor>"*/-->
+
+<div class="card" id="hotel-linked-list" th:fragment="hotelLinkedListCard">
+    <h3 class="card-title">Linked congress</h3>
+    <div class="card-content" id="hotel-linked-show">
+        <table class="actuality-item-conf">
+            <thead>
+            <tr>
+                <td>
+                    ID Congress
+                </td>
+                <td>
+                    Name Congress
+                </td>
+                <td>
+                    Go to Congress
+                </td>
+                <td>
+                    Default
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="congress : ${currentHotel.congress}">
+                <td th:text="${congress.id}"></td>
+                <td th:text="${congress.name}"></td>
+                <td><a th:href="@{'/congress/' + ${congress.id}}">go to congress</a></td>
+                <td><a th:href="@{'/hotel/' + ${currentHotel.id} + '/unlinktocongress/' + ${congress.id}}">Unlink</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</html>

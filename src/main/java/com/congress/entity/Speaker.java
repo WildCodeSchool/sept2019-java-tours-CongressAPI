@@ -1,0 +1,65 @@
+package com.congress.entity;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
+
+@Data
+@Entity
+public class Speaker {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Size(min = 3, max = 255, message = "There is too much character or too few")
+    @NotNull
+    private String name;
+
+    private String photo_url;
+    @Transient
+    @JsonIgnore
+    private MultipartFile photo;
+    @Column(length = 2000)
+    private String biography;
+
+    @ManyToMany(mappedBy = "speakers")
+    @JsonBackReference
+    private Set<Congress> congress;
+
+
+    @ManyToMany(mappedBy = "speakers")
+    private Set<Activity> activities;
+
+    public Speaker() {
+        this.congress = new HashSet<>();
+        this.activities = new HashSet<>();
+    }
+
+    public void addActivity(Activity activity) {
+        activity.addSpeaker(this);
+        this.activities.add(activity);
+    }
+
+    public void removeActivity(Activity toDelete) {
+        toDelete.removeSpeaker(this);
+        this.activities.remove(toDelete);
+    }
+
+    public void addCongress(Congress congress) {
+        congress.addSpeaker(this);
+        this.congress.add(congress);
+    }
+
+    public void removeCongress(Congress toDelete) {
+        toDelete.removeSpeaker(this);
+        this.congress.remove(toDelete);
+    }
+
+}

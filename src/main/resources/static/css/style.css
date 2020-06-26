@@ -260,6 +260,7 @@
             width: 100%;
             margin: 0;
             padding: 0;
+            justify-content:center;
             height: 100%;
             flex-direction: row;
         }
@@ -290,6 +291,7 @@
         .actuality-item {
             display: flex;
             height: 100%;
+            width:48%;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
@@ -341,7 +343,15 @@
         }
 
         #congress-view-container {
-            grid-template: "congressview congressview" "congressdetails socialLink-data" "congressdetails socialLink-data" "congressdetails socialLink-data" "congressdetails socialLink-data"
+            grid-template: "congressview congressview"
+                           "about-viewList socialLink-data"
+                           "about-viewList socialLink-data"
+                           "about-viewList socialLink-data"
+                           "about-viewList socialLink-data"
+        }
+        #congress-list-show{
+            justify-content: flex-start;
+            width: 100%;
         }
 
         #congress-viewList-container {
@@ -358,10 +368,7 @@
             background-color: white;
         }
 
-        #congress-details {
-            grid-area: congressdetails;
-            background-color: white;
-        }
+
 
         #congress-data {
             grid-area: congress-data;
@@ -384,7 +391,8 @@
                           "desc desc desc . . network"
                           "desc desc desc . . update";
             align-content: normal;
-            grid-template-columns: 10% min-content 35% auto max-content 30%;
+                align-items: flex-start;
+            grid-template-columns: 10% auto 35% auto max-content 30%;
             justify-content: stretch;
             grid-template-rows: min-content min-content min-content auto min-content;
         }
@@ -408,8 +416,14 @@
         }
         #congress-show-network{
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             grid-area:network;
+        }
+        #congress-show-network ul{
+                    display:flex;
+        }
+        #congress-show-network a{
+            text-align:center;
         }
         #congress-show-network li{
             width: 30%;
@@ -419,12 +433,14 @@
             width: 100%;
         }
         #congress-show-update{
+        align-self: center;
             display: flex;
             justify-content: space-around;
             grid-area:update;
         }
 
         #congress-show-desc {
+        align-self: center;
             grid-area: desc;
         }
 
@@ -437,8 +453,11 @@
         }
 
         #sponsor-view-container {
-            grid-template-areas: "sponsor-view sponsor-view sponsor-linked-list"
+            grid-template-areas: "sponsor-view  sponsor-form-card sponsor-linked-list"
+                                 "sponsor-view sponsor-form-card sponsor-linked-list"
                                  "sponsor-link-form sponsor-form-card sponsor-linked-list";
+            grid-auto-rows: auto;
+
         }
         #sponsor-form-card{
             grid-area:sponsor-form-card;
@@ -480,6 +499,11 @@
                                     "sponsor-viewList sponsor-viewList ."
                                     "sponsor-viewList sponsor-viewList sponsor-together-form";
         }
+        #main-sponsor-form{
+            grid-template-areas: "sponsor-form-card sponsor-form-card";
+
+        }
+
 
         #add-sponsor{
             grid-area: add-sponsor;
@@ -493,9 +517,17 @@
         #sponsor-together-form{
             grid-area:sponsor-together-form;
         }
-        #sponsor-show{
+        #sponsor-together-form form{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    height:100%
+        }
+        #sponsor-list-show{
             width:  100%;
             justify-content: flex-start;
+
         }
         #about-main-preview{
             grid-template-areas:"about-preview about-form"
@@ -507,6 +539,9 @@
             grid-area: about-preview;
 
         }
+        #main-map-form{
+            grid-template-areas:". map-form map-form .";
+        }
         #map-show{
             width: 100%;
             justify-content: flex-start;
@@ -515,10 +550,24 @@
              display:flex;
              flex-direction: column;
         }
-        #congress-list-show{
-            width: 100%;
-            display:flex;
-            justify-content: flex-start;
+        #map-form{
+            grid-area: map-form;
+        }
+        #map-view-container{
+            grid-template-areas:"map-view map-view map-form"
+                                "map-view map-view ."
+                                "map-view map-view .";
+        }
+        #map-view{
+            grid-area: map-view;
+        }
+        #map-listView-container{
+            grid-template-areas:"map-listView map-form"
+                                "map-listView ."
+                                "map-listView .";
+        }
+        #map-listView{
+            grid-area: map-listView;
         }
         #sponsor-linked-show{
             width: 100%;
@@ -526,15 +575,10 @@
 
         }
         #sponsor-show{
-            width:100%;
-            display:grid;
-            align-content: normal;
-            grid-template-areas:"logo . . name location city"
-                                "logo . . contact address phone"
-                                "logo mail website . . update";
-             grid-template-columns: 20% auto auto auto auto auto;
-             justify-content: stretch;
-             grid-template-rows: max-content min-content min-content;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
         }
         #sponsor-show-logo{
             width:100%;
@@ -566,21 +610,186 @@
             justify-content: space-around;
             grid-area: update;
         }
+        #sponsor-form-card form{
+            display: flex;
+            flex-direction: column;
+            justify-content:space-evenly;
+            height:100%;
+        }
+        #main-socialLink-form{
+            grid-template-areas: ". socialLink-data ."
+        }
         #socialLink-main-view-container{
-            grid-template-areas:"socialLink-view socialLink-data";
-                    }
-        #socialLink-data{
+            grid-template-areas: "socialLink-view socialLink-data";
+        }
+
+        #socialLink-data {
             grid-area: socialLink-data;
         }
-        #socialLink-viewCard{
-            disay: flex;
+
+        #socialLink-viewCard {
+            display: flex;
             flex-direction: column;
             grid-area: socialLink-view;
         }
-        #socialLink-form-show{
+        #socialLink-show {
+            display: block;
+            width:100%;
+        }
+
+        #socialLink-form-show {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-evenly;
+            width: 100%;
+        }
+
+        #socialLink-view-show img {
+            max-width: 100%;
+            max-height:50%;
+        }
+        #socialLink-viewList-container{
+            grid-template-areas: "socialLink-viewList  socialLink-viewList socialLink-data"
+                                 "socialLink-viewList  socialLink-viewList ."
+                                 "socialLink-viewList  socialLink-viewList .";
+        }
+        #socialLink-viewList{
+            grid-area: socialLink-viewList;
+        }
+        #socialLink-data{
+            grid-area:socialLink-data;
+        }
+
+        #hotel-viewList-container {
+            grid-template-areas: "hotel-viewList hotel-viewList hotel-form-card" "hotel-viewList hotel-viewList ." "hotel-viewList hotel-viewList hotel-together-form";
+        }
+
+        #hotel-together-form {
+            grid-area: hotel-together-form;
+        }
+
+        #hotel-form-card  form{
+            grid-area: hotel-form-card;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        #hotel-together-form  form{
+            width:100%;
+            display:flex;
+            flex-direction:column;
+            justify-content:space-evenly;
+            height:100%;
+        }
+
+        #hotel-link-form {
+            grid-area: hotel-link-form;
+        }
+
+        #hotel-viewList {
+            grid-area: hotel-viewList;
+        }
+
+        #hotel-view {
+            grid-area: hotel-view;
+        }
+
+        #hotel-view-container {
+            grid-template-areas: "hotel-view hotel-form-card hotel-linked-list" "hotel-link-form . hotel-linked-list";
+        }
+
+        #hotel-linked-list {
+            grid-area: hotel-linked-list;
+        }
+        #hotel-show{
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+        }
+        #hotel-linked-show{
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+        }
+        #main-speaker-form{
+            grid-template-areas : "speaker-form-card speaker-form-card";
+
+        }
+
+        #speaker-viewList-container {
+            grid-template-areas: "speaker-viewList speaker-viewList speaker-form-card "
+                                 "speaker-viewList speaker-viewList speaker-together-form";
+
+        }
+        #speaker-show-logo{
+            width: 100%;
+        }
+
+        #speaker-together-form {
+            grid-area: speaker-together-form;
+
+        }
+        #speaker-together-form form{
+            display:flex;
+            flex-direction:column;
+            width:100%;
+            justify-content:space-evenly;
+            height:100%;
+        }
+        #speaker-form-card {
+            grid-area: speaker-form-card;
+        }
+        #speaker-form-card form{
+            width:100%;
+            display:flex;
+            flex-direction:column;
+        }
+        #speaker-viewList {
+            grid-area: speaker-viewList;
+        }
+
+        #speaker-linked-list {
+            grid-area: speaker-linked-list;
+        }
+        #speaker-linked-show{
+            justify-content:flex-start;
+            width:100%;
+        }
+        #speaker-link-form {
+            grid-area: speaker-link-form;
+        }
+
+        #speaker-view-container {
+            grid-template-areas: "speaker-view speaker-form-card speaker-linked-list" "speaker-view speaker-link-form speaker-linked-list";
+        }
+
+        #speaker-view {
+            grid-area: speaker-view;
+            }
+        #speaker-show{
+            width: 100%;
+            display: flex;
+            justify-content : flex-start;
+        }
+        #speaker-show-logo img{
+            width: 100%;
+        }
+        #add-speaker-form{
             display: flex;
             flex-direction: column;
         }
-        #socialLink-view-show img{
+        #floorPlan-show{
+            width:100%;
+            display:flex;
+            justify-content:flex-start;
+
+        }
+        #floorPlan-form form{
+            display:flex;
+            flex-direction:column;
+        }
+        #floorPlan-show-logo{
             width:100%;
         }

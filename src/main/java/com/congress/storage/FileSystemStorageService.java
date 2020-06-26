@@ -38,7 +38,7 @@ public class FileSystemStorageService implements StorageService {
             if (filename.contains("..")) {
                 // This is a security check
                 throw new StorageException(
-                        "Cannot store file with relative pathfoutside current directory "
+                        "Cannot store file with relative path outside current directory "
                                 + filename);
             }
             try (InputStream inputStream = file.getInputStream()) {

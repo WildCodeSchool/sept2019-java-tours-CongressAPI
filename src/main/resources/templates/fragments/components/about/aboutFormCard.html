@@ -3,7 +3,7 @@
 <div class="card" id="about-form" th:fragment="aboutFormCard">
     <h3 class="card-title">About</h3>
     <div class="card-content">
-        <form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="POST"
+        <form enctype="multipart/form-data" th:action="${pathMethod}" th:method="POST"
               th:object="${newAbout}">
 
             <span th:errors="*{title}" th:if="${#fields.hasErrors('title')}">Title Error</span>
@@ -11,7 +11,6 @@
             <input id="title" title="title" th:field="*{title}" type="text"/><br>
             
             <span th:errors="*{description}" th:if="${#fields.hasErrors('description')}">Name Error</span>
-
             <label for="description">Description</label>
             <textarea id="description" name="description" th:field="*{description}"></textarea><br>
             <input type="submit" value="Valider">

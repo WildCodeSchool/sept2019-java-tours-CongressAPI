@@ -1,5 +1,6 @@
 package com.congress.controller;
 
+import com.congress.entity.About;
 import com.congress.entity.Congress;
 import com.congress.entity.SocialLink;
 import com.congress.services.CongressService;
@@ -9,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/congress")
@@ -68,6 +70,9 @@ public class CongressController {
         model.addAttribute("currentCongress", currentCongress);
         model.addAttribute("pageTitle", "Congress" + currentCongress.getName());
         model.addAttribute("newSocialLink", new SocialLink());
+        model.addAttribute("newAbout", new About());
+        model.addAttribute("pathMethod", "/congress/" + id + "/socialLink/create");
+
         return "pages/congress/congressMainView";
     }
 
@@ -86,15 +91,16 @@ public class CongressController {
     }
 
     @PostMapping("/{id}")
-    public String updateCongressWithPost(@PathVariable long id, @Valid @ModelAttribute Congress currentCongress, BindingResult binding, Model model) {
+    public String updateCongressWithPost(@PathVariable long id, @Valid @ModelAttribute Congress currentCongress, BindingResult binding, Model model) throws IOException {
         if (binding.hasErrors()) {
             return "redirect:/congress/" + id + "/edit";
         }
-        Congress data = service.findById(id);
-        currentCongress.setAbouts(data.getAbouts());
-        currentCongress.setAbouts(data.getSocialLinks());
-        currentCongress.setAbouts(data.getFloorPlans());
-        currentCongress.setAbouts(data.getMaps());
+        Congress previous = service.findById(id);
+        currentCongress.setMaps(previous.getMaps());
+        currentCongress.setFloorPlans(previous.getFloorPlans());
+        currentCongress.setSocialLinks(previous.getSocialLinks());
+        currentCongress.setAbouts(previous.getAbouts());
+        currentCongress.setSocialLinks(previous.getSocialLinks());
         service.update(currentCongress);
         return "redirect:/congress/" + currentCongress.getId();
     }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/main/head.html :: head">
+</head>
+<body>
+<nav th:replace="fragments/components/navbar.html :: navbar"></nav>
+<main id="activity-main-preview">
+    <div class="card" id="activity-preview">
+        <h3 class="card-title" th:text="${currentActivity.name}"></h3>
+        <div class="card-content">
+                <span th:text="${currentActivity.name}"></span>
+                <span th:text="${currentActivity.location}"></span>
+                <span th:text="${#dates.format(currentActivity.startDate, 'HH:mm')}"></span>
+                <span  th:text="${#dates.format(currentActivity.endDate, 'HH:mm')}"></span>
+                <a th:href="@{'/congress/'+ ${currentCongress.id}+'/activity/' + ${currentActivity.id} + '/delete'}">Supprimer</a>
+        </div>
+    </div>
+    <div th:replace="fragments/components/activity/activityFormCard.html :: activityFormCard"></div>
+
+</main>
+</body>
+</html>

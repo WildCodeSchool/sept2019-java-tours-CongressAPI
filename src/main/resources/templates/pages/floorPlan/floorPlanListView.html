@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/main/head.html :: head"></head>
+<body>
+<nav th:replace="fragments/components/navbar.html :: navbar"></nav>
+<main id="floorPlan-viewList-container">
+    <div th:replace="fragments/components/floorPlan/floorPlanListCard.html :: floorPlanListCard"></div>
+    <div th:replace="fragments/components/floorPlan/floorPlanFormCard.html :: floorPlanFormCard"></div>
+</main>
+</body>
+</html>

@@ -119,7 +119,7 @@ public class AboutController {
             return "pages/about/aboutOneDescription";
         }
         aboutService.update(about);
-       return "redirect:/congress/" + congressId + "/about/"+ id;
+        return "redirect:/congress/" + congressId + "/about/"+ id;
     }
     @GetMapping("/create")
     public String createAboutForm(@PathVariable long congressId, Model model) throws Exception{
@@ -130,4 +130,3 @@ public class AboutController {
         return "pages/about/aboutFormView";
     }
 }
-

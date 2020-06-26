@@ -6,7 +6,7 @@
     <div class="card-content">
         <!--/*@thymesVar id="newSocialLink" type="com.congress.entity.SocialLink"*/-->
         <!--/*@thymesVar id="currentCongress" type="com.congress.entity.Congress"*/-->
-        <form enctype="multipart/form-data" th:action="@{'/congress/'+ ${currentCongress.id}+ '/socialLink/create'}"
+        <form enctype="multipart/form-data" th:action="${pathMethod}"
               th:method="POST"
               id="socialLink-form-show" th:object="${newSocialLink}">
 

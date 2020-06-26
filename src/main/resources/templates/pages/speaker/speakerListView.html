@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/main/head.html :: head"></head>
+<body>
+<nav th:replace="fragments/components/navbar.html :: navbar"></nav>
+<main id="speaker-viewList-container">
+    <div th:replace="fragments/components/speaker/addSpeakerCard.html :: addSpeakerCard"></div>
+    <div th:replace="fragments/components/speaker/speakerListCard.html :: speakerListCard"></div>
+    <div th:replace="fragments/components/speaker/speakerLinkedUniversalListCard.html :: speakerLinkedUniversalListCard"></div>
+
+</main>
+</body>
+</html>

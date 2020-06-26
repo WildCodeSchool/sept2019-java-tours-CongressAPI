@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div class="card" id="floorPlan-form" th:fragment="floorPlanFormCard">
+    <h3 class="card-title">Floor Plan</h3>
+    <div class="card-content">
+        <form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="POST"
+              th:object="${newFloorPlan}">
+
+            <span th:errors="*{title}" th:if="${#fields.hasErrors('title')}">Title Error</span>
+            <label for="title">Title</label>
+            <input id="title" th:field="*{title}" title="title" type="text"/><br>
+
+            <span th:errors="*{plan}" th:if="${#fields.hasErrors('plan')}">Name Error</span>
+            <label for="plan">Logo</label>
+            <input id="plan" name="plan" th:field="*{plan}" type="file"/><br>
+
+            <input type="submit" value="Valider">
+        </form>
+    </div>
+</div>
+</html>

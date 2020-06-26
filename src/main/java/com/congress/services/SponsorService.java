@@ -2,7 +2,7 @@ package com.congress.services;
 
 import com.congress.entity.Congress;
 import com.congress.entity.Sponsor;
-import com.congress.exception.SponsorNotFoundException;
+import com.congress.exception.entity.SponsorNotFoundException;
 import com.congress.repository.SponsorRepository;
 import com.congress.storage.StorageService;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,7 @@ public class SponsorService implements CrudService<Sponsor> {
         return sponsorRepository.findAll();
     }
 
-    public List<Congress> findByCongressId(long congressId) {
+    public List<Sponsor> findByCongressId(long congressId) {
         return sponsorRepository.findByCongressId(congressId);
     }
 
@@ -39,8 +39,10 @@ public class SponsorService implements CrudService<Sponsor> {
 
     @Override
     public Sponsor create(Sponsor entity) {
-        storageService.store(entity.getLogo());
-        entity.setLogo_url("/files/" + entity.getLogo().getOriginalFilename());
+        if(entity.getLogo()!= null && !entity.getLogo().isEmpty()) {
+            storageService.store(entity.getLogo());
+            entity.setLogo_url("/files/" + entity.getLogo().getOriginalFilename());
+        }
         return sponsorRepository.save(entity);
     }
 
@@ -58,8 +60,10 @@ public class SponsorService implements CrudService<Sponsor> {
         if (!sponsorRepository.existsById(entity.getId())) {
             throw new SponsorNotFoundException(entity.getId());
         }
-        storageService.store(entity.getLogo());
-        entity.setLogo_url("/files/" + entity.getLogo().getOriginalFilename());
+        if (entity.getLogo() != null && !entity.getLogo().isEmpty()) {
+            storageService.store(entity.getLogo());
+            entity.setLogo_url("/files/" + entity.getLogo().getOriginalFilename());
+        }
         return sponsorRepository.save(entity);
     }
 

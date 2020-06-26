@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="pathMethod" type="java.lang.String"*/-->
+<!--/*@thymesVar id="httpMethod" type="java.lang.String"*/-->
+<!--/*@thymesVar id="newHotel" type="com.congress.entity.Hotel"*/-->
+<div class="card" id="hotel-form-card" th:fragment="hotelFormCard">
+    <h3 class="card-title">Hotels</h3>
+    <div class="card-content">
+        <form enctype="multipart/form-data" th:action="@{${pathMethod}}" th:method="POST"
+              th:object="${newHotel}" >
+
+            <span th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Name Error</span>
+            <label for="name">Name</label>
+            <input id="name" name="name" th:field="*{name}" type="text"/><br>
+
+            <!-- A changer pour inserer une image -->
+            <span th:errors="*{url}" th:if="${#fields.hasErrors('url')}">Name Error</span>
+            <label for="url">Url</label>
+            <input id="url" name="url" th:field="*{url}" type="url"/><br>
+            <input type="submit" value="Valider">
+        </form>
+    </div>
+</div>
+</html>

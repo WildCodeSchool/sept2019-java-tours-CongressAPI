@@ -1,7 +1,7 @@
 package com.congress.services;
 
 import com.congress.entity.Congress;
-import com.congress.exception.CongressNotFoundException;
+import com.congress.exception.entity.CongressNotFoundException;
 import com.congress.repository.CongressRepository;
 import com.congress.storage.StorageService;
 import org.springframework.stereotype.Service;
@@ -55,10 +55,11 @@ public class CongressService implements CrudService<Congress> {
     }
 
     @Override
-    public Congress update(Congress entity) {
+    public Congress update(Congress entity) throws IOException {
         if (!congressRepository.existsById(entity.getId())) {
             throw new CongressNotFoundException(entity.getId());
         }
+        this.storeFiles(entity);
         return congressRepository.save(entity);
     }
 
@@ -82,11 +83,11 @@ public class CongressService implements CrudService<Congress> {
     }
 
     public void storeFiles(Congress congress) {
-        if (!congress.getLogo().isEmpty()) {
+        if (congress.getLogo() != null && !congress.getLogo().isEmpty()) {
             storageService.store(congress.getLogo());
             congress.setLogo_url("/files/" + congress.getLogo().getOriginalFilename());
         }
-        if (!congress.getBanner().isEmpty()) {
+        if (congress.getLogo() != null && !congress.getBanner().isEmpty()) {
             storageService.store(congress.getBanner());
             congress.setBanner_url("/files/" + congress.getBanner().getOriginalFilename());
         }
