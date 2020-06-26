@@ -101,7 +101,6 @@ public class CongressController {
         currentCongress.setSocialLinks(previous.getSocialLinks());
         currentCongress.setAbouts(previous.getAbouts());
         currentCongress.setSocialLinks(previous.getSocialLinks());
-
         service.update(currentCongress);
         return "redirect:/congress/" + currentCongress.getId();
     }
