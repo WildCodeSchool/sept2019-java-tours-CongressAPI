@@ -90,6 +90,11 @@ public class CongressController {
         if (binding.hasErrors()) {
             return "redirect:/congress/" + id + "/edit";
         }
+        Congress data = service.findById(id);
+        currentCongress.setAbouts(data.getAbouts());
+        currentCongress.setAbouts(data.getSocialLinks());
+        currentCongress.setAbouts(data.getFloorPlans());
+        currentCongress.setAbouts(data.getMaps());
         service.update(currentCongress);
         return "redirect:/congress/" + currentCongress.getId();
     }
